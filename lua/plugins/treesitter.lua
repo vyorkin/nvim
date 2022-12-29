@@ -10,13 +10,26 @@ end
 
 configs.setup({
   ensure_installed = {
-    "lua", "vim", "markdown", "markdown_inline",
-    "bash", "python",
-    "help", "typescript", "ocaml", "haskell", "rust",
-    "gitignore", "gitcommit",
-    "json", "json5", "toml",
-    "make", "cmake",
-    "menhir", "ocamllex"
+    "lua",
+    "vim",
+    "markdown",
+    "markdown_inline",
+    "bash",
+    "python",
+    "help",
+    "typescript",
+    "ocaml",
+    "haskell",
+    "rust",
+    "gitignore",
+    "gitcommit",
+    "json",
+    "json5",
+    "toml",
+    "make",
+    "cmake",
+    "menhir",
+    "ocamllex",
   },
   -- List of parsers to ignore installing
   ignore_install = { "" },

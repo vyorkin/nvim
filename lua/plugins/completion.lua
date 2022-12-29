@@ -75,8 +75,7 @@ cmp.setup({
       else
         fallback()
       end
-    end,
-    {
+    end, {
       "i",
       "s",
     }),
@@ -88,27 +87,26 @@ cmp.setup({
       else
         fallback()
       end
-    end,
-    {
+    end, {
       "i",
       "s",
-   }),
- }),
+    }),
+  }),
 
- formatting = {
-   fields = { "kind", "abbr", "menu" },
-   format = function(entry, vim_item)
-     vim_item.kind = kind_icons[vim_item.kind]
-     vim_item.menu = ({
-       nvim_lsp = "",
-       nvim_lua = "",
-       luasnip = "",
-       buffer = "",
-       path = "",
-       emoji = "",
-     })[entry.source.name]
-     return vim_item
-   end,
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      vim_item.kind = kind_icons[vim_item.kind]
+      vim_item.menu = ({
+        nvim_lsp = "",
+        nvim_lua = "",
+        luasnip = "",
+        buffer = "",
+        path = "",
+        emoji = "",
+      })[entry.source.name]
+      return vim_item
+    end,
   },
   sources = {
     { name = "nvim_lsp" },

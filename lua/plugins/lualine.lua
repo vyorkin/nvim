@@ -28,20 +28,20 @@ local filetype = {
   icons_enabled = false,
 }
 
-local location = { 'location', separator = { right = '' }, left_padding = 2 }
+local location = { "location", separator = { right = "" }, left_padding = 2 }
 
 local spaces = function()
   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
 local colors = {
-  blue   = '#80a0ff',
-  cyan   = '#79dac8',
-  black  = '#25283a',
-  white  = '#d6d6d6',
-  red    = '#ff5189',
-  violet = '#d183e8',
-  grey   = '#404040',
+  blue = "#80a0ff",
+  cyan = "#79dac8",
+  black = "#25283a",
+  white = "#d6d6d6",
+  red = "#ff5189",
+  violet = "#d183e8",
+  grey = "#404040",
 }
 
 local tokyonight_bubbles_theme = {
@@ -62,27 +62,27 @@ local tokyonight_bubbles_theme = {
   },
 }
 
-lualine.setup {
+lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
     theme = tokyonight_bubbles_theme,
 
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
+    component_separators = "|",
+    section_separators = { left = "", right = "" },
 
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
   sections = {
     lualine_a = {
-      { 'mode', separator = { left = '' }, right_padding = 2 },
+      { "mode", separator = { left = "" }, right_padding = 2 },
     },
 
-    lualine_b = {"filename", "branch"},
+    lualine_b = { "filename", "branch" },
     lualine_c = { diagnostics },
     lualine_x = {},
     lualine_y = { diff, spaces, "encoding", filetype, "progress" },
     lualine_z = { location },
   },
-}
+})

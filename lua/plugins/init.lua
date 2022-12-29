@@ -1,10 +1,18 @@
 -- Bootstrap packer
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  local install_path = fn.stdpath("data")
+    .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -19,159 +27,192 @@ vim.cmd([[
   augroup end
 ]])
 
-return require("packer").startup({function(use)
-  -- Have packer manage itself
-  use "wbthomason/packer.nvim"
+return require("packer").startup({
+  function(use)
+    -- Have packer manage itself
+    use("wbthomason/packer.nvim")
 
-  -- Speed up loading Lua modules in Neovim to improve startup time
-  use "lewis6991/impatient.nvim"
+    -- Speed up loading Lua modules in Neovim to improve startup time
+    use("lewis6991/impatient.nvim")
 
-  -- Configurations for LSP
-  use "neovim/nvim-lspconfig"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "jose-elias-alvarez/null-ls.nvim"
+    -- Configurations for LSP
+    use("neovim/nvim-lspconfig")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use("jose-elias-alvarez/null-ls.nvim")
 
-  -- LSP signature hint as you type
-  use "ray-x/lsp_signature.nvim"
+    -- LSP signature hint as you type
+    use("ray-x/lsp_signature.nvim")
 
-  -- Automatically highlights other uses of the
-  -- word under the cursor using either LSP, Treesitter, or regex matching
-  use "RRethy/vim-illuminate"
+    -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
+    use("glepnir/lspsaga.nvim")
 
-  -- Treesitter configurations and abstraction layer
-  use "nvim-treesitter/nvim-treesitter"
+    -- Automatically highlights other uses of the
+    -- word under the cursor using either LSP, Treesitter, or regex matching
+    use("RRethy/vim-illuminate")
 
-  -- DAP
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "ravenxrz/DAPInstall.nvim"
+    use({ "simrat39/rust-tools.nvim", branch = "master" })
 
-  -- Snippets
-  use "L3MON4D3/LuaSnip"
+    -- Treesitter configurations and abstraction layer
+    use("nvim-treesitter/nvim-treesitter")
 
-  -- A bunch of snippets to use
-  use "rafamadriz/friendly-snippets"
+    -- DAP
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
+    use("ravenxrz/DAPInstall.nvim")
 
-  -- A completion engine plugin for neovim written in Lua
-  use "hrsh7th/nvim-cmp"
-  -- Buffer completions
-  use "hrsh7th/cmp-buffer"
-  -- Path completions
-  use "hrsh7th/cmp-path"
-  -- Command line completions
-  use "hrsh7th/cmp-cmdline"
-  -- LuaSnip completion source
-  use "saadparwaiz1/cmp_luasnip"
+    -- Snippets
+    use("L3MON4D3/LuaSnip")
 
-  --
-  use "hrsh7th/cmp-nvim-lsp"
+    -- A bunch of snippets to use
+    use("rafamadriz/friendly-snippets")
 
-  --
-  use "hrsh7th/cmp-nvim-lua"
+    -- A completion engine plugin for neovim written in Lua
+    use("hrsh7th/nvim-cmp")
+    -- Buffer completions
+    use("hrsh7th/cmp-buffer")
+    -- Path completions
+    use("hrsh7th/cmp-path")
+    -- Command line completions
+    use("hrsh7th/cmp-cmdline")
+    -- LuaSnip completion source
+    use("saadparwaiz1/cmp_luasnip")
 
-  -- Smart and powerful comment plugin for neovim.
-  -- Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
-  use "numToStr/Comment.nvim"
+    --
+    use("hrsh7th/cmp-nvim-lsp")
 
-  -- A treesitter plugin for setting the commentstring based on the cursor location in a file
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+    --
+    use("hrsh7th/cmp-nvim-lua")
 
-  use "nvim-tree/nvim-web-devicons"
+    -- Smoothly navigate between neovim and terminal multiplexer
+    use("numToStr/Navigator.nvim")
 
-  -- A tabline plugin with re-orderable, auto-sizing, clickable tabs,
-  -- icons, nice highlighting, sort-by commands and a magic jump-to-buffer mode
-  -- use { "romgrk/barbar.nvim", wants = "nvim-web-devicons" }
+    -- Smart and powerful comment plugin for neovim.
+    -- Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
+    use("numToStr/Comment.nvim")
 
-  -- A snazzy bufferline (with tabpage integration)
-  use "akinsho/bufferline.nvim"
+    -- A treesitter plugin for setting the commentstring based on the cursor location in a file
+    use("JoosepAlviste/nvim-ts-context-commentstring")
 
-  -- Add/change/delete surrounding delimiter pairs with ease
-  use "kylechui/nvim-surround"
+    use("nvim-tree/nvim-web-devicons")
 
-  -- Find, Filter, Preview, Pick
-  use {
-    "nvim-telescope/telescope.nvim", tag = "0.1.0",
-    requires = { { "nvim-lua/plenary.nvim" } }
-  }
+    -- A tabline plugin with re-orderable, auto-sizing, clickable tabs,
+    -- icons, nice highlighting, sort-by commands and a magic jump-to-buffer mode
+    -- use { "romgrk/barbar.nvim", wants = "nvim-web-devicons" }
 
-  -- Adds indentation guides to all lines (including empty lines)
-  use "lukas-reineke/indent-blankline.nvim"
+    -- A snazzy bufferline (with tabpage integration)
+    use({
+      "akinsho/bufferline.nvim",
+      tag = "v3.*",
+      requires = "nvim-tree/nvim-web-devicons",
+    })
 
-  -- A blazing fast and easy to configure
-  -- neovim statusline plugin written in pure Lua
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true }
-  }
+    -- Add/change/delete surrounding delimiter pairs with ease
+    use("kylechui/nvim-surround")
 
-  -- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy
-  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
+    -- Find, Filter, Preview, Pick
+    use({
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.0",
+      requires = { { "nvim-lua/plenary.nvim" } },
+    })
 
-  -- Super fast git decorations
-  use "lewis6991/gitsigns.nvim"
+    -- Adds indentation guides to all lines (including empty lines)
+    use("lukas-reineke/indent-blankline.nvim")
 
-  -- Distraction-free coding
-  use "folke/zen-mode.nvim"
+    -- A neovim lua plugin to help easily manage multiple terminal windows
+    use("akinsho/toggleterm.nvim")
 
-  -- A pretty diagnostics, references, telescope results,
-  -- quickfix and location list to help you solve all the trouble your code is causing
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-  }
+    -- A blazing fast and easy to configure
+    -- neovim statusline plugin written in pure Lua
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
 
-  -- The superior project management solution
-  use "ahmedkhalf/project.nvim"
+    -- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy
+    use({
+      "TimUntersberger/neogit",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim",
+      },
+    })
 
-  -- A file explorer tree for neovim written in Lua
-  use {
-    "nvim-tree/nvim-tree.lua",
-    requires = {
-      -- Optional, for file icons
-      "nvim-tree/nvim-web-devicons",
-    },
-    -- Optional, updated every week (see issue #1193)
-    tag = "nightly"
-  }
+    -- Super fast git decorations
+    use("lewis6991/gitsigns.nvim")
 
-  -- A super powerful autopair plugin for Neovim that supports multiple characters
-  use "windwp/nvim-autopairs"
+    -- Distraction-free coding
+    use("folke/zen-mode.nvim")
 
-  -- Themes
-  use "EdenEast/nightfox.nvim"
-  use "rebelot/kanagawa.nvim"
-  use "folke/tokyonight.nvim"
-  use "lunarVim/Colorschemes"
-  use "lunarvim/synthwave84.nvim"
-  use "lunarvim/Onedarker.nvim"
-  use "lunarvim/darkplus.nvim"
-  use "projekt0n/github-nvim-theme"
-  use "sainnhe/gruvbox-material"
-  use "sainnhe/sonokai"
-  use "sainnhe/everforest"
-  use "sainnhe/edge"
-  use "marko-cerovac/material.nvim"
-  use "catppuccin/nvim"
-  use "dracula/vim"
-  use "shaunsingh/nord.nvim"
-  use "ellisonleao/gruvbox.nvim"
-  use "nyoom-engineering/nyoom.nvim"
-  use "nyoom-engineering/oxocarbon.nvim"
-  use "NTBBloodbath/doom-one.nvim"
-  use "phha/zenburn.nvim"
-  use "JoosepAlviste/palenightfall.nvim"
+    -- A pretty diagnostics, references, telescope results,
+    -- quickfix and location list to help you solve all the trouble your code is causing
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    })
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end,
-config = {
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
+    -- The superior project management solution
+    use("ahmedkhalf/project.nvim")
+
+    -- A file explorer tree for neovim written in Lua
+    use({
+      "nvim-tree/nvim-tree.lua",
+      requires = {
+        -- Optional, for file icons
+        "nvim-tree/nvim-web-devicons",
+      },
+      -- Optional, updated every week (see issue #1193)
+      tag = "nightly",
+    })
+
+    -- A super powerful autopair plugin for Neovim that supports multiple characters
+    use("windwp/nvim-autopairs")
+
+    -- A better user experience for viewing and interacting with Vim marks
+    use("chentoast/marks.nvim")
+
+    -- Extensible scrollbar
+    use({ "petertriho/nvim-scrollbar", requires = "kevinhwang91/nvim-hlslens" })
+
+    -- Displays a popup with possible keybindings of the command you started typing
+    use("folke/which-key.nvim")
+
+    -- Themes
+    use("EdenEast/nightfox.nvim")
+    use("rebelot/kanagawa.nvim")
+    use("folke/tokyonight.nvim")
+    use("lunarVim/Colorschemes")
+    use("lunarvim/synthwave84.nvim")
+    use("lunarvim/Onedarker.nvim")
+    use("lunarvim/darkplus.nvim")
+    use("projekt0n/github-nvim-theme")
+    use("sainnhe/gruvbox-material")
+    use("sainnhe/sonokai")
+    use("sainnhe/everforest")
+    use("sainnhe/edge")
+    use("marko-cerovac/material.nvim")
+    use("catppuccin/nvim")
+    use("dracula/vim")
+    use("shaunsingh/nord.nvim")
+    use("ellisonleao/gruvbox.nvim")
+    use("nyoom-engineering/nyoom.nvim")
+    use("nyoom-engineering/oxocarbon.nvim")
+    use("NTBBloodbath/doom-one.nvim")
+    use("phha/zenburn.nvim")
+    use("JoosepAlviste/palenightfall.nvim")
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+      require("packer").sync()
     end
-  }
-}})
+  end,
+  config = {
+    display = {
+      open_fn = function()
+        return require("packer.util").float({ border = "rounded" })
+      end,
+    },
+  },
+})

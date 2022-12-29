@@ -39,6 +39,9 @@ keymap("n", "-", "<C-x>", opts)
 -- Select all
 keymap("n", "<C-a>", "gg<S-v>G", opts)
 
+-- Reload configuration without restarting
+keymap("n", "<leader>R", ":so %<CR>", opts)
+
 -------------------------------------------------------------------------------
 -- Navigation
 -------------------------------------------------------------------------------
@@ -79,10 +82,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -------------------------------------------------------------------------------
 
 -- Moving
-keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-l>", ":NavigatorRight<CR>", opts)
+keymap("n", "<C-k>", ":NavigatorUp<CR>", opts)
+keymap("n", "<C-j>", ":NavigatorDown<CR>", opts)
+keymap("n", "<C-h>", ":NavigatorLeft<CR>", opts)
 
 -- Creating
 keymap("n", "<leader>v", "<C-w>v", opts)
@@ -110,6 +113,7 @@ keymap("n", "<C-q>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
 keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
 keymap("n", "<C-p>", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>T", ":Telescope colorscheme<CR>", opts)
 
 -------------------------------------------------------------------------------
 -- Tree
@@ -129,3 +133,9 @@ keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
 -------------------------------------------------------------------------------
 
 keymap("n", "<leader><enter>", ":ZenMode<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- Marks
+-------------------------------------------------------------------------------
+
+keymap("n", "<leader>M", ":MarksListAll<CR>", opts)

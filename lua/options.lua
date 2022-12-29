@@ -208,8 +208,8 @@ opt.writebackup = false
 -- Neovide
 -------------------------------------------------------------------------------
 
-g.neovide_transparency = 0.8
-g.transparency = 0.75
+g.neovide_transparency = 1.0
+g.transparency = 1.0
 g.neovide_hide_mouse_when_typing = true
 g.neovide_remember_window_size = true
 g.neovide_input_macos_alt_is_meta = true
