@@ -78,10 +78,7 @@ return require("packer").startup({
     -- LuaSnip completion source
     use("saadparwaiz1/cmp_luasnip")
 
-    --
     use("hrsh7th/cmp-nvim-lsp")
-
-    --
     use("hrsh7th/cmp-nvim-lua")
 
     -- Smoothly navigate between neovim and terminal multiplexer
@@ -120,6 +117,8 @@ return require("packer").startup({
     -- Adds indentation guides to all lines (including empty lines)
     use("lukas-reineke/indent-blankline.nvim")
 
+    use("mg979/vim-visual-multi")
+
     -- A neovim lua plugin to help easily manage multiple terminal windows
     use("akinsho/toggleterm.nvim")
 
@@ -144,6 +143,14 @@ return require("packer").startup({
 
     -- Distraction-free coding
     use("folke/zen-mode.nvim")
+
+    -- A fancy, configurable, notification manager
+    use("rcarriga/nvim-notify")
+
+    use({
+      "folke/noice.nvim",
+      requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    })
 
     -- A pretty diagnostics, references, telescope results,
     -- quickfix and location list to help you solve all the trouble your code is causing

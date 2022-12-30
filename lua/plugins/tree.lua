@@ -18,5 +18,20 @@ tree.setup({
   },
   filters = {
     dotfiles = true,
+    custom = {
+      "^.git$",
+      "^node_modules$",
+    },
+  },
+  git = {
+    enable = false,
+  },
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
   },
 })

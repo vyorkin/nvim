@@ -58,7 +58,7 @@ local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
 
   keymap(bufnr, "n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
-  -- keymap(bufnr, "n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
+  keymap(bufnr, "n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
   -- keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "gI", ":lua vim.lsp.buf.implementation()<CR>", opts)
   keymap(bufnr, "n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
@@ -103,10 +103,10 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gr", ":Lspsaga rename<CR>", opts)
 
   -- Peek Definition
-  -- you can edit the definition file in this flaotwindow
+  -- you can edit the definition file in this floating window
   -- also support open/vsplit/etc operation check definition_action_keys
   -- support tagstack C-t jump back
-  keymap(bufnr, "n", "gd", ":Lspsaga peek_definition<CR>", opts)
+  keymap(bufnr, "n", "gp", ":Lspsaga peek_definition<CR>", opts)
 
   -- Outline
   keymap(bufnr, "n", "<leader>o", ":LSoutlineToggle<CR>", opts)
