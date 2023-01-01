@@ -109,7 +109,7 @@ keymap("n", "<M-l>", ":tabnext<CR>", opts)
 -- Telescope
 -------------------------------------------------------------------------------
 
-keymap("n", "<C-q>", ":Telescope find_files<CR>", opts)
+keymap("n", "<C-q>", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
 keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
 keymap("n", "<C-p>", ":Telescope projects<CR>", opts)

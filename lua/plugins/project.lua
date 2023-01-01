@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 project.setup({
-  detection_methods = { "pattern" },
+  detection_methods = { "lsp", "pattern" },
   -- Patterns used to detect root dir
   patterns = { ".git", "Makefile", "package.json" },
 })

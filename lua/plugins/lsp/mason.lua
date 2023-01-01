@@ -12,7 +12,6 @@ local servers = {
   "cmake",
   "purescriptls",
   "ltex",
-  "solc",
   "dockerls",
 }
 

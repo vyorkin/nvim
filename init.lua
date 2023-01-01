@@ -26,8 +26,8 @@ require("plugins.scrollbar")
 require("plugins.notify")
 require("plugins.marks")
 require("plugins.dap")
+require("plugins.noice")
 
--- require("plugins.noice")
 -- require("plugins.whichkey")
 
 require("keymaps")
