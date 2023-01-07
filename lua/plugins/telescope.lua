@@ -13,6 +13,10 @@ telescope.setup({
     path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
 
+    layout_config = {
+      vertical = { width = 0.5 },
+    },
+
     mappings = {
       i = {
         ["<Down>"] = actions.cycle_history_next,
@@ -23,6 +27,12 @@ telescope.setup({
         ["<C-t>"] = trouble.open_with_trouble,
       },
       n = { ["<C-t>"] = trouble.open_with_trouble },
+    },
+  },
+
+  pickers = {
+    find_files = {
+      theme = "dropdown",
     },
   },
 })

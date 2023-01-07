@@ -10,8 +10,8 @@ tree.setup({
     mappings = {
       list = {
         { key = "u", action = "dir_up" },
-        { key = "v", action = "vsplit", mode = "n" },
-        { key = "s", action = "split", mode = "n" },
+        { key = "s", action = "vsplit", mode = "n" },
+        { key = "i", action = "split", mode = "n" },
       },
     },
   },

@@ -109,11 +109,13 @@ keymap("n", "<M-l>", ":tabnext<CR>", opts)
 -- Telescope
 -------------------------------------------------------------------------------
 
-keymap("n", "<C-q>", ":Telescope git_files<CR>", opts)
+keymap("n", "<C-q>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
 keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
 keymap("n", "<C-p>", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>T", ":Telescope colorscheme<CR>", opts)
+keymap("n", "<leader>b", ":Telescope git_branches<CR>", opts)
+keymap("n", "<C-s>", ":Telescope lsp_document_symbols<CR>", opts)
 
 -------------------------------------------------------------------------------
 -- Tree
@@ -139,3 +141,9 @@ keymap("n", "<leader><enter>", ":ZenMode<CR>", opts)
 -------------------------------------------------------------------------------
 
 keymap("n", "<leader>M", ":MarksListAll<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- Git
+-------------------------------------------------------------------------------
+
+keymap("n", "<leader>gs", ":Neogit<CR>", opts)

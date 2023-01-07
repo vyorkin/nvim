@@ -128,17 +128,6 @@ opt.splitbelow = true
 -- Put a new window on the right side
 opt.splitright = true
 
-opt.fillchars = {
-  -- Get rid of vertical separator for split windows
-  vert = " ",
-  -- Suppress ~ at EndOfBuffer
-  eob = " ",
-  -- Fold separators
-  foldopen = "▾",
-  foldsep = "│",
-  foldclose = "▸",
-}
-
 -------------------------------------------------------------------------------
 -- Numbers
 -------------------------------------------------------------------------------
@@ -146,25 +135,27 @@ opt.fillchars = {
 -- Min number of columns to use for the line numbers
 opt.numberwidth = 4
 
--- Don't use relative numbers
-opt.relativenumber = false
-
 -- Don't show the line and column number of the
 -- cursor position, separated by a comma
 opt.ruler = false
 
--- Turn off line numbers
-opt.number = false
+-- Turn on line numbers
+opt.number = true
+
+-- Use relative numbers
+opt.relativenumber = true
 
 -------------------------------------------------------------------------------
 -- Folding
 -------------------------------------------------------------------------------
 
--- Deepest fold in 3 levels
-opt.foldnestmax = 3
-
 -- Column on the left that indicates open and closed folds
 opt.foldcolumn = "1"
+
+-- Using ufo provider need a large value
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 -------------------------------------------------------------------------------
 -- Wrap

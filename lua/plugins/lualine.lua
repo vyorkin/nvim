@@ -16,12 +16,16 @@ local diagnostics = {
   always_visible = true,
 }
 
-local diff = {
-  "diff",
-  colored = false,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  cond = hide_in_width,
-}
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+      added = gitsigns.added,
+      modified = gitsigns.changed,
+      removed = gitsigns.removed,
+    }
+  end
+end
 
 local filetype = {
   "filetype",
@@ -46,19 +50,19 @@ local colors = {
 
 local tokyonight_bubbles_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
+    a = { fg = colors.violet, bg = colors.violet },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black },
+    c = { fg = colors.violet },
   },
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+  insert = { a = { fg = colors.white, bg = colors.blue } },
+  visual = { a = { fg = colors.white, bg = colors.cyan } },
+  replace = { a = { fg = colors.white, bg = colors.red } },
 
   inactive = {
     a = { fg = colors.white },
     b = { fg = colors.white },
-    c = { fg = colors.black },
+    c = { fg = colors.white },
   },
 }
 
@@ -79,10 +83,16 @@ lualine.setup({
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
 
-    lualine_b = { "filename", "branch" },
-    lualine_c = { diagnostics },
+    lualine_b = { "filename", { "b:gitsigns_head", icon = "" } },
+    lualine_c = { diagnostics, "lsp_progress" },
     lualine_x = {},
-    lualine_y = { diff, spaces, "encoding", filetype, "progress" },
+    lualine_y = {
+      { "diff", source = diff_source },
+      spaces,
+      "encoding",
+      filetype,
+      "progress",
+    },
     lualine_z = { location },
   },
 })

@@ -47,6 +47,9 @@ return require("packer").startup({
     -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
     use("glepnir/lspsaga.nvim")
 
+    -- Standalone UI for nvim-lsp progress
+    use("j-hui/fidget.nvim")
+
     -- Automatically highlights other uses of the
     -- word under the cursor using either LSP, Treesitter, or regex matching
     use("RRethy/vim-illuminate")
@@ -119,6 +122,8 @@ return require("packer").startup({
 
     use("mg979/vim-visual-multi")
 
+    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+
     -- A neovim lua plugin to help easily manage multiple terminal windows
     use("akinsho/toggleterm.nvim")
 
@@ -128,6 +133,9 @@ return require("packer").startup({
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+
+    -- LSP Progress lualine component
+    use("arkav/lualine-lsp-progress")
 
     -- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy
     use({
@@ -179,8 +187,14 @@ return require("packer").startup({
     -- A better user experience for viewing and interacting with Vim marks
     use("chentoast/marks.nvim")
 
+    -- Modern Go plugin for Neovim, based on gopls, treesitter AST, Dap and a variety of go tools
+    use("ray-x/go.nvim")
+
     -- Extensible scrollbar
     use({ "petertriho/nvim-scrollbar", requires = "kevinhwang91/nvim-hlslens" })
+
+    -- Twilight is a Lua plugin for Neovim 0.5 that dims inactive portions of the code you're editing using TreeSitter
+    use("folke/twilight.nvim")
 
     -- Displays a popup with possible keybindings of the command you started typing
     use("folke/which-key.nvim")
@@ -208,6 +222,20 @@ return require("packer").startup({
     use("NTBBloodbath/doom-one.nvim")
     use("phha/zenburn.nvim")
     use("JoosepAlviste/palenightfall.nvim")
+    use("bluz71/vim-nightfly-colors")
+    use({ "bluz71/vim-moonfly-colors", branch = "cterm-compat" })
+    use({
+      "glepnir/zephyr-nvim",
+      requires = { "nvim-treesitter/nvim-treesitter", opt = true },
+    })
+    use("rockerBOO/boo-colorscheme-nvim")
+    use("kdheepak/monochrome.nvim")
+    use({
+      "rose-pine/neovim",
+      as = "rose-pine",
+    })
+    use("kvrohit/substrata.nvim")
+    use("tiagovla/tokyodark.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

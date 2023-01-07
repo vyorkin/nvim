@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 noice.setup({
+  messages = {
+    enabled = false,
+  },
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     override = {
