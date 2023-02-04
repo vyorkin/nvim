@@ -45,7 +45,10 @@ return require("packer").startup({
     use("ray-x/lsp_signature.nvim")
 
     -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
-    use("glepnir/lspsaga.nvim")
+    use({
+      "glepnir/lspsaga.nvim",
+      requires = "nvim-tree/nvim-web-devicons",
+    })
 
     -- Standalone UI for nvim-lsp progress
     use("j-hui/fidget.nvim")
@@ -191,7 +194,10 @@ return require("packer").startup({
     use("ray-x/go.nvim")
 
     -- Extensible scrollbar
-    use({ "petertriho/nvim-scrollbar", requires = "kevinhwang91/nvim-hlslens" })
+    use({
+      "petertriho/nvim-scrollbar",
+      requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
+    })
 
     -- Twilight is a Lua plugin for Neovim 0.5 that dims inactive portions of the code you're editing using TreeSitter
     use("folke/twilight.nvim")

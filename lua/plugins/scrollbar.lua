@@ -5,3 +5,4 @@ end
 
 scrollbar.setup({})
 require("scrollbar.handlers.search").setup()
+require("gitsigns").setup()

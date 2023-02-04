@@ -147,3 +147,4 @@ keymap("n", "<leader>M", ":MarksListAll<CR>", opts)
 -------------------------------------------------------------------------------
 
 keymap("n", "<leader>gs", ":Neogit<CR>", opts)
+keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
