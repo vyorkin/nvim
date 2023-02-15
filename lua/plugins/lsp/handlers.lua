@@ -106,10 +106,10 @@ local function lsp_keymaps(bufnr)
   -- you can edit the definition file in this floating window
   -- also support open/vsplit/etc operation check definition_action_keys
   -- support tagstack C-t jump back
-  keymap(bufnr, "n", "gd", ":Lspsaga peek_definition<CR>", opts)
+  keymap(bufnr, "n", "gp", ":Lspsaga peek_definition<CR>", opts)
 
   -- Outline
-  keymap(bufnr, "n", "<leader>o", ":LSPoutlineToggle<CR>", opts)
+  keymap(bufnr, "n", "<leader>o", ":Lspsaga outline<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", opts)

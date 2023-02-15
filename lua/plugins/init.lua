@@ -47,11 +47,9 @@ return require("packer").startup({
     -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
     use({
       "glepnir/lspsaga.nvim",
+      branch = "main",
       requires = "nvim-tree/nvim-web-devicons",
     })
-
-    -- Standalone UI for nvim-lsp progress
-    use("j-hui/fidget.nvim")
 
     -- Automatically highlights other uses of the
     -- word under the cursor using either LSP, Treesitter, or regex matching
@@ -199,12 +197,6 @@ return require("packer").startup({
       requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
     })
 
-    -- Twilight is a Lua plugin for Neovim 0.5 that dims inactive portions of the code you're editing using TreeSitter
-    use("folke/twilight.nvim")
-
-    -- Displays a popup with possible keybindings of the command you started typing
-    use("folke/which-key.nvim")
-
     -- Themes
     use("EdenEast/nightfox.nvim")
     use("rebelot/kanagawa.nvim")
@@ -215,6 +207,7 @@ return require("packer").startup({
     use("lunarvim/darkplus.nvim")
     use("projekt0n/github-nvim-theme")
     use("sainnhe/gruvbox-material")
+    use("yazeed1s/minimal.nvim")
     use("sainnhe/sonokai")
     use("sainnhe/everforest")
     use("sainnhe/edge")

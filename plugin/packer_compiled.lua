@@ -169,11 +169,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
   },
-  ["fidget.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -258,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
+  },
+  ["minimal.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/minimal.nvim",
+    url = "https://github.com/yazeed1s/minimal.nvim"
   },
   ["monochrome.nvim"] = {
     loaded = true,
@@ -454,11 +454,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ["twilight.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/twilight.nvim",
-    url = "https://github.com/folke/twilight.nvim"
-  },
   vim = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim",
@@ -483,11 +478,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
-  },
-  ["which-key.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
   },
   ["zen-mode.nvim"] = {
     loaded = true,

@@ -16,6 +16,9 @@
 --   }
 -- }
 
+-- local boo_status_ok, boo = pcall(require, "boo-colorscheme")
+-- boo.use({ theme = "forest_stream" })
+
 local colorscheme = "tokyonight"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

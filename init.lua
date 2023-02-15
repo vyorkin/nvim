@@ -28,8 +28,7 @@ require("plugins.notify")
 require("plugins.noice")
 require("plugins.marks")
 require("plugins.dap")
-
--- require("plugins.whichkey")
+require("plugins.zenmode")
 
 require("keymaps")
 require("colorscheme")

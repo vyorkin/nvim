@@ -6,5 +6,17 @@ end
 zenmode.setup({
   window = {
     width = 0.85,
+    options = {
+      signcolumn = "no",
+      number = false,
+      relativenumber = false,
+      cursorline = false,
+      cursorcolumn = false,
+      foldcolumn = "0",
+    },
+  },
+  plugins = {
+    twilight = { enabled = false },
+    gitsigns = { enabled = false },
   },
 })

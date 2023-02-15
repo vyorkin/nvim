@@ -28,9 +28,14 @@ configs.setup({
     "toml",
     "make",
     "cmake",
+    "c",
+    "dockerfile",
+    "kotlin",
+    "solidity",
     "menhir",
     "ocamllex",
   },
+  auto_install = true,
   -- List of parsers to ignore installing
   ignore_install = { "" },
   -- Install languages synchronously (only applied to `ensure_installed`)
