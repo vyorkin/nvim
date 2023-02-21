@@ -139,11 +139,11 @@ opt.numberwidth = 4
 -- cursor position, separated by a comma
 opt.ruler = false
 
--- Turn on line numbers
-opt.number = true
+-- Turn off line numbers
+opt.number = false
 
--- Use relative numbers
-opt.relativenumber = true
+-- Turn off relative numbers
+opt.relativenumber = false
 
 -------------------------------------------------------------------------------
 -- Folding
