@@ -237,7 +237,6 @@ return require("packer").startup({
     use("kvrohit/substrata.nvim")
     use("tiagovla/tokyodark.nvim")
     use("vigoux/oak")
-    use("RishabhRD/nvim-rdark")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
