@@ -119,11 +119,12 @@ return require("packer").startup({
     })
 
     -- Adds indentation guides to all lines (including empty lines)
-    use("lukas-reineke/indent-blankline.nvim")
+    -- use("lukas-reineke/indent-blankline.nvim")
 
     use("mg979/vim-visual-multi")
 
-    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+    -- Mordern high-performance folds
+    -- use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
     -- A neovim lua plugin to help easily manage multiple terminal windows
     use("akinsho/toggleterm.nvim")
@@ -235,6 +236,8 @@ return require("packer").startup({
     })
     use("kvrohit/substrata.nvim")
     use("tiagovla/tokyodark.nvim")
+    use("vigoux/oak")
+    use("RishabhRD/nvim-rdark")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

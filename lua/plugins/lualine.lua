@@ -70,7 +70,8 @@ lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    theme = tokyonight_bubbles_theme,
+    -- theme = tokyonight_bubbles_theme,
+    theme = "auto",
 
     component_separators = "|",
     section_separators = { left = "", right = "" },

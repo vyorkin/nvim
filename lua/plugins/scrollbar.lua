@@ -3,6 +3,10 @@ if not status_ok then
   return
 end
 
-scrollbar.setup({})
+scrollbar.setup({
+  handlers = {
+    handle = false,
+  },
+})
 require("scrollbar.handlers.search").setup()
 require("gitsigns").setup()
