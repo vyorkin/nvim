@@ -29,6 +29,7 @@ require("plugins.noice")
 require("plugins.marks")
 require("plugins.dap")
 require("plugins.zenmode")
+require("plugins.colorizer")
 
 require("keymaps")
 require("colorscheme")

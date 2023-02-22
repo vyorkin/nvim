@@ -34,29 +34,24 @@ local filetype = {
 
 local location = { "location", separator = { right = "" }, left_padding = 2 }
 
-local spaces = function()
-  return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-end
-
 local colors = {
-  blue = "#80a0ff",
-  cyan = "#79dac8",
-  black = "#25283a",
+  blue = "#AE81FF",
+  yellow = "#FFCB6B",
+  black = "#263238",
   white = "#d6d6d6",
   red = "#ff5189",
-  violet = "#d183e8",
-  grey = "#404040",
+  grey = "#000000",
 }
 
-local tokyonight_bubbles_theme = {
+local theme = {
   normal = {
-    a = { fg = colors.violet, bg = colors.violet },
+    a = { fg = colors.white, bg = colors.black },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.violet },
+    c = { fg = colors.yellow },
   },
 
-  insert = { a = { fg = colors.white, bg = colors.blue } },
-  visual = { a = { fg = colors.white, bg = colors.cyan } },
+  insert = { a = { fg = colors.black, bg = colors.blue } },
+  visual = { a = { fg = colors.black, bg = colors.yellow } },
   replace = { a = { fg = colors.white, bg = colors.red } },
 
   inactive = {
@@ -70,8 +65,8 @@ lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    -- theme = tokyonight_bubbles_theme,
-    theme = "auto",
+    theme = theme,
+    -- theme = "auto",
 
     component_separators = "|",
     section_separators = { left = "", right = "" },
@@ -84,12 +79,11 @@ lualine.setup({
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
 
-    lualine_b = { "filename", { "b:gitsigns_head", icon = "" } },
-    lualine_c = { diagnostics, "lsp_progress" },
+    lualine_b = {},
+    lualine_c = { diagnostics },
     lualine_x = {},
     lualine_y = {
       { "diff", source = diff_source },
-      spaces,
       "encoding",
       filetype,
       "progress",

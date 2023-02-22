@@ -1,5 +1,8 @@
 local colorscheme = "material"
 
+vim.g.moonflyTransparent = true
+vim.g.moonflyWinSeparator = 2
+
 vim.g.material_style = "deep ocean"
 local material_status_ok, material = pcall(require, "material")
 if material_status_ok and colorscheme == "material" then

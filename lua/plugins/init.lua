@@ -192,6 +192,9 @@ return require("packer").startup({
     -- Modern Go plugin for Neovim, based on gopls, treesitter AST, Dap and a variety of go tools
     use("ray-x/go.nvim")
 
+    -- A high-performance color highlighter
+    use("norcalli/nvim-colorizer.lua")
+
     -- Extensible scrollbar
     use({
       "petertriho/nvim-scrollbar",

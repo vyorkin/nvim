@@ -118,6 +118,16 @@ opt.hlsearch = true
 -- Windows, Splits
 -------------------------------------------------------------------------------
 
+opt.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}
+
 -- Don't squeeze window too much
 opt.winwidth = 20
 opt.winminwidth = 20
