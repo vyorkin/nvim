@@ -13,6 +13,7 @@ telescope.setup({
     path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
 
+    layout_strategy = "flex",
     layout_config = {
       vertical = { width = 0.5 },
     },

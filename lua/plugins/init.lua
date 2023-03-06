@@ -55,6 +55,12 @@ return require("packer").startup({
     -- word under the cursor using either LSP, Treesitter, or regex matching
     use("RRethy/vim-illuminate")
 
+    -- Highlight arguments' definitions and usages, using Treesitter
+    use({
+      "m-demare/hlargs.nvim",
+      requires = { "nvim-treesitter/nvim-treesitter" },
+    })
+
     use({ "simrat39/rust-tools.nvim", branch = "master" })
 
     -- Treesitter configurations and abstraction layer
@@ -84,6 +90,9 @@ return require("packer").startup({
 
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-nvim-lua")
+
+    -- Git completion source
+    use("petertriho/cmp-git")
 
     -- Smoothly navigate between neovim and terminal multiplexer
     use("numToStr/Navigator.nvim")
@@ -119,7 +128,7 @@ return require("packer").startup({
     })
 
     -- Adds indentation guides to all lines (including empty lines)
-    -- use("lukas-reineke/indent-blankline.nvim")
+    use("lukas-reineke/indent-blankline.nvim")
 
     use("mg979/vim-visual-multi")
 
@@ -139,7 +148,7 @@ return require("packer").startup({
     -- LSP Progress lualine component
     use("arkav/lualine-lsp-progress")
 
-    -- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy
+    -- Magit clone for Neovim that is geared toward the Vim philosophy
     use({
       "TimUntersberger/neogit",
       requires = {
@@ -200,6 +209,9 @@ return require("packer").startup({
       "petertriho/nvim-scrollbar",
       requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
     })
+
+    -- Translation
+    use("potamides/pantran.nvim")
 
     -- Themes
     use("EdenEast/nightfox.nvim")

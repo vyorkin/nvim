@@ -10,6 +10,11 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
+local cmp_git_status_ok, cmp_git = pcall(require, "cmp_git")
+if cmp_git_status_ok then
+  cmp_git.setup()
+end
+
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -126,4 +131,31 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype("gitcommit", {
+  sources = cmp.config.sources({
+    { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = "buffer" },
+  }),
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ "/", "?" }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = "buffer" },
+  },
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = "path" },
+  }, {
+    { name = "cmdline" },
+  }),
 })

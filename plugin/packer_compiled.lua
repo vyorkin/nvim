@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
     url = "https://github.com/hrsh7th/cmp-cmdline"
   },
+  ["cmp-git"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/cmp-git",
+    url = "https://github.com/petertriho/cmp-git"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -199,10 +204,20 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["hlargs.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/hlargs.nvim",
+    url = "https://github.com/m-demare/hlargs.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -388,6 +403,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/palenightfall.nvim",
     url = "https://github.com/JoosepAlviste/palenightfall.nvim"
+  },
+  ["pantran.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/pantran.nvim",
+    url = "https://github.com/potamides/pantran.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,

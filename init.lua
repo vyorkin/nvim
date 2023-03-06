@@ -30,6 +30,7 @@ require("plugins.marks")
 require("plugins.dap")
 require("plugins.zenmode")
 require("plugins.colorizer")
+require("plugins.hlargs")
 
 require("keymaps")
 require("colorscheme")

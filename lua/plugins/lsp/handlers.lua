@@ -1,10 +1,5 @@
 local M = {}
 
-local cmp_status_ok, _ = pcall(require, "cmp_nvim_lsp")
-if not cmp_status_ok then
-  return
-end
-
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -116,6 +111,17 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+  local sc = client.server_capabilities
+
+  if client.name == "pyright" then
+    sc.hover = false
+  end
+
+  if client.name == "pylsp" then
+    sc.rename = false
+    sc.signature_help = false
+  end
+
   if client.name == "tsserver" or client.name == "sumneko_lua" then
     client.server_capabilities.documentFormattingProvider = false
   end
@@ -123,16 +129,14 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
 
   local illuminate_status_ok, illuminate = pcall(require, "illuminate")
-  if not illuminate_status_ok then
-    return
+  if illuminate_status_ok then
+    illuminate.on_attach(client)
   end
-  illuminate.on_attach(client)
 
-  local signature_status_ok, signature = pcall(require, "lsp_signature")
-  if not signature_status_ok then
-    return
-  end
-  signature.on_attach(client)
+  -- local signature_status_ok, signature = pcall(require, "lsp_signature")
+  -- if signature_status_ok then
+  --   signature.on_attach(client)
+  -- end
 end
 
 return M

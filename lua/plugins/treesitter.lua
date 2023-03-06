@@ -34,6 +34,7 @@ configs.setup({
     "solidity",
     "menhir",
     "ocamllex",
+    "regex",
   },
   auto_install = true,
   -- List of parsers to ignore installing

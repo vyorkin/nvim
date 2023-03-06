@@ -3,10 +3,6 @@ if not status_ok then
   return
 end
 
-local hide_in_width = function()
-  return vim.fn.winwidth(0) > 80
-end
-
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
@@ -49,11 +45,9 @@ local theme = {
     b = { fg = colors.white, bg = colors.grey },
     c = { fg = colors.yellow },
   },
-
   insert = { a = { fg = colors.black, bg = colors.blue } },
   visual = { a = { fg = colors.black, bg = colors.yellow } },
   replace = { a = { fg = colors.white, bg = colors.red } },
-
   inactive = {
     a = { fg = colors.white },
     b = { fg = colors.white },
@@ -70,7 +64,6 @@ lualine.setup({
 
     component_separators = "|",
     section_separators = { left = "", right = "" },
-
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
@@ -78,7 +71,6 @@ lualine.setup({
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
-
     lualine_b = {},
     lualine_c = { diagnostics },
     lualine_x = {},

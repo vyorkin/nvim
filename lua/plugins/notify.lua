@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 notify.setup({
-  stages = "slide",
-  level = "WARN",
+  stages = "fade",
+  -- level = "WARN",
   background_colour = vim.g.terminal_color_background,
   minimum_width = 15,
 })
