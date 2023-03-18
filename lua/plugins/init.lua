@@ -117,6 +117,9 @@ return require("packer").startup({
       requires = "nvim-tree/nvim-web-devicons",
     })
 
+    -- Buffer, mark, tabpage, colorscheme switcher
+    use({ "toppair/reach.nvim" })
+
     -- Add/change/delete surrounding delimiter pairs with ease
     use("kylechui/nvim-surround")
 
@@ -126,9 +129,14 @@ return require("packer").startup({
       tag = "0.1.0",
       requires = { { "nvim-lua/plenary.nvim" } },
     })
+    -- File Browser extension for telescope
+    use({
+      "nvim-telescope/telescope-file-browser.nvim",
+      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    })
 
     -- Adds indentation guides to all lines (including empty lines)
-    use("lukas-reineke/indent-blankline.nvim")
+    -- use("lukas-reineke/indent-blankline.nvim")
 
     use("mg979/vim-visual-multi")
 
@@ -194,6 +202,9 @@ return require("packer").startup({
 
     -- A super powerful autopair plugin for Neovim that supports multiple characters
     use("windwp/nvim-autopairs")
+
+    -- Allows to auto close and auto rename html tags
+    use("windwp/nvim-ts-autotag")
 
     -- A better user experience for viewing and interacting with Vim marks
     use("chentoast/marks.nvim")

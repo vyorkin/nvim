@@ -1,10 +1,10 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter")
-if not status_ok then
+local treesitter_status_ok, treesitter = pcall(require, "nvim-treesitter")
+if not treesitter_status_ok then
   return
 end
 
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+local configs_status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not configs_status_ok then
   return
 end
 
@@ -48,6 +48,12 @@ configs.setup({
     disable = { "css" },
   },
   autopairs = {
+    enable = true,
+  },
+  autotag = {
+    enable = true,
+  },
+  endwise = {
     enable = true,
   },
   indent = { enable = true, disable = { "python", "css" } },

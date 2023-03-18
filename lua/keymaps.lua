@@ -111,6 +111,7 @@ keymap("n", "<M-l>", ":tabnext<CR>", opts)
 
 keymap("n", "<C-q>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>F", ":Telescope file_browser<CR>", opts)
 keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
 keymap("n", "<C-p>", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>T", ":Telescope colorscheme<CR>", opts)
@@ -154,3 +155,9 @@ keymap("n", "<leader>M", ":MarksListAll<CR>", opts)
 
 keymap("n", "<leader>gs", ":Neogit<CR>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- Indent blankline
+-------------------------------------------------------------------------------
+
+keymap("n", "<leader>L", ":IndentBlanklineToggle<CR>", opts)
