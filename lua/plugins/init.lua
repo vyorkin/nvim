@@ -41,6 +41,10 @@ return require("packer").startup({
     use("williamboman/mason-lspconfig.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
 
+    -- A GUI library for Neovim plugin developers
+    -- For example, it is needed for floating window support
+    use("ray-x/guihua.lua")
+
     -- LSP signature hint as you type
     use("ray-x/lsp_signature.nvim")
 
@@ -64,7 +68,7 @@ return require("packer").startup({
     use({ "simrat39/rust-tools.nvim", branch = "master" })
 
     -- Treesitter configurations and abstraction layer
-    use("nvim-treesitter/nvim-treesitter")
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
     -- DAP
     use("mfussenegger/nvim-dap")
@@ -72,7 +76,7 @@ return require("packer").startup({
     use("ravenxrz/DAPInstall.nvim")
 
     -- Snippets
-    use("L3MON4D3/LuaSnip")
+    use({ "L3MON4D3/LuaSnip", after = "friendly-snippets" })
 
     -- A bunch of snippets to use
     use("rafamadriz/friendly-snippets")
@@ -165,6 +169,8 @@ return require("packer").startup({
       },
     })
 
+    use("klen/nvim-test")
+
     -- Super fast git decorations
     use("lewis6991/gitsigns.nvim")
 
@@ -248,6 +254,7 @@ return require("packer").startup({
     use("NTBBloodbath/doom-one.nvim")
     use("phha/zenburn.nvim")
     use("JoosepAlviste/palenightfall.nvim")
+    use("ray-x/starry.nvim")
     use("bluz71/vim-nightfly-colors")
     use({ "bluz71/vim-moonfly-colors", branch = "cterm-compat" })
     use({

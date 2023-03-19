@@ -12,6 +12,7 @@ local servers = {
   "clangd",
   "cmake",
   -- "ocamllsp",
+  "gopls",
   "hls",
   "purescriptls",
   "dhall_lsp_server",
