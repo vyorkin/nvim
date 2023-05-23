@@ -54,7 +54,6 @@ local function lsp_keymaps(bufnr)
 
   keymap(bufnr, "n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
   keymap(bufnr, "n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-  -- keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "gI", ":lua vim.lsp.buf.implementation()<CR>", opts)
   keymap(bufnr, "n", "gf", ":lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
@@ -104,7 +103,14 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gp", ":Lspsaga peek_definition<CR>", opts)
 
   -- Outline
-  keymap(bufnr, "n", "<leader>o", ":Lspsaga outline<CR>", opts)
+  keymap(bufnr, "n", "<leader><tab>", ":Lspsaga outline<CR>", opts)
+
+  -- Incoming/Outgoing calls
+  keymap(bufnr, "n", "<leader>i", ":Lspsaga incoming_calls<CR>", opts)
+  keymap(bufnr, "n", "<leader>o", ":Lspsaga outgoing_calls<CR>", opts)
+
+  -- Errors/Diagnositics
+  keymap(bufnr, "n", "<leader>d", ":Lspsaga show_cursor_diagnostics<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", opts)
