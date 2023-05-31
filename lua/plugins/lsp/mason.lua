@@ -1,8 +1,10 @@
 local servers = {
   "cssls",
+  "cssmodules_ls",
   "html",
   "tsserver",
   "eslint",
+  "emmet_ls",
   "pyright",
   "bashls",
   "jsonls",
@@ -27,7 +29,7 @@ local servers = {
   "taplo",
   "ltex",
   "awk_ls",
-  -- "terraformls",
+  "terraformls",
   "dockerls",
   "docker_compose_language_service",
 }
@@ -51,20 +53,27 @@ local settings = {}
 for _, server in pairs(servers) do
   server = vim.split(server, "@")[1]
 
+  if server == "tsserver" then
+    settings = require "plugins.lsp.settings.tsserver"
+  end
+
   if server == "solidity" then
     opts.root_dir = util.root_pattern("foundry.toml", ".git")
-    settings = {
-      solidity = {
-        includePath = "lib/",
-        remapping = {
-          ["forge-std/"] = "lib/forge-std/src/",
-          ["openzeppelin"] = "lib/openzeppelin-contracts/contracts/",
-          ["ds-test"] = "lib/ds-test/src/",
-          ["uniswap-v2-core/"] = "/=lib/v2-core/contracts/",
-          ["uniswap-v2-periphery/"] = "lib/v2-periphery/contracts/",
-        },
-      },
-    }
+    settings = require "plugins.lsp.settings.solidity"
+  end
+
+  if server == "pyright" then
+    settings = require "plugins.lsp.settings.pyright"
+  end
+
+  if server == "rust_analyzer" then
+    local rust_tools_opts = require "plugins.lsp.settings.rust-tools"
+    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+    if rust_tools_status_ok then
+      rust_tools.setup(rust_tools_opts)
+    end
+
+    goto continue
   end
 
   opts = {
@@ -73,11 +82,6 @@ for _, server in pairs(servers) do
     settings = settings,
   }
 
-  local require_ok, conf_opts =
-    pcall(require, "plugins.lsp.settings." .. server)
-  if require_ok then
-    opts = vim.tbl_deep_extend("force", conf_opts, opts)
-  end
-
   lspconfig[server].setup(opts)
+  ::continue::
 end

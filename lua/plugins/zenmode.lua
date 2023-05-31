@@ -1,11 +1,13 @@
-local status_ok, zenmode = pcall(require, "zenmode")
+local status_ok, zenmode = pcall(require, "zen-mode")
 if not status_ok then
   return
 end
 
 zenmode.setup({
   window = {
-    width = 0.85,
+    backdrop = 1,
+    width = 0.8,
+    height = 0.9,
     options = {
       signcolumn = "no",
       number = false,
@@ -16,7 +18,24 @@ zenmode.setup({
     },
   },
   plugins = {
+    options = {
+      enabled = true,
+      ruler = false, -- disables the ruler text in the cmd line area
+      showcmd = false, -- disables the command in the last line of the screen
+    },
     twilight = { enabled = false },
     gitsigns = { enabled = false },
+    kitty = {
+      enabled = false,
+      font = "+4", -- font size increment
+    },
   },
+  on_open = function()
+    vim.g.cmp_active = false
+    vim.cmd([[LspStop]])
+  end,
+  on_close = function()
+    vim.g.cmp_active = true
+    vim.cmd([[LspStart]])
+  end,
 })

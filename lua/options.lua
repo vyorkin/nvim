@@ -56,7 +56,7 @@ opt.termguicolors = true
 opt.pumheight = 10
 
 -- The font used in graphical neovim applications
-opt.guifont = { "JetBrainsMono Nerd Font Mono", ":h14" }
+opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
 
 -- Always show tabs
 opt.showtabline = 2

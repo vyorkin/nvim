@@ -6,6 +6,7 @@ end
 notify.setup({
   stages = "fade",
   level = "WARN",
-  background_colour = vim.g.terminal_color_background,
+  background_colour = "#000000",
+  -- background_colour = vim.g.terminal_color_background,
   minimum_width = 15,
 })

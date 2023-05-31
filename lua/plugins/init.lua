@@ -27,7 +27,10 @@ vim.cmd([[
   augroup end
 ]])
 
-return require("packer").startup({
+local packer = require("packer")
+packer.init({ max_jobs = 50 })
+
+return packer.startup({
   function(use)
     -- Have packer manage itself
     use("wbthomason/packer.nvim")
@@ -40,6 +43,9 @@ return require("packer").startup({
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
+
+    -- Partial implementation of LSP inlay hint
+    use("lvimuser/lsp-inlayhints.nvim")
 
     -- A GUI library for Neovim plugin developers
     -- For example, it is needed for floating window support
@@ -67,6 +73,16 @@ return require("packer").startup({
 
     use({ "simrat39/rust-tools.nvim", branch = "master" })
 
+    -- Helps managing crates.io dependencies
+    use({
+      "saecki/crates.nvim",
+      tag = "v0.3.0",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("crates").setup()
+      end,
+    })
+
     -- Treesitter configurations and abstraction layer
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
@@ -80,6 +96,9 @@ return require("packer").startup({
 
     -- A bunch of snippets to use
     use("rafamadriz/friendly-snippets")
+
+    -- For interacting with Github Copilot
+    use("zbirenbaum/copilot.lua")
 
     -- A completion engine plugin for neovim written in Lua
     use("hrsh7th/nvim-cmp")
@@ -97,6 +116,9 @@ return require("packer").startup({
 
     -- Git completion source
     use("petertriho/cmp-git")
+
+    -- Turn GitHub Copilot into a cmp source
+    use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
 
     -- Smoothly navigate between neovim and terminal multiplexer
     use("numToStr/Navigator.nvim")
@@ -120,9 +142,6 @@ return require("packer").startup({
       tag = "v3.*",
       requires = "nvim-tree/nvim-web-devicons",
     })
-
-    -- Buffer, mark, tabpage, colorscheme switcher
-    use({ "toppair/reach.nvim" })
 
     -- Add/change/delete surrounding delimiter pairs with ease
     use("kylechui/nvim-surround")
@@ -157,8 +176,8 @@ return require("packer").startup({
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
-    -- LSP Progress lualine component
-    use("arkav/lualine-lsp-progress")
+    -- Standalone UI for nvim-lsp progress
+    use("j-hui/fidget.nvim")
 
     -- Magit clone for Neovim that is geared toward the Vim philosophy
     use({
@@ -173,6 +192,9 @@ return require("packer").startup({
 
     -- Super fast git decorations
     use("lewis6991/gitsigns.nvim")
+
+    -- Displays a popup with possible keybindings of the command you started typing
+    use("folke/which-key.nvim")
 
     -- Distraction-free coding
     use("folke/zen-mode.nvim")

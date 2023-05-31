@@ -78,7 +78,6 @@ lualine.setup({
       { "diff", source = diff_source },
       "encoding",
       filetype,
-      "progress",
     },
     lualine_z = { location },
   },

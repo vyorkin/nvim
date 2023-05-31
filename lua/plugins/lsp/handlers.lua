@@ -52,10 +52,10 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
 
-  keymap(bufnr, "n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "gI", ":lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gf", ":lua vim.lsp.buf.references()<CR>", opts)
+  keymap(bufnr, "n", "gd", ":Telescope lsp_definitions<CR>", opts)
+  keymap(bufnr, "n", "gI", ":Telescope lsp_implementations<CR>", opts)
+  keymap(bufnr, "n", "gf", ":Telescope lsp_references<CR>", opts)
+
   keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
   keymap(bufnr, "n", "<leader>li", ":LspInfo<CR>", opts)
   keymap(bufnr, "n", "<leader>lI", ":Mason<CR>", opts)
@@ -117,6 +117,8 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+  lsp_keymaps(bufnr)
+
   local sc = client.server_capabilities
 
   if client.name == "pyright" then
@@ -132,17 +134,16 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end
 
-  lsp_keymaps(bufnr)
+  local lsp_inlayhints_status_ok, lsp_inlayhints =
+    pcall(require, "lsp-inlayhints")
+  if lsp_inlayhints_status_ok then
+    lsp_inlayhints.on_attach(client, bufnr)
+  end
 
   local illuminate_status_ok, illuminate = pcall(require, "illuminate")
   if illuminate_status_ok then
     illuminate.on_attach(client)
   end
-
-  -- local signature_status_ok, signature = pcall(require, "lsp_signature")
-  -- if signature_status_ok then
-  --   signature.on_attach(client)
-  -- end
 end
 
 return M

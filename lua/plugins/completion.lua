@@ -15,6 +15,11 @@ if cmp_git_status_ok then
   cmp_git.setup()
 end
 
+local copilot_cmp_status_ok, copilot_cmp = pcall(require, "copilot_cmp")
+if copilot_cmp_status_ok then
+  copilot_cmp.setup()
+end
+
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -124,10 +129,12 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "copilot" },
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "crates" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
