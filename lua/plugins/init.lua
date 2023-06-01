@@ -58,7 +58,11 @@ return packer.startup({
     use({
       "glepnir/lspsaga.nvim",
       branch = "main",
-      requires = "nvim-tree/nvim-web-devicons",
+      requires = {
+        { "nvim-tree/nvim-web-devicons" },
+        -- Make sure you install markdown and markdown_inline parser
+        { "nvim-treesitter/nvim-treesitter" },
+      },
     })
 
     -- Automatically highlights other uses of the
@@ -78,9 +82,6 @@ return packer.startup({
       "saecki/crates.nvim",
       tag = "v0.3.0",
       requires = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require("crates").setup()
-      end,
     })
 
     -- Treesitter configurations and abstraction layer
@@ -88,8 +89,8 @@ return packer.startup({
 
     -- DAP
     use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
-    use("ravenxrz/DAPInstall.nvim")
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use("mfussenegger/nvim-dap-python")
 
     -- Snippets
     use({ "L3MON4D3/LuaSnip", after = "friendly-snippets" })

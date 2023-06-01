@@ -121,7 +121,6 @@ keymap(
   ":lua require('material.functions').find_style()<CR>",
   opts
 )
-keymap("n", "<leader>b", ":Telescope git_branches<CR>", opts)
 keymap("n", "<C-s>", ":Telescope lsp_document_symbols<CR>", opts)
 
 -------------------------------------------------------------------------------
@@ -156,9 +155,3 @@ keymap("n", "<leader>M", ":MarksListAll<CR>", opts)
 keymap("n", "<leader>gs", ":Neogit<CR>", opts)
 keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
 keymap("n", "<leader>S", ":Gitsigns toggle_signs<CR>", opts)
-
--------------------------------------------------------------------------------
--- Indent blankline
--------------------------------------------------------------------------------
-
-keymap("n", "<leader>L", ":IndentBlanklineToggle<CR>", opts)

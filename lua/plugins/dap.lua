@@ -8,13 +8,46 @@ if not dap_ui_status_ok then
   return
 end
 
-local dap_install_status_ok, dap_install = pcall(require, "dap-install")
-if not dap_install_status_ok then
-  return
-end
+dap.adapters.lldb = {
+  type = "executable",
+  command = vim.env.HOME
+    .. "/.vscode/extensions/vadimcn.vscode-lldb-1.9.2/adapter/codelldb",
+  name = "lldb",
+  args = { "--port", "0" },
+}
 
-dap_install.setup({})
-dap_install.config("python", {})
+dap.configurations.rust = {
+  name = "Launch",
+  type = "lldb",
+  request = "launch",
+  program = function()
+    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+  end,
+  cwd = "${workspaceFolder}",
+  stopOnEntry = false,
+  args = {},
+  initCommands = function()
+    -- Find out where to look for the pretty printer Python module
+    local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
+
+    local script_import = 'command script import "'
+      .. rustc_sysroot
+      .. '/lib/rustlib/etc/lldb_lookup.py"'
+    local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"
+
+    local commands = {}
+    local file = io.open(commands_file, "r")
+    if file then
+      for line in file:lines() do
+        table.insert(commands, line)
+      end
+      file:close()
+    end
+    table.insert(commands, 1, script_import)
+
+    return commands
+  end,
+}
 
 dapui.setup({
   expand_lines = true,
@@ -60,7 +93,11 @@ dapui.setup({
 
 vim.fn.sign_define(
   "DapBreakpoint",
-  { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+  { text = "🔴", texthl = "", linehl = "", numhl = "" }
+)
+vim.fn.sign_define(
+  "DapBreakpointCondition",
+  { text = "🔵", texthl = "", linehl = "", numhl = "" }
 )
 
 dap.listeners.after.event_initialized["dapui_config"] = function()

@@ -55,25 +55,8 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gd", ":Telescope lsp_definitions<CR>", opts)
   keymap(bufnr, "n", "gI", ":Telescope lsp_implementations<CR>", opts)
   keymap(bufnr, "n", "gf", ":Telescope lsp_references<CR>", opts)
-
   keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>li", ":LspInfo<CR>", opts)
-  keymap(bufnr, "n", "<leader>lI", ":Mason<CR>", opts)
-  keymap(bufnr, "n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", opts)
-  keymap(
-    bufnr,
-    "n",
-    "<leader>lj",
-    ":lua vim.diagnostic.goto_next({buffer=0})<CR>",
-    opts
-  )
-  keymap(
-    bufnr,
-    "n",
-    "<leader>lk",
-    ":lua vim.diagnostic.goto_prev({buffer=0})<CR>",
-    opts
-  )
+
   keymap(bufnr, "n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   keymap(
     bufnr,
@@ -82,19 +65,12 @@ local function lsp_keymaps(bufnr)
     ":lua vim.lsp.buf.signature_help()<CR>",
     opts
   )
-  keymap(bufnr, "n", "<leader>lq", ":lua vim.diagnostic.setloclist()<CR>", opts)
 
   -- LSP finder find the symbol definition implement reference
   -- if there is no implement it will hide
   -- when you use action in finder like open vsplit then you can
   -- use <C-t> to jump back
   keymap(bufnr, "n", "gh", ":Lspsaga lsp_finder<CR>", opts)
-
-  -- Code action
-  keymap(bufnr, "n", "<leader>ca", ":Lspsaga code_action<CR>", opts)
-
-  -- Rename
-  keymap(bufnr, "n", "gr", ":Lspsaga rename<CR>", opts)
 
   -- Peek Definition
   -- you can edit the definition file in this floating window
