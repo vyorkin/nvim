@@ -11,31 +11,34 @@ M.setup = function()
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(
       sign.name,
-      { texthl = sign.name, text = sign.text, numhl = "" }
+      { texthl = sign.name, text = sign.text, numhl = sign.name }
     )
   end
 
   local config = {
     -- Disable virtual text
-    virtual_text = false,
+    virtual_text = {
+      prefix = "●",
+    },
     signs = {
       -- Show signs
       active = signs,
     },
     update_in_insert = true,
-    underline = true,
+    underline = false,
     severity_sort = true,
     float = {
+      source = "always",
       focusable = true,
       style = "minimal",
       border = "rounded",
-      source = "always",
       header = "",
       prefix = "",
     },
   }
 
   vim.diagnostic.config(config)
+  -- vim.diagnostic.disable()
 
   vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {
@@ -55,7 +58,6 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gd", ":Telescope lsp_definitions<CR>", opts)
   keymap(bufnr, "n", "gI", ":Telescope lsp_implementations<CR>", opts)
   keymap(bufnr, "n", "gf", ":Telescope lsp_references<CR>", opts)
-  keymap(bufnr, "n", "gl", ":lua vim.diagnostic.open_float()<CR>", opts)
 
   keymap(bufnr, "n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
   keymap(
@@ -86,7 +88,7 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "<leader>o", ":Lspsaga outgoing_calls<CR>", opts)
 
   -- Errors/Diagnositics
-  keymap(bufnr, "n", "<leader>d", ":Lspsaga show_cursor_diagnostics<CR>", opts)
+  keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", opts)

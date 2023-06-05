@@ -23,9 +23,6 @@ vim.g.maplocalleader = " "
 keymap("n", ";", ":", { noremap = true })
 keymap("n", ":", ";", { noremap = true })
 
--- Enter visual mode with <leader><leader>
-keymap("n", "<leader><leader>", "V", opts)
-
 -- Set text wrapping toggles
 keymap("n", "<leader>tw", ":set invwrap<CR>:set wrap?<CR>", opts)
 
@@ -134,7 +131,7 @@ keymap("n", "<leader>r", ":NvimTreeFindFile<CR>", opts)
 -- Trouble
 -------------------------------------------------------------------------------
 
-keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
+keymap("n", "<leader><leader>", ":TroubleToggle document_diagnostics<CR>", opts)
 
 -------------------------------------------------------------------------------
 -- ZenMode

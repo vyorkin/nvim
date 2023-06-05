@@ -33,7 +33,7 @@ tree.setup({
     update_cwd = true,
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     show_on_dirs = true,
   },
 })

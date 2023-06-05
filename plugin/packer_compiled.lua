@@ -563,10 +563,10 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd copilot.lua ]]
-vim.cmd [[ packadd copilot-cmp ]]
 vim.cmd [[ packadd friendly-snippets ]]
 vim.cmd [[ packadd LuaSnip ]]
+vim.cmd [[ packadd copilot.lua ]]
+vim.cmd [[ packadd copilot-cmp ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
