@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.cmd([[hi LspInlayHint guifg=#222222]])
+
 inlayhints.setup({
   inlay_hints = {
     parameter_hints = {
@@ -43,8 +45,7 @@ inlayhints.setup({
     -- padding from the right if right_align is true
     right_align_padding = 7,
     -- highlight group
-    highlight = "Comment",
-    -- highlight = "LspInlayHint",
+    highlight = "LspInlayHint",
   },
   debug_mode = false,
 })

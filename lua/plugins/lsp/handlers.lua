@@ -89,6 +89,7 @@ local function lsp_keymaps(bufnr)
 
   -- Errors/Diagnositics
   keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
+  keymap(bufnr, "n", "<leader>te", ":lua vim.diagnostic.disable()<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", opts)

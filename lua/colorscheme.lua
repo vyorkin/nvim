@@ -1,11 +1,13 @@
+-- local colorscheme = "github_light"
+-- local colorscheme = "crimson_moonlight"
 local colorscheme = "material"
 
 vim.g.moonflyTransparent = true
 vim.g.moonflyWinSeparator = 2
 
-vim.g.material_style = "deep ocean"
 local material_status_ok, material = pcall(require, "material")
 if material_status_ok and colorscheme == "material" then
+  vim.g.material_style = "darker"
   material.setup({
     contrast = {
       terminal = false, -- Enable contrast for the built-in terminal
@@ -15,8 +17,8 @@ if material_status_ok and colorscheme == "material" then
       non_current_windows = false, -- Enable darker background for non-current windows
       filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
     },
-
-    styles = { -- Give comments style such as bold, italic, underline etc.
+    styles = {
+      -- Give comments style such as bold, italic, underline etc.
       comments = { --[[ italic = true ]]
       },
       strings = { --[[ bold = true ]]
@@ -29,7 +31,6 @@ if material_status_ok and colorscheme == "material" then
       operators = {},
       types = {},
     },
-
     plugins = { -- Uncomment the plugins that you use to highlight them
       -- Available plugins:
       -- "dap",
@@ -49,7 +50,6 @@ if material_status_ok and colorscheme == "material" then
       "trouble",
       -- "which-key",
     },
-
     disable = {
       colored_cursor = false, -- Disable the colored cursor
       borders = true, -- Disable borders between verticaly split windows
@@ -57,12 +57,10 @@ if material_status_ok and colorscheme == "material" then
       term_colors = false, -- Prevent the theme from setting terminal colors
       eob_lines = false, -- Hide the end-of-buffer lines
     },
-
     high_visibility = {
       lighter = false, -- Enable higher contrast text for lighter style
       darker = false, -- Enable higher contrast text for darker style
     },
-
     lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
     custom_colors = nil, -- If you want to everride the default colors, set this to a function

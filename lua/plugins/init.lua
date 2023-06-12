@@ -269,7 +269,6 @@ return packer.startup({
     use("sainnhe/edge")
     use("marko-cerovac/material.nvim")
     use("catppuccin/nvim")
-    use("dracula/vim")
     use("shaunsingh/nord.nvim")
     use("ellisonleao/gruvbox.nvim")
     use("nyoom-engineering/nyoom.nvim")
