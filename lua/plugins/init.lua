@@ -177,9 +177,6 @@ return packer.startup({
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
-    -- Standalone UI for nvim-lsp progress
-    use("j-hui/fidget.nvim")
-
     -- Magit clone for Neovim that is geared toward the Vim philosophy
     use({
       "TimUntersberger/neogit",
