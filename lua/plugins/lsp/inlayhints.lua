@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd([[hi LspInlayHint guifg=#222222]])
+vim.cmd([[hi LspInlayHint guifg=#333333]])
 
 inlayhints.setup({
   inlay_hints = {
