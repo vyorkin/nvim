@@ -6,7 +6,7 @@ end
 zenmode.setup({
   window = {
     backdrop = 1,
-    width = 0.8,
+    width = 0.6,
     height = 0.9,
     options = {
       signcolumn = "no",
@@ -32,10 +32,10 @@ zenmode.setup({
   },
   on_open = function()
     vim.g.cmp_active = false
-    vim.cmd([[LspStop]])
+    -- vim.cmd([[LspStop]])
   end,
   on_close = function()
     vim.g.cmp_active = true
-    vim.cmd([[LspStart]])
+    -- vim.cmd([[LspStart]])
   end,
 })

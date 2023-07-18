@@ -135,6 +135,12 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
     { name = "crates" },
+    {
+      name = "latex_symbols",
+      option = {
+        strategy = 1, -- Julia
+      },
+    },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -121,6 +121,8 @@ return packer.startup({
     -- Turn GitHub Copilot into a cmp source
     use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
 
+    use("kdheepak/cmp-latex-symbols")
+
     -- Smoothly navigate between neovim and terminal multiplexer
     use("numToStr/Navigator.nvim")
 
@@ -179,7 +181,7 @@ return packer.startup({
 
     -- Magit clone for Neovim that is geared toward the Vim philosophy
     use({
-      "TimUntersberger/neogit",
+      "NeogitOrg/neogit",
       requires = {
         "nvim-lua/plenary.nvim",
         "sindrets/diffview.nvim",
@@ -240,6 +242,8 @@ return packer.startup({
 
     -- A high-performance color highlighter
     use("norcalli/nvim-colorizer.lua")
+
+    use("f-person/auto-dark-mode.nvim")
 
     -- Extensible scrollbar
     use({
