@@ -4,7 +4,10 @@ if not status_ok then
 end
 
 local opts = {
-  use_lspsaga = true, -- set to true if you want to use lspsaga popup
+  bind = true,
+  handler_opts = {
+    border = "rounded",
+  },
   noice = true, -- set to true if you using noice to render markdown
   doc_lines = 0,
   transparency = 80,
