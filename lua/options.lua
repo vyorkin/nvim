@@ -209,9 +209,29 @@ opt.writebackup = false
 -- Neovide
 -------------------------------------------------------------------------------
 
-g.neovide_transparency = 1.0
-g.transparency = 1.0
-g.neovide_hide_mouse_when_typing = true
-g.neovide_remember_window_size = true
-g.neovide_input_macos_alt_is_meta = true
-g.neovide_cursor_vfx_mode = "wireframe"
+if g.neovide then
+  g.neovide_transparency = 1.0
+  g.transparency = 1.0
+
+  -- g.neovide_transparency = 0.85
+  -- g.transparency = 0.85
+
+  g.neovide_floating_blur_amount_x = 3.0
+  g.neovide_floating_blur_amount_y = 3.0
+
+  g.neovide_scroll_animation_length = 0.5
+
+  g.neovide_theme = "auto"
+
+  g.neovide_hide_mouse_when_typing = true
+  g.neovide_remember_window_size = true
+  g.neovide_input_macos_alt_is_meta = true
+
+  g.neovide_cursor_vfx_mode = "wireframe"
+  g.neovide_cursor_vfx_opacity = 200.0
+  g.neovide_cursor_vfx_particle_lifetime = 1.8
+  g.neovide_cursor_vfx_particle_density = 14.0
+  g.neovide_cursor_vfx_particle_speed = 6.0
+  g.neovide_cursor_vfx_particle_phase = 1.5
+  g.neovide_cursor_vfx_particle_curl = 1.0
+end

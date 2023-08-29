@@ -31,11 +31,11 @@ zenmode.setup({
     },
   },
   on_open = function()
-    vim.g.cmp_active = false
+    -- vim.g.cmp_active = false
     -- vim.cmd([[LspStop]])
   end,
   on_close = function()
-    vim.g.cmp_active = true
+    -- vim.g.cmp_active = true
     -- vim.cmd([[LspStart]])
   end,
 })

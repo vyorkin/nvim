@@ -101,11 +101,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Onedarker.nvim",
     url = "https://github.com/lunarvim/Onedarker.nvim"
   },
-  ["auto-dark-mode.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/auto-dark-mode.nvim",
-    url = "https://github.com/f-person/auto-dark-mode.nvim"
-  },
   ["boo-colorscheme-nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/boo-colorscheme-nvim",
@@ -261,7 +256,7 @@ _G.packer_plugins = {
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/glepnir/lspsaga.nvim"
+    url = "https://github.com/nvimdev/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -402,11 +397,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-ts-autotag"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
-    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
@@ -563,10 +553,10 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd copilot.lua ]]
-vim.cmd [[ packadd copilot-cmp ]]
 vim.cmd [[ packadd friendly-snippets ]]
 vim.cmd [[ packadd LuaSnip ]]
+vim.cmd [[ packadd copilot.lua ]]
+vim.cmd [[ packadd copilot-cmp ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false

@@ -112,17 +112,3 @@ if vim.o.background == "dark" then
 else
   set_light()
 end
-
-local auto_dark_status_ok, auto_dark_mode = pcall(require, "auto-dark-mode")
-if auto_dark_status_ok then
-  auto_dark_mode.setup({
-    update_interval = 4000,
-    set_light_mode = function()
-      set_light()
-    end,
-    set_dark_mode = function()
-      set_dark()
-    end,
-  })
-  auto_dark_mode.init()
-end

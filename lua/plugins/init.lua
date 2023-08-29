@@ -56,7 +56,7 @@ return packer.startup({
 
     -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
     use({
-      "glepnir/lspsaga.nvim",
+      "nvimdev/lspsaga.nvim",
       branch = "main",
       requires = {
         { "nvim-tree/nvim-web-devicons" },
@@ -232,7 +232,7 @@ return packer.startup({
     use("windwp/nvim-autopairs")
 
     -- Allows to auto close and auto rename html tags
-    use("windwp/nvim-ts-autotag")
+    -- use("windwp/nvim-ts-autotag")
 
     -- A better user experience for viewing and interacting with Vim marks
     use("chentoast/marks.nvim")
@@ -242,8 +242,6 @@ return packer.startup({
 
     -- A high-performance color highlighter
     use("norcalli/nvim-colorizer.lua")
-
-    use("f-person/auto-dark-mode.nvim")
 
     -- Extensible scrollbar
     use({
