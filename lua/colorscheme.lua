@@ -1,6 +1,8 @@
 local colorscheme_light = "github_light"
 local colorscheme_dark = "tokyonight"
 
+vim.o.background = "light"
+
 if colorscheme_dark == "moonfly" then
   vim.g.moonflyTransparent = true
   vim.g.moonflyWinSeparator = 2
