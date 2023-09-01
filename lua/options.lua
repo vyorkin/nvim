@@ -160,7 +160,9 @@ opt.relativenumber = false
 -------------------------------------------------------------------------------
 
 -- Column on the left that indicates open and closed folds
-opt.foldcolumn = "1"
+-- 0 - Hide
+-- 1 - Show, size = 1
+opt.foldcolumn = "0"
 
 -- Using ufo provider need a large value
 opt.foldlevel = 99

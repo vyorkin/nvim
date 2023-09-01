@@ -38,7 +38,6 @@ M.setup = function()
   }
 
   vim.diagnostic.config(config)
-  -- vim.diagnostic.disable()
 
   vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {
@@ -69,8 +68,10 @@ local function lsp_keymaps(bufnr)
   )
 
   -- Errors/Diagnositics
-  keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>te", ":lua vim.diagnostic.disable()<CR>", opts)
+  keymap(bufnr, "n", "<leader>ee", ":lua vim.diagnostic.open_float()<CR>", opts)
+
+  -- Hover Doc
+  keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

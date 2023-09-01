@@ -1,8 +1,9 @@
+vim.loader.enable()
+
 require("options")
 require("autocommands")
 
 require("plugins")
-require("plugins.base")
 require("plugins.navigator")
 require("plugins.completion")
 require("plugins.telescope")

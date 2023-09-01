@@ -114,7 +114,7 @@ keymap("n", "<C-p>", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>T", ":Telescope colorscheme<CR>", opts)
 keymap(
   "n",
-  "<leader>m",
+  "<leader>mm",
   ":lua require('material.functions').find_style()<CR>",
   opts
 )
@@ -158,3 +158,16 @@ keymap("n", "<leader>S", ":Gitsigns toggle_signs<CR>", opts)
 -------------------------------------------------------------------------------
 
 keymap("n", "<leader>b", ":DapToggleBreakpoint<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- Code action
+-------------------------------------------------------------------------------
+
+keymap("n", "<leader>la", ":CodeActionMenu<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- ToggleTerm
+-------------------------------------------------------------------------------
+
+keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
+keymap("n", "<C-`>", ":ToggleTerm<CR>", opts)

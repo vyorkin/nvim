@@ -3,9 +3,5 @@ if not status_ok then
   return
 end
 
-scrollbar.setup({
-  handlers = {
-    handle = false,
-  },
-})
+scrollbar.setup({})
 require("scrollbar.handlers.search").setup()

@@ -35,14 +35,13 @@ return packer.startup({
     -- Have packer manage itself
     use("wbthomason/packer.nvim")
 
-    -- Speed up loading Lua modules in Neovim to improve startup time
-    use("lewis6991/impatient.nvim")
-
     -- Configurations for LSP
     use("neovim/nvim-lspconfig")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
+    use("weilbith/nvim-code-action-menu")
+    use("kosayoda/nvim-lightbulb")
 
     -- Partial implementation of LSP inlay hint
     use("lvimuser/lsp-inlayhints.nvim")
@@ -131,7 +130,7 @@ return packer.startup({
     -- A snazzy bufferline (with tabpage integration)
     use({
       "akinsho/bufferline.nvim",
-      tag = "v3.*",
+      tag = "*",
       requires = "nvim-tree/nvim-web-devicons",
     })
 
@@ -144,6 +143,7 @@ return packer.startup({
       tag = "0.1.0",
       requires = { { "nvim-lua/plenary.nvim" } },
     })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     -- File Browser extension for telescope
     use({
       "nvim-telescope/telescope-file-browser.nvim",
@@ -156,7 +156,7 @@ return packer.startup({
     use("mg979/vim-visual-multi")
 
     -- Mordern high-performance folds
-    -- use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
     -- A neovim lua plugin to help easily manage multiple terminal windows
     use("akinsho/toggleterm.nvim")

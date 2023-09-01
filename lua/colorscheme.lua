@@ -1,5 +1,5 @@
 local colorscheme_light = "github_light"
-local colorscheme_dark = "material"
+local colorscheme_dark = "tokyonight"
 
 if colorscheme_dark == "moonfly" then
   vim.g.moonflyTransparent = true
