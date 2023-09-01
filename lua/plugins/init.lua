@@ -2,7 +2,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-    .. "/site/pack/packer/start/packer.nvim"
+      .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -53,6 +53,17 @@ return packer.startup({
     -- LSP signature hint as you type
     use("ray-x/lsp_signature.nvim")
 
+    -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
+    use({
+      "nvimdev/lspsaga.nvim",
+      after = "nvim-lspconfig",
+      requires = {
+        { "nvim-tree/nvim-web-devicons" },
+        -- Make sure you install markdown and markdown_inline parser
+        { "nvim-treesitter/nvim-treesitter" },
+      },
+    })
+
     -- Automatically highlights other uses of the
     -- word under the cursor using either LSP, Treesitter, or regex matching
     use("RRethy/vim-illuminate")
@@ -81,7 +92,13 @@ return packer.startup({
     use("mfussenegger/nvim-dap-python")
 
     -- Snippets
-    use({ "L3MON4D3/LuaSnip", after = "friendly-snippets" })
+    use({
+      "L3MON4D3/LuaSnip",
+      -- Follow latest release.
+      -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      tag = "v2.*",
+      run = "make install_jsregexp",
+    })
 
     -- A bunch of snippets to use
     use("rafamadriz/friendly-snippets")

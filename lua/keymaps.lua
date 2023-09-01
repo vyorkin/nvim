@@ -160,7 +160,7 @@ keymap("n", "<leader>S", ":Gitsigns toggle_signs<CR>", opts)
 keymap("n", "<leader>b", ":DapToggleBreakpoint<CR>", opts)
 
 -------------------------------------------------------------------------------
--- Code action
+-- LSP
 -------------------------------------------------------------------------------
 
 keymap("n", "<leader>la", ":CodeActionMenu<CR>", opts)

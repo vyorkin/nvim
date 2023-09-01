@@ -17,6 +17,7 @@ local opts = {
 local mappings = {
   l = {
     name = "LSP",
+    a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
     f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
@@ -31,6 +32,7 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    r = { "<cmd>Lspsaga rename<cr>", "Rename" },
     R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {

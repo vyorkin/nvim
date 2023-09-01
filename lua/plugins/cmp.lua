@@ -10,11 +10,6 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local cmp_git_status_ok, cmp_git = pcall(require, "cmp_git")
-if cmp_git_status_ok then
-  cmp_git.setup()
-end
-
 local copilot_cmp_status_ok, copilot_cmp = pcall(require, "copilot_cmp")
 if copilot_cmp_status_ok then
   copilot_cmp.setup()
@@ -26,31 +21,31 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Text = " txt",
+  Method = " meth",
+  Function = " fn",
+  Constructor = " ctor",
+  Field = " field",
+  Variable = " var",
+  Class = " class",
+  Interface = " iface",
+  Module = " module",
+  Property = " prop",
+  Unit = " unit",
+  Value = " val",
+  Enum = " enum",
+  Keyword = " keyword",
+  Snippet = " snippet",
+  Color = " color",
+  File = " file",
+  Reference = " ref",
+  Folder = " dir",
+  EnumMember = " enum val",
+  Constant = " const",
+  Struct = " struct",
+  Event = " even",
+  Operator = " op",
+  TypeParameter = " type param",
 }
 
 cmp.setup({
@@ -62,14 +57,17 @@ cmp.setup({
       return true
     else
       return not context.in_treesitter_capture("comment")
-        and not context.in_syntax_group("Comment")
+          and not context.in_syntax_group("Comment")
     end
   end,
+
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      -- For `luasnip`
+      luasnip.lsp_expand(args.body)
     end,
   },
+
   mapping = cmp.mapping.preset.insert({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -112,21 +110,23 @@ cmp.setup({
       "s",
     }),
   }),
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = kind_icons[vim_item.kind]
-      vim_item.menu = ({
-        nvim_lsp = "",
-        nvim_lua = "",
-        luasnip = "",
-        buffer = "",
-        path = "",
-        emoji = "",
-      })[entry.source.name]
+      -- vim_item.menu = ({
+      --   nvim_lsp = "",
+      --   nvim_lua = "",
+      --   luasnip = "",
+      --   buffer = "",
+      --   path = "",
+      --   emoji = "",
+      -- })[entry.source.name]
       return vim_item
     end,
   },
+
   sources = {
     { name = "nvim_lsp" },
     { name = "copilot" },
@@ -142,16 +142,18 @@ cmp.setup({
       },
     },
   },
+
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
+
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
   },
 })
 
