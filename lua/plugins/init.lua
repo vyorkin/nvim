@@ -2,7 +2,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-      .. "/site/pack/packer/start/packer.nvim"
+    .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -45,17 +45,6 @@ return packer.startup({
 
     -- Partial implementation of LSP inlay hint
     use("lvimuser/lsp-inlayhints.nvim")
-
-    -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
-    use({
-      "nvimdev/lspsaga.nvim",
-      after = "nvim-lspconfig",
-      requires = {
-        { "nvim-tree/nvim-web-devicons" },
-        -- Make sure you install markdown and markdown_inline parser
-        { "nvim-treesitter/nvim-treesitter" },
-      },
-    })
 
     -- Automatically highlights other uses of the
     -- word under the cursor using either LSP, Treesitter, or regex matching

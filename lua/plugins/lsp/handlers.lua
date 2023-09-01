@@ -40,14 +40,14 @@ M.setup = function()
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] =
-      vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-      })
+    vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "rounded",
+    })
 
   vim.lsp.handlers["textDocument/signatureHelp"] =
-      vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "rounded",
-      })
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "rounded",
+    })
 end
 
 local function lsp_keymaps(bufnr)
@@ -67,25 +67,6 @@ local function lsp_keymaps(bufnr)
     opts
   )
 
-  -- LSP finder find the symbol definition implement reference
-  -- if there is no implement it will hide
-  -- when you use action in finder like open vsplit then you can
-  -- use <C-t> to jump back
-  keymap(bufnr, "n", "gh", ":Lspsaga lsp_finder<CR>", opts)
-
-  -- Peek Definition
-  -- you can edit the definition file in this floating window
-  -- also support open/vsplit/etc operation check definition_action_keys
-  -- support tagstack C-t jump back
-  keymap(bufnr, "n", "gp", ":Lspsaga peek_definition<CR>", opts)
-
-  -- Outline
-  keymap(bufnr, "n", "<leader><tab>", ":Lspsaga outline<CR>", opts)
-
-  -- Incoming/Outgoing calls
-  keymap(bufnr, "n", "<leader>i", ":Lspsaga incoming_calls<CR>", opts)
-  keymap(bufnr, "n", "<leader>o", ":Lspsaga outgoing_calls<CR>", opts)
-
   -- Errors/Diagnositics
   keymap(bufnr, "n", "<leader>ee", ":lua vim.diagnostic.open_float()<CR>", opts)
 
@@ -93,8 +74,6 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
   keymap(bufnr, "n", "<leader>te", ":lua vim.diagnostic.disable()<CR>", opts)
-
-  -- keymap(bufnr, "n", "K", ":Lspsaga hover_doc<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -116,7 +95,7 @@ M.on_attach = function(client, bufnr)
   end
 
   local lsp_inlayhints_status_ok, lsp_inlayhints =
-      pcall(require, "lsp-inlayhints")
+    pcall(require, "lsp-inlayhints")
   if lsp_inlayhints_status_ok then
     lsp_inlayhints.on_attach(client, bufnr)
   end

@@ -42,7 +42,6 @@ local set_dark = function()
         "gitsigns",
         -- "hop",
         "indent-blankline",
-        "lspsaga",
         -- "mini",
         "neogit",
         "nvim-cmp",
