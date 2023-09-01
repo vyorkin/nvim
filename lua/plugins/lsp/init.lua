@@ -6,7 +6,6 @@ end
 require("plugins.lsp.mason")
 require("plugins.lsp.handlers").setup()
 require("plugins.lsp.null-ls")
-require("plugins.lsp.signature")
 require("plugins.lsp.saga")
 require("plugins.lsp.inlayhints")
 require("plugins.lsp.code-action-menu")

@@ -46,13 +46,6 @@ return packer.startup({
     -- Partial implementation of LSP inlay hint
     use("lvimuser/lsp-inlayhints.nvim")
 
-    -- A GUI library for Neovim plugin developers
-    -- For example, it is needed for floating window support
-    use("ray-x/guihua.lua")
-
-    -- LSP signature hint as you type
-    use("ray-x/lsp_signature.nvim")
-
     -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI
     use({
       "nvimdev/lspsaga.nvim",
