@@ -1,11 +1,27 @@
 local colorscheme_light = "github_light"
-local colorscheme_dark = "tokyonight"
+local colorscheme_dark = "midnight"
 
-vim.o.background = "light"
+vim.o.background = "dark"
 
 if colorscheme_dark == "moonfly" then
   vim.g.moonflyTransparent = true
   vim.g.moonflyWinSeparator = 2
+  vim.g.moonflyItalics = false
+end
+
+if colorscheme_dark == "thematrix" then
+  -- Enable telescope theme
+  vim.g.thematrix_telescope_theme = 1
+  -- Enable transparent mode
+  -- vim.g.thematrix_transparent_mode = 1
+
+  vim.g.thematrix_function_style = "NONE"
+  vim.g.thematrix_keyword_style = "italic"
+end
+
+local kimbox_status_ok, kimbox = pcall(require, "kimbox")
+if kimbox_status_ok then
+  kimbox.setup()
 end
 
 local set_dark = function()

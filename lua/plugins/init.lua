@@ -160,10 +160,21 @@ return packer.startup({
     -- A neovim lua plugin to help easily manage multiple terminal windows
     use("akinsho/toggleterm.nvim")
 
+    -- The colorcolumn is hidden as default,
+    -- but it appears after one of lines in the
+    -- scope exceeds the colorcolumn value you set
+    use("m4xshen/smartcolumn.nvim")
+
     -- A blazing fast and easy to configure
     -- neovim statusline plugin written in pure Lua
+    -- use({
+    --   "nvim-lualine/lualine.nvim",
+    --   requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    -- })
+
     use({
-      "nvim-lualine/lualine.nvim",
+      "NTBBloodbath/galaxyline.nvim",
+      -- some optional icons
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
@@ -258,20 +269,35 @@ return packer.startup({
     use("catppuccin/nvim")
     use("shaunsingh/nord.nvim")
     use("ellisonleao/gruvbox.nvim")
-    use("nyoom-engineering/nyoom.nvim")
     use("nyoom-engineering/oxocarbon.nvim")
     use("NTBBloodbath/doom-one.nvim")
     use("phha/zenburn.nvim")
     use("JoosepAlviste/palenightfall.nvim")
+    use("savq/melange-nvim")
     use("ray-x/starry.nvim")
     use("bluz71/vim-nightfly-colors")
     use({ "bluz71/vim-moonfly-colors", branch = "cterm-compat" })
+    use("hachy/eva01.vim")
+    use("atelierbram/Base2Tone-nvim")
+    use("dasupradyumna/midnight.nvim")
+    use("ntk148v/komau.vim")
+    use("neg-serg/neg.nvim")
+    use("onur-ozkan/nimda.vim")
+
+    -- Usage: require('colorbuddy').colorscheme('cobalt2')
+    use({
+      "lalitmee/cobalt2.nvim",
+      requires = "tjdevries/colorbuddy.nvim",
+    })
+    use("lmburns/kimbox")
     use({
       "glepnir/zephyr-nvim",
       requires = { "nvim-treesitter/nvim-treesitter", opt = true },
     })
     use("rockerBOO/boo-colorscheme-nvim")
     use("kdheepak/monochrome.nvim")
+    use("xero/miasma.nvim")
+    use("voidekh/kyotonight.vim")
     use({
       "rose-pine/neovim",
       as = "rose-pine",
@@ -279,6 +305,8 @@ return packer.startup({
     use("kvrohit/substrata.nvim")
     use("tiagovla/tokyodark.nvim")
     use("vigoux/oak")
+    use("luisiacc/the-matrix.nvim")
+    use({ "tersetears/maani.nvim", requires = "rktjmp/lush.nvim" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

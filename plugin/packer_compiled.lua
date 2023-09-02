@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Base2Tone-nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Base2Tone-nvim",
+    url = "https://github.com/atelierbram/Base2Tone-nvim"
+  },
   Colorschemes = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Colorschemes",
@@ -149,6 +154,16 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["cobalt2.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/cobalt2.nvim",
+    url = "https://github.com/lalitmee/cobalt2.nvim"
+  },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
+  },
   ["copilot-cmp"] = {
     load_after = {},
     loaded = true,
@@ -186,6 +201,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/edge",
     url = "https://github.com/sainnhe/edge"
   },
+  ["eva01.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/eva01.vim",
+    url = "https://github.com/hachy/eva01.vim"
+  },
   everforest = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/everforest",
@@ -195,6 +215,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["galaxyline.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    url = "https://github.com/NTBBloodbath/galaxyline.nvim"
   },
   ["github-nvim-theme"] = {
     loaded = true,
@@ -231,15 +256,35 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  kimbox = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/kimbox",
+    url = "https://github.com/lmburns/kimbox"
+  },
+  ["komau.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/komau.vim",
+    url = "https://github.com/ntk148v/komau.vim"
+  },
+  ["kyotonight.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/kyotonight.vim",
+    url = "https://github.com/voidekh/kyotonight.vim"
+  },
   ["lsp-inlayhints.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
   },
-  ["lualine.nvim"] = {
+  ["lush.nvim"] = {
     loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
+  },
+  ["maani.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/maani.nvim",
+    url = "https://github.com/tersetears/maani.nvim"
   },
   ["marks.nvim"] = {
     loaded = true,
@@ -261,6 +306,21 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  ["melange-nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/melange-nvim",
+    url = "https://github.com/savq/melange-nvim"
+  },
+  ["miasma.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/miasma.nvim",
+    url = "https://github.com/xero/miasma.nvim"
+  },
+  ["midnight.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/midnight.nvim",
+    url = "https://github.com/dasupradyumna/midnight.nvim"
+  },
   ["minimal.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/minimal.nvim",
@@ -271,6 +331,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/monochrome.nvim",
     url = "https://github.com/kdheepak/monochrome.nvim"
   },
+  ["neg.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/neg.nvim",
+    url = "https://github.com/neg-serg/neg.nvim"
+  },
   neogit = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/neogit",
@@ -280,6 +345,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nimda.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nimda.vim",
+    url = "https://github.com/onur-ozkan/nimda.vim"
   },
   ["noice.nvim"] = {
     loaded = true,
@@ -401,11 +471,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["nyoom.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nyoom.nvim",
-    url = "https://github.com/nyoom-engineering/nyoom.nvim"
-  },
   oak = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/oak",
@@ -456,6 +521,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["smartcolumn.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
+    url = "https://github.com/m4xshen/smartcolumn.nvim"
+  },
   sonokai = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/sonokai",
@@ -490,6 +560,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["the-matrix.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/the-matrix.nvim",
+    url = "https://github.com/luisiacc/the-matrix.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,

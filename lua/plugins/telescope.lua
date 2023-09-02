@@ -16,6 +16,13 @@ telescope.setup({
     layout_config = {
       vertical = { width = 0.5 },
     },
+
+    borderchars = {
+      prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+      results = { " " },
+      preview = { " " },
+    },
+
     mappings = {
       i = {
         ["<Down>"] = actions.cycle_history_next,

@@ -57,7 +57,7 @@ cmp.setup({
       return true
     else
       return not context.in_treesitter_capture("comment")
-          and not context.in_syntax_group("Comment")
+        and not context.in_syntax_group("Comment")
     end
   end,
 
@@ -115,14 +115,6 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = kind_icons[vim_item.kind]
-      -- vim_item.menu = ({
-      --   nvim_lsp = "",
-      --   nvim_lua = "",
-      --   luasnip = "",
-      --   buffer = "",
-      --   path = "",
-      --   emoji = "",
-      -- })[entry.source.name]
       return vim_item
     end,
   },

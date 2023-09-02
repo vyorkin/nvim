@@ -59,20 +59,21 @@ lualine.setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    theme = theme,
-    -- theme = "auto",
+    -- theme = theme,
+    -- theme = "kyotonight",
+    theme = "auto",
 
     component_separators = "|",
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard" },
-    always_divide_middle = true,
+    -- always_divide_middle = true,
   },
   sections = {
     lualine_a = {
       { "mode", separator = { left = "" }, right_padding = 2 },
     },
     lualine_b = {},
-    lualine_c = { diagnostics },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {
       { "diff", source = diff_source },
