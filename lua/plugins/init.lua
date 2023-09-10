@@ -150,6 +150,7 @@ return packer.startup({
     })
 
     -- Adds indentation guides to all lines (including empty lines)
+    -- Disabled: slow
     -- use("lukas-reineke/indent-blankline.nvim")
 
     use("mg979/vim-visual-multi")
@@ -167,16 +168,15 @@ return packer.startup({
 
     -- A blazing fast and easy to configure
     -- neovim statusline plugin written in pure Lua
-    -- use({
-    --   "nvim-lualine/lualine.nvim",
-    --   requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    -- })
-
     use({
-      "NTBBloodbath/galaxyline.nvim",
-      -- some optional icons
+      "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+
+    -- use({
+    --   "NTBBloodbath/galaxyline.nvim",
+    --   requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    -- })
 
     -- Magit clone for Neovim that is geared toward the Vim philosophy
     use({

@@ -56,7 +56,7 @@ opt.termguicolors = true
 opt.pumheight = 10
 
 -- The font used in graphical neovim applications
-opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
+opt.guifont = { "FiraCode Nerd Font Mono", ":h12" }
 
 -- Always show tabs
 opt.showtabline = 2
@@ -236,4 +236,41 @@ if g.neovide then
   g.neovide_cursor_vfx_particle_speed = 6.0
   g.neovide_cursor_vfx_particle_phase = 1.5
   g.neovide_cursor_vfx_particle_curl = 1.0
+
+  vim.g.neovide_scale_factor = 1.0
+  local change_scale_factor = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+  vim.keymap.set("n", "<C-=>", function()
+    change_scale_factor(1.25)
+  end)
+  vim.keymap.set("n", "<C-->", function()
+    change_scale_factor(1 / 1.25)
+  end)
+
+  -- Helper function for transparency formatting
+  local alpha = function()
+    return string.format(
+      "%x",
+      math.floor(255 * (g.neovide_transparency_point or 0.8))
+    )
+  end
+
+  -- Set transparency and background color (title bar color)
+  -- g.neovide_transparency = 0.0
+  -- g.neovide_transparency_point = 1.0
+  --
+  -- g.neovide_background_color = "#000000" .. alpha()
+  --
+  -- -- Add keybinds to change transparency
+  -- local change_transparency = function(delta)
+  --   g.neovide_transparency_point = vim.g.neovide_transparency_point + delta
+  --   g.neovide_background_color = "#000000" .. alpha()
+  -- end
+  -- vim.keymap.set({ "n", "v", "o" }, "<D-]>", function()
+  --   change_transparency(0.01)
+  -- end)
+  -- vim.keymap.set({ "n", "v", "o" }, "<D-[>", function()
+  --   change_transparency(-0.01)
+  -- end)
 end

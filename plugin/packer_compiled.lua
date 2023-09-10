@@ -216,11 +216,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["galaxyline.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "https://github.com/NTBBloodbath/galaxyline.nvim"
-  },
   ["github-nvim-theme"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
@@ -275,6 +270,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["lush.nvim"] = {
     loaded = true,

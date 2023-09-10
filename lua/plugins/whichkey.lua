@@ -9,39 +9,54 @@ local opts = {
   mode = "n", -- NORMAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  silent = true, -- Use `silent` when creating keymaps
+  noremap = true, -- Use `noremap` when creating keymaps
+  nowait = true, -- Use `nowait` when creating keymaps
 }
 
 local mappings = {
-  l = {
-    name = "LSP",
-    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
-    m = { "<cmd>Mason<cr>", "Mason" },
+  e = {
+    name = "Error",
+
     j = {
       "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
       "Next Diagnostic",
     },
     k = {
-      "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+      "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>",
       "Prev Diagnostic",
     },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-    R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+  },
+  g = {
+    name = "LSP",
+
+    d = { "<cmd>Telescope lsp_definitions<CR>", "Go to the definition" },
+    i = { "<cmd>Telescope lsp_implementations<CR>", "Go to the implementation" },
+    r = { "<cmd>Telescope lsp_references<CR>", "List references" },
+  },
+  l = {
+    name = "LSP",
+
+    -- Buffer
+    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+    R = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename buffer" },
+
+    I = { "<cmd>LspInfo<CR>", "Info" },
+    h = { "<cmd>lua require('lsp-inlayhints').toggle()<CR>", "Toggle Hints" },
+    m = { "<cmd>Mason<CR>", "Mason" },
+
+    -- Errors/Diagnositics
+    -- l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
+    s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
     S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
       "Workspace Symbols",
     },
-    u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+    u = { "<cmd>LuaSnipUnlinkCurrent<CR>", "Unlink Snippet" },
   },
   c = {
     name = "Cargo",
-
     t = { "<cmd>lua require('crates').toggle()<CR>", "Toggle Hints" },
 
     u = { "<cmd>lua require('crates').update_crate()<CR>", "Update" },
@@ -64,15 +79,15 @@ local mappings = {
   },
   d = {
     name = "Debug",
-    b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Breakpoint" },
-    c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
-    i = { "<cmd>lua require('dap').step_into()<cr>", "Into" },
-    o = { "<cmd>lua require('dap').step_over()<cr>", "Over" },
-    O = { "<cmd>lua require('dap').step_out()<cr>", "Out" },
-    r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Repl" },
-    l = { "<cmd>lua require('dap').run_last()<cr>", "Last" },
-    u = { "<cmd>lua require('dapui').toggle()<cr>", "UI" },
-    x = { "<cmd>lua require('dap').terminate()<cr>", "Exit" },
+    b = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Breakpoint" },
+    c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
+    i = { "<cmd>lua require('dap').step_into()<CR>", "Into" },
+    o = { "<cmd>lua require('dap').step_over()<CR>", "Over" },
+    O = { "<cmd>lua require('dap').step_out()<CR>", "Out" },
+    r = { "<cmd>lua require('dap').repl.toggle()<CR>", "Repl" },
+    l = { "<cmd>lua require('dap').run_last()<CR>", "Last" },
+    u = { "<cmd>lua require('dapui').toggle()<CR>", "UI" },
+    x = { "<cmd>lua require('dap').terminate()<CR>", "Exit" },
   },
 }
 

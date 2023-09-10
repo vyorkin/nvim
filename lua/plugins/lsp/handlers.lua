@@ -55,10 +55,11 @@ local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
 
   keymap(bufnr, "n", "gd", ":Telescope lsp_definitions<CR>", opts)
-  keymap(bufnr, "n", "gI", ":Telescope lsp_implementations<CR>", opts)
-  keymap(bufnr, "n", "gf", ":Telescope lsp_references<CR>", opts)
+  keymap(bufnr, "n", "gi", ":Telescope lsp_implementations<CR>", opts)
+  keymap(bufnr, "n", "gr", ":Telescope lsp_references<CR>", opts)
+  keymap(bufnr, "n", "<C-s>", ":Telescope lsp_document_symbols<CR>", opts)
 
-  keymap(bufnr, "n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", opts)
+  keymap(bufnr, "n", "<leader>lR", ":lua vim.lsp.buf.rename()<CR>", opts)
   keymap(
     bufnr,
     "n",
@@ -69,11 +70,12 @@ local function lsp_keymaps(bufnr)
 
   -- Errors/Diagnositics
   keymap(bufnr, "n", "<leader>ee", ":lua vim.diagnostic.open_float()<CR>", opts)
+  keymap(bufnr, "n", "<leader>ted", ":lua vim.diagnostic.disable()<CR>", opts)
+  keymap(bufnr, "n", "<leader>tee", ":lua vim.diagnostic.enable()<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
-  keymap(bufnr, "n", "<leader>te", ":lua vim.diagnostic.disable()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

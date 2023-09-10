@@ -118,7 +118,6 @@ keymap(
   ":lua require('material.functions').find_style()<CR>",
   opts
 )
-keymap("n", "<C-s>", ":Telescope lsp_document_symbols<CR>", opts)
 
 -------------------------------------------------------------------------------
 -- Tree
@@ -171,3 +170,14 @@ keymap("n", "<leader>la", ":CodeActionMenu<CR>", opts)
 
 keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
 keymap("n", "<C-`>", ":ToggleTerm<CR>", opts)
+
+-------------------------------------------------------------------------------
+-- MacOS
+-------------------------------------------------------------------------------
+
+keymap("n", "<D-s>", ":w<CR>", opts) -- Save
+keymap("v", "<D-c>", '"+y', opts) -- Copy
+keymap("n", "<D-v>", '"+P', opts) -- Paste normal mode
+keymap("v", "<D-v>", '"+P', opts) -- Paste visual mode
+keymap("c", "<D-v>", "<C-R>+", opts) -- Paste command mode
+keymap("i", "<D-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
