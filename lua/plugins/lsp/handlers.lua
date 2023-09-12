@@ -17,9 +17,12 @@ M.setup = function()
 
   local config = {
     -- Disable virtual text
-    virtual_text = {
-      prefix = "●",
-    },
+    virtual_text = false,
+
+    -- virtual_text = {
+    --   prefix = "●",
+    -- },
+
     signs = {
       -- Show signs
       active = signs,
@@ -48,6 +51,12 @@ M.setup = function()
     vim.lsp.with(vim.lsp.handlers.signature_help, {
       border = "rounded",
     })
+
+  -- Show diagnostics floating window on CursorHold
+  -- Requires low vim.o.updateTime value (see options.lua)
+  -- vim.cmd(
+  --   [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+  -- )
 end
 
 local function lsp_keymaps(bufnr)

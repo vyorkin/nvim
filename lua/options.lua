@@ -225,7 +225,7 @@ if g.neovide then
 
   g.neovide_theme = "auto"
 
-  g.neovide_hide_mouse_when_typing = true
+  g.neovide_hide_mouse_when_typing = false
   g.neovide_remember_window_size = true
   g.neovide_input_macos_alt_is_meta = true
 
@@ -242,10 +242,10 @@ if g.neovide then
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
   end
   vim.keymap.set("n", "<C-=>", function()
-    change_scale_factor(1.25)
+    change_scale_factor(1.1)
   end)
   vim.keymap.set("n", "<C-->", function()
-    change_scale_factor(1 / 1.25)
+    change_scale_factor(1 / 1.1)
   end)
 
   -- Helper function for transparency formatting
