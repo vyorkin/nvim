@@ -1,5 +1,5 @@
 local colorscheme_light = "github_light"
-local colorscheme_dark = "midnight"
+local colorscheme_dark = "monochrome"
 
 vim.o.background = "dark"
 

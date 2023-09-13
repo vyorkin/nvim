@@ -56,7 +56,7 @@ opt.termguicolors = true
 opt.pumheight = 10
 
 -- The font used in graphical neovim applications
-opt.guifont = { "FiraCode Nerd Font Mono", ":h12" }
+opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
 
 -- Always show tabs
 opt.showtabline = 2
@@ -122,7 +122,7 @@ opt.fillchars = {
   horiz = "━",
   horizup = "┻",
   horizdown = "┳",
-  vert = "┃",
+  vert = " ",
   vertleft = "┫",
   vertright = "┣",
   verthoriz = "╋",
@@ -212,18 +212,17 @@ opt.writebackup = false
 -------------------------------------------------------------------------------
 
 if g.neovide then
-  g.neovide_transparency = 1.0
-  g.transparency = 1.0
-
-  -- g.neovide_transparency = 0.85
-  -- g.transparency = 0.85
-
-  g.neovide_floating_blur_amount_x = 3.0
-  g.neovide_floating_blur_amount_y = 3.0
+  -- g.neovide_floating_blur_amount_x = 3.0
+  -- g.neovide_floating_blur_amount_y = 3.0
 
   g.neovide_scroll_animation_length = 0.5
 
   g.neovide_theme = "auto"
+
+  g.neovide_padding_top = 1
+  g.neovide_padding_bottom = 1
+  g.neovide_padding_right = 1
+  g.neovide_padding_left = 1
 
   g.neovide_hide_mouse_when_typing = false
   g.neovide_remember_window_size = true
@@ -248,29 +247,54 @@ if g.neovide then
     change_scale_factor(1 / 1.1)
   end)
 
-  -- Helper function for transparency formatting
-  local alpha = function()
-    return string.format(
-      "%x",
-      math.floor(255 * (g.neovide_transparency_point or 0.8))
-    )
+  -- Set transparency and background color (title bar color)
+  g.neovide_transparency = 1.0
+  g.neovide_transparency_point = 0.8
+
+  -- Force neovide to redraw all the time.
+  -- This can be a quick hack if animations appear to stop too early.
+  g.neovide_no_idle = true
+
+  setup_transparency = function()
+    -- Helper function for transparency formatting
+    local alpha = function()
+      return string.format(
+        "%x",
+        math.floor(255 * (g.neovide_transparency_point or 0.8))
+      )
+    end
+
+    local get_current_background_color = function()
+      -- Get the highlight information for the specified group
+      local bg_rgb = vim.api.nvim_get_hl_by_name("Normal", true).background
+        or 000000
+      -- Extract the background color from the highlight information
+      local bg_hex = string.format("#%x", bg_rgb)
+      -- Add alpha
+      return bg_hex .. alpha()
+    end
+
+    g.neovide_background_color = get_current_background_color()
+
+    -- Add keybinds to change transparency
+    local change_transparency = function(delta)
+      local a = vim.g.neovide_transparency + delta
+      g.neovide_transparency = a
+      g.neovide_transparency_point = a
+      g.neovide_background_color = get_current_background_color()
+    end
+
+    vim.keymap.set({ "n", "v", "o" }, "<D-]>", function()
+      change_transparency(0.01)
+    end)
+    vim.keymap.set({ "n", "v", "o" }, "<D-[>", function()
+      change_transparency(-0.01)
+    end)
   end
 
-  -- Set transparency and background color (title bar color)
-  -- g.neovide_transparency = 0.0
-  -- g.neovide_transparency_point = 1.0
-  --
-  -- g.neovide_background_color = "#000000" .. alpha()
-  --
-  -- -- Add keybinds to change transparency
-  -- local change_transparency = function(delta)
-  --   g.neovide_transparency_point = vim.g.neovide_transparency_point + delta
-  --   g.neovide_background_color = "#000000" .. alpha()
-  -- end
-  -- vim.keymap.set({ "n", "v", "o" }, "<D-]>", function()
-  --   change_transparency(0.01)
-  -- end)
-  -- vim.keymap.set({ "n", "v", "o" }, "<D-[>", function()
-  --   change_transparency(-0.01)
-  -- end)
+  setup_transparency()
+
+  vim.cmd([[
+    autocmd ColorScheme * lua setup_transparency()
+  ]])
 end
