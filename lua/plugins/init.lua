@@ -239,6 +239,9 @@ return packer.startup({
     -- Modern Go plugin for Neovim, based on gopls, treesitter AST, Dap and a variety of go tools
     use("ray-x/go.nvim")
 
+    -- Huff syntax highlighting
+    use("wolflo/vim-huff")
+
     -- A high-performance color highlighter
     use("norcalli/nvim-colorizer.lua")
 

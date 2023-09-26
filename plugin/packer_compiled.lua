@@ -586,6 +586,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["vim-huff"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-huff",
+    url = "https://github.com/wolflo/vim-huff"
+  },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-illuminate",
