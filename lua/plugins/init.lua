@@ -56,6 +56,9 @@ return packer.startup({
       requires = { "nvim-treesitter/nvim-treesitter" },
     })
 
+    -- Tree-sitter grammer for Justfiles
+    use("IndianBoy42/tree-sitter-just")
+
     use({ "simrat39/rust-tools.nvim", branch = "master" })
 
     -- Helps managing crates.io dependencies
