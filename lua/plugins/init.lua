@@ -142,7 +142,6 @@ return packer.startup({
     -- Find, Filter, Preview, Pick
     use({
       "nvim-telescope/telescope.nvim",
-      tag = "0.1.0",
       requires = { { "nvim-lua/plenary.nvim" } },
     })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -243,7 +242,7 @@ return packer.startup({
     use("ray-x/go.nvim")
 
     -- Huff syntax highlighting
-    use("wolflo/vim-huff")
+    use("marktoda/vim-huff")
 
     -- A high-performance color highlighter
     use("norcalli/nvim-colorizer.lua")
@@ -289,6 +288,13 @@ return packer.startup({
     use("ntk148v/komau.vim")
     use("neg-serg/neg.nvim")
     use("onur-ozkan/nimda.vim")
+    use("maxmx03/fluoromachine.nvim")
+    use("yashguptaz/calvera-dark.nvim")
+    use("kvrohit/mellow.nvim")
+    use("ramojus/mellifluous.nvim")
+    use("olivercederborg/poimandres.nvim")
+    use("Mofiqul/adwaita.nvim")
+    use({ "Everblush/nvim", as = "everblush" })
 
     -- Usage: require('colorbuddy').colorscheme('cobalt2')
     use({

@@ -24,6 +24,55 @@ if kimbox_status_ok and colorscheme_dark == "kimbox" then
   kimbox.setup()
 end
 
+local fluoromachine_status_ok, fluoromachine = pcall(require, "fluoromachine")
+if fluoromachine_status_ok and colorscheme_dark == "fluoromachine" then
+  fluoromachine.setup({
+    glow = true,
+    theme = "fluoromachine",
+  })
+end
+
+local catppuccin_status_ok, catppuccin = pcall(require, "catppuccin")
+if catppuccin_status_ok and colorscheme_dark == "catppuccin" then
+  catppuccin.setup({
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    term_colors = true,
+    transparent_background = false,
+    no_italic = true,
+    no_bold = false,
+    styles = {
+      comments = {},
+      conditionals = {},
+      loops = {},
+      functions = {},
+      keywords = {},
+      strings = {},
+      variables = {},
+      numbers = {},
+      booleans = {},
+      properties = {},
+      types = {},
+    },
+    color_overrides = {
+      mocha = {
+        base = "#000000",
+        mantle = "#000000",
+        crust = "#000000",
+      },
+    },
+    highlight_overrides = {
+      mocha = function(C)
+        return {
+          TabLineSel = { bg = C.pink },
+          CmpBorder = { fg = C.surface2 },
+          Pmenu = { bg = C.none },
+          TelescopeBorder = { link = "FloatBorder" },
+        }
+      end,
+    },
+  })
+end
+
 local set_dark = function()
   vim.api.nvim_set_option("background", "dark")
 
