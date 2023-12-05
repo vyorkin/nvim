@@ -4,11 +4,12 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local fb_actions = require("telescope._extensions.file_browser.actions")
 local trouble = require("trouble.providers.telescope")
 
 telescope.setup({
   defaults = {
-    prompt_prefix = " ",
+    -- prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
     file_ignore_patterns = { ".git/", "node_modules" },
@@ -42,14 +43,28 @@ telescope.setup({
   extensions = {
     fzf = {
       fuzzy = true, -- false will only do exact matching
-      override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      -- or "ignore_case" or "respect_case",
+      override_generic_sorter = true, -- Override the generic sorter
+      override_file_sorter = true, -- Override the file sorter
+      -- Or "ignore_case" or "respect_case",
       -- the default case_mode is "smart_case"
       case_mode = "smart_case",
+    },
+    file_browser = {
+      initial_mode = "normal",
+      theme = "ivy",
+      -- Disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        n = {
+          h = fb_actions.goto_parent_dir,
+          j = actions.move_selection_worse,
+          k = actions.move_selection_better,
+          l = actions.select_default, -- action for going into directories and opening files
+        },
+      },
     },
   },
 })
 
--- require("telescope").load_extension("fzf")
--- require("telescope").load_extension("file_browser")
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("file_browser")

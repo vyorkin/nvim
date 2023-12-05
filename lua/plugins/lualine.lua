@@ -39,7 +39,7 @@ local colors = {
   grey = "#000000",
 }
 
-local theme = {
+local _theme = {
   normal = {
     a = { fg = colors.white, bg = colors.black },
     b = { fg = colors.white, bg = colors.grey },
@@ -62,6 +62,7 @@ lualine.setup({
     -- theme = theme,
     -- theme = "kyotonight",
     theme = "auto",
+    -- theme = "tokyonight",
 
     component_separators = "|",
     section_separators = { left = "", right = "" },

@@ -67,7 +67,7 @@ for _, server in pairs(servers) do
   end
 
   if server == "rust_analyzer" then
-    local rust_tools_opts = require "plugins.lsp.settings.rust-tools"
+    local rust_tools_opts = require("plugins.lsp.settings.rust-tools")
     local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
     if rust_tools_status_ok then
       rust_tools.setup(rust_tools_opts)

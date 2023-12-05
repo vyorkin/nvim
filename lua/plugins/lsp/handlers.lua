@@ -1,47 +1,6 @@
 local M = {}
 
 M.setup = function()
-  local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
-  }
-
-  for _, sign in ipairs(signs) do
-    vim.fn.sign_define(
-      sign.name,
-      { texthl = sign.name, text = sign.text, numhl = sign.name }
-    )
-  end
-
-  local config = {
-    -- Disable virtual text
-    virtual_text = false,
-
-    -- virtual_text = {
-    --   prefix = "●",
-    -- },
-
-    signs = {
-      -- Show signs
-      active = signs,
-    },
-    update_in_insert = true,
-    underline = false,
-    severity_sort = true,
-    float = {
-      source = "always",
-      focusable = true,
-      style = "minimal",
-      border = "rounded",
-      header = "",
-      prefix = "",
-    },
-  }
-
-  vim.diagnostic.config(config)
-
   vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(vim.lsp.handlers.hover, {
       border = "rounded",
@@ -78,13 +37,14 @@ local function lsp_keymaps(bufnr)
   )
 
   -- Errors/Diagnositics
-  keymap(bufnr, "n", "<leader>ee", ":lua vim.diagnostic.open_float()<CR>", opts)
   keymap(bufnr, "n", "<leader>ted", ":lua vim.diagnostic.disable()<CR>", opts)
   keymap(bufnr, "n", "<leader>tee", ":lua vim.diagnostic.enable()<CR>", opts)
 
   -- Hover Doc
   keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", opts)
+
+  -- Outline
+  keymap(bufnr, "n", "<leader>o", ":SymbolsOutline<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -116,5 +76,8 @@ M.on_attach = function(client, bufnr)
     illuminate.on_attach(client)
   end
 end
+
+local cmp_default_capabilities = require("cmp_nvim_lsp").default_capabilities()
+M.capabilities = cmp_default_capabilities
 
 return M

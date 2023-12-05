@@ -47,5 +47,6 @@ inlayhints.setup({
     -- highlight group
     highlight = "LspInlayHint",
   },
+  enabled_at_startup = true,
   debug_mode = false,
 })

@@ -4,6 +4,7 @@
 
 local opt = vim.opt
 local g = vim.g
+local api = vim.api
 
 -------------------------------------------------------------------------------
 -- General
@@ -56,10 +57,16 @@ opt.termguicolors = true
 opt.pumheight = 10
 
 -- The font used in graphical neovim applications
-opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
+-- opt.guifont = { "FiraCode NF", ":h16" }
+-- opt.guifont = { "Hack Nerd Font Mono", ":h16" }
+-- opt.guifont = { "JetBrains Mono", ":h16" }
+opt.guifont = { "JetBrainsMono Nerd Font", ":h16" }
 
 -- Always show tabs
 opt.showtabline = 2
+
+-- Hide statusline
+opt.laststatus = 0
 
 -------------------------------------------------------------------------------
 -- Scroll
@@ -215,28 +222,38 @@ if g.neovide then
   g.neovide_floating_blur_amount_x = 4.0
   g.neovide_floating_blur_amount_y = 4.0
 
-  g.neovide_scroll_animation_length = 0.5
+  vim.g.neovide_floating_shadow = true
+  vim.g.neovide_floating_z_height = 10
+  vim.g.neovide_light_angle_degrees = 45
+  vim.g.neovide_light_radius = 5
+
+  g.neovide_scroll_animation_length = 0.3
 
   g.neovide_theme = "auto"
+  g.neovide_refresh_rate = 60
+  -- g.neovide_fullscreen = true
 
-  g.neovide_padding_top = 1
-  g.neovide_padding_bottom = 1
-  g.neovide_padding_right = 1
-  g.neovide_padding_left = 1
+  g.neovide_padding_top = 2
+  g.neovide_padding_bottom = 2
+  g.neovide_padding_right = 2
+  g.neovide_padding_left = 2
 
-  g.neovide_hide_mouse_when_typing = false
+  g.neovide_hide_mouse_when_typing = true
   g.neovide_remember_window_size = true
   g.neovide_input_macos_alt_is_meta = true
 
-  g.neovide_cursor_vfx_mode = "wireframe"
+  g.neovide_cursor_animate_command_line = false
+
+  g.neovide_cursor_vfx_mode = "pixiedust"
   g.neovide_cursor_vfx_opacity = 200.0
   g.neovide_cursor_vfx_particle_lifetime = 1.8
-  g.neovide_cursor_vfx_particle_density = 14.0
-  g.neovide_cursor_vfx_particle_speed = 6.0
+  g.neovide_cursor_vfx_particle_density = 24.0
+  g.neovide_cursor_vfx_particle_speed = 10.0
   g.neovide_cursor_vfx_particle_phase = 1.5
   g.neovide_cursor_vfx_particle_curl = 1.0
 
   vim.g.neovide_scale_factor = 1.0
+
   local change_scale_factor = function(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
   end
@@ -247,26 +264,38 @@ if g.neovide then
     change_scale_factor(1 / 1.1)
   end)
 
+  local transparency = 0.5
+
+  -- Helper function for transparency formatting
+  local alpha = function()
+    return string.format(
+      "%x",
+      math.floor(255 * (vim.g.transparency or transparency))
+    )
+  end
+
   -- Set transparency and background color (title bar color)
-  g.neovide_transparency = 1.0
-  g.neovide_transparency_point = 0.8
+  -- g.neovide_transparency = 0.0
+  -- g.transparency = transparency
+  -- g.neovide_background_color = "#0f1117" .. alpha()
+  -- g.neovide_transparency_point = 0.9
 
   -- Force neovide to redraw all the time.
   -- This can be a quick hack if animations appear to stop too early.
-  g.neovide_no_idle = true
+  -- g.neovide_no_idle = true
 
-  setup_transparency = function()
+  local setup_transparency = function()
     -- Helper function for transparency formatting
     local alpha = function()
       return string.format(
         "%x",
-        math.floor(255 * (g.neovide_transparency_point or 0.8))
+        math.floor(255 * (g.neovide_transparency_point or 0.9))
       )
     end
 
     local get_current_background_color = function()
       -- Get the highlight information for the specified group
-      local bg_rgb = vim.api.nvim_get_hl_by_name("Normal", true).background
+      local bg_rgb = api.nvim_get_hl_by_name("Normal", true).background
         or 000000
       -- Extract the background color from the highlight information
       local bg_hex = string.format("#%x", bg_rgb)
@@ -274,7 +303,7 @@ if g.neovide then
       return bg_hex .. alpha()
     end
 
-    g.neovide_background_color = get_current_background_color()
+    g.neovide_background_color = "#0f1117" -- get_current_background_color()
 
     -- Add keybinds to change transparency
     local change_transparency = function(delta)
@@ -286,15 +315,17 @@ if g.neovide then
 
     vim.keymap.set({ "n", "v", "o" }, "<D-]>", function()
       change_transparency(0.01)
+      vim.cmd("redraw")
     end)
     vim.keymap.set({ "n", "v", "o" }, "<D-[>", function()
       change_transparency(-0.01)
+      vim.cmd("redraw")
     end)
   end
 
-  setup_transparency()
+  -- setup_transparency()
 
-  vim.cmd([[
-    autocmd ColorScheme * lua setup_transparency()
-  ]])
+  -- vim.cmd([[
+  --   autocmd ColorScheme * lua setup_transparency()
+  -- ]])
 end

@@ -70,10 +70,6 @@ keymap("n", ",x", ":bn<CR>", opts)
 keymap("n", "<leader>J", ":lnext<CR>", opts)
 keymap("n", "<leader>K", ":lprevious<CR>", opts)
 
--- Nagivate between buffers easily
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
 -------------------------------------------------------------------------------
 -- Splits
 -------------------------------------------------------------------------------
@@ -108,16 +104,18 @@ keymap("n", "<M-l>", ":tabnext<CR>", opts)
 
 keymap("n", "<C-q>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", ":Telescope live_grep<CR>", opts)
+
 keymap("n", "<leader>F", ":Telescope file_browser<CR>", opts)
+keymap(
+  "n",
+  "<leader>j",
+  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  opts
+)
+
 keymap("n", "<C-b>", ":Telescope buffers<CR>", opts)
 keymap("n", "<C-p>", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>T", ":Telescope colorscheme<CR>", opts)
-keymap(
-  "n",
-  "<leader>mm",
-  ":lua require('material.functions').find_style()<CR>",
-  opts
-)
 
 -------------------------------------------------------------------------------
 -- Tree

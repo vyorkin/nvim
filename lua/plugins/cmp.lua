@@ -46,10 +46,16 @@ local kind_icons = {
   Event = " [event]",
   Operator = " [op]",
   TypeParameter = " [type param]",
+  Copilot = " [copilot]",
 }
 
 cmp.setup({
   enabled = function()
+    local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+    if buftype == "prompt" then
+      return false
+    end
+
     -- disable completion in comments
     local context = require("cmp.config.context")
     -- keep command mode completion enabled when cursor is in a comment
@@ -71,8 +77,12 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+
+    ["<M-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-8), { "i", "c" }),
+    ["<M-d>"] = cmp.mapping(cmp.mapping.scroll_docs(8), { "i", "c" }),
+    ["<M-j>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<M-k>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
@@ -120,18 +130,19 @@ cmp.setup({
   },
 
   sources = {
-    { name = "nvim_lsp" },
-    { name = "copilot" },
-    { name = "nvim_lua" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
-    { name = "crates" },
+    { name = "copilot", priority = 90 },
+    { name = "nvim_lsp", priority = 80 },
+    { name = "luasnip", priority = 70 },
+    { name = "nvim_lua", priority = 60 },
+    { name = "buffer", priority = 50 },
+    { name = "path", priority = 40 },
+    { name = "crates", priority = 30 },
     {
       name = "latex_symbols",
       option = {
         strategy = 1, -- Julia
       },
+      priority = 20,
     },
   },
 

@@ -11,7 +11,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   debug = false,
   sources = {
+    formatting.rustfmt,
     formatting.prettier,
+    formatting.black,
     formatting.stylua,
   },
   -- you can reuse a shared lspconfig on_attach callback here

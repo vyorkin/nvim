@@ -2,7 +2,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-    .. "/site/pack/packer/start/packer.nvim"
+      .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -43,8 +43,16 @@ return packer.startup({
     use("weilbith/nvim-code-action-menu")
     use("kosayoda/nvim-lightbulb")
 
+    use({
+      "hinell/lsp-timeout.nvim",
+      requires = { "neovim/nvim-lspconfig" },
+    })
+
     -- Partial implementation of LSP inlay hint
     use("lvimuser/lsp-inlayhints.nvim")
+
+    -- A tree like view for symbols
+    use("simrat39/symbols-outline.nvim")
 
     -- Automatically highlights other uses of the
     -- word under the cursor using either LSP, Treesitter, or regex matching
@@ -74,6 +82,7 @@ return packer.startup({
     -- DAP
     use("mfussenegger/nvim-dap")
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use("theHamsta/nvim-dap-virtual-text")
     use("mfussenegger/nvim-dap-python")
 
     -- Snippets
@@ -120,9 +129,6 @@ return packer.startup({
     -- Supports treesitter, dot repeat, left-right/up-down motions, hooks, and more
     use("numToStr/Comment.nvim")
 
-    -- A treesitter plugin for setting the commentstring based on the cursor location in a file
-    use("JoosepAlviste/nvim-ts-context-commentstring")
-
     use("nvim-tree/nvim-web-devicons")
 
     -- A tabline plugin with re-orderable, auto-sizing, clickable tabs,
@@ -135,6 +141,9 @@ return packer.startup({
       tag = "*",
       requires = "nvim-tree/nvim-web-devicons",
     })
+
+    -- Floating statuslines
+    use("b0o/incline.nvim")
 
     -- Add/change/delete surrounding delimiter pairs with ease
     use("kylechui/nvim-surround")
@@ -166,7 +175,7 @@ return packer.startup({
     -- The colorcolumn is hidden as default,
     -- but it appears after one of lines in the
     -- scope exceeds the colorcolumn value you set
-    use("m4xshen/smartcolumn.nvim")
+    -- use("m4xshen/smartcolumn.nvim")
 
     -- A blazing fast and easy to configure
     -- neovim statusline plugin written in pure Lua
@@ -240,6 +249,9 @@ return packer.startup({
 
     -- Modern Go plugin for Neovim, based on gopls, treesitter AST, Dap and a variety of go tools
     use("ray-x/go.nvim")
+    -- Floating window support for ray-x/go.nvim
+    -- Allows to test with ginkgo, richgo inside floaterm
+    use({ "ray-x/guihua.lua", run = "cd lua/fzy && make" })
 
     -- Huff syntax highlighting
     use("marktoda/vim-huff")
@@ -255,6 +267,65 @@ return packer.startup({
 
     -- Translation
     use("potamides/pantran.nvim")
+
+    use({
+      "goolord/alpha-nvim",
+      requires = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        local alpha = require("alpha")
+        local dashboard = require("alpha.themes.dashboard")
+        dashboard.section.header.val = {
+          [[    #   #  #####   ###   ####   #   #  #   #    ]],
+          [[    #   #  #      #   #  #   #  #  ##  ## ##    ]],
+          [[    #####  ####   #   #  ####   # # #  # # #    ]],
+          [[    #   #  #      #   #  #   #  ##  #  #   #    ]],
+          [[    #   #  #####   ###   ####   #   #  #   #    ]],
+          [[                                                ]],
+          [[              #####  #####   ###                ]],
+          [[                  #    #    #   #               ]],
+          [[                ###    #    #   #               ]],
+          [[                  #    #    #   #               ]],
+          [[              #####    #     ###                ]],
+          [[                                                ]],
+          [[ ####     #    #####  ####  #   #   ####  #     ]],
+          [[     #   # #   #      #     #  ##  #      #     ]],
+          [[  ###   #####  ####   ####  # # #  #      ####  ]],
+          [[     #  #   #  #      #  #  ##  #  #      #  #  ]],
+          [[ ####   #   #  #####  ####  #   #   ####  ####  ]],
+          [[                                                ]],
+          [[                                                ]],
+          [[                  выбирай бля                   ]],
+        }
+        dashboard.section.buttons.val = {
+          dashboard.button(
+            "p",
+            "ПЭ - значит хуярь как сука",
+            ":Telescope projects<CR>"
+          ),
+          dashboard.button(
+            "c",
+            "ЦЭ - это конфигурируй бля",
+            ":e ~/.config/nvim/lua/plugins/init.lua<CR>"
+          ),
+          dashboard.button(
+            "e",
+            "ЙЕ - начинай заново нахуй",
+            ":ene <BAR> startinsert <CR>"
+          ),
+          dashboard.button("q", "КУ - уёбывай", ":qa<CR>"),
+        }
+        local handle = io.popen("fortune")
+        local fortune = handle:read("*a")
+        handle:close()
+        dashboard.section.footer.val = fortune
+
+        dashboard.config.opts.noautocmd = true
+
+        vim.cmd([[autocmd User AlphaReady echo 'ready']])
+
+        alpha.setup(dashboard.config)
+      end,
+    })
 
     -- Themes
     use("EdenEast/nightfox.nvim")
@@ -307,7 +378,7 @@ return packer.startup({
       requires = { "nvim-treesitter/nvim-treesitter", opt = true },
     })
     use("rockerBOO/boo-colorscheme-nvim")
-    use("kdheepak/monochrome.nvim")
+    use("vyorkin/monochrome.nvim")
     use("xero/miasma.nvim")
     use("voidekh/kyotonight.vim")
     use({

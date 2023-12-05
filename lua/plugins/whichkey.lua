@@ -6,18 +6,22 @@ end
 -- TODO: https://github.com/ChristianChiarulli/nvim/blob/1631262e8df1de2ad0ecfd5f7dffd9c4476d7933/lua/user/whichkey.lua
 
 local opts = {
-  mode = "n", -- NORMAL mode
+  mode = "n",     -- NORMAL mode
   prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- Use `silent` when creating keymaps
+  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,  -- Use `silent` when creating keymaps
   noremap = true, -- Use `noremap` when creating keymaps
-  nowait = true, -- Use `nowait` when creating keymaps
+  nowait = true,  -- Use `nowait` when creating keymaps
 }
 
 local mappings = {
   e = {
     name = "Error",
 
+    e = {
+      "<cmd>lua vim.diagnostic.open_float()<CR>",
+      "Show Diagnostic",
+    },
     j = {
       "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
       "Next Diagnostic",
@@ -53,7 +57,6 @@ local mappings = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
       "Workspace Symbols",
     },
-    u = { "<cmd>LuaSnipUnlinkCurrent<CR>", "Unlink Snippet" },
   },
   c = {
     name = "Cargo",

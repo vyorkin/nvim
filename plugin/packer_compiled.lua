@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1696795921/share/lua/5.1/?/init.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1696795921/lib/lua/5.1/?.so"
+local package_path_str = "/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?/init.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?.lua;/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/vyorkin/.cache/nvim/packer_hererocks/2.1.1700008891/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -108,6 +108,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/adwaita.nvim",
     url = "https://github.com/Mofiqul/adwaita.nvim"
+  },
+  ["alpha-nvim"] = {
+    config = { "\27LJ\2\n�\r\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\21\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                5                                                ?                  выбирай бля                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0" },
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["boo-colorscheme-nvim"] = {
     loaded = true,
@@ -261,10 +267,20 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   ["hlargs.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/hlargs.nvim",
     url = "https://github.com/m-demare/hlargs.nvim"
+  },
+  ["incline.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/incline.nvim",
+    url = "https://github.com/b0o/incline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -290,6 +306,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
+  },
+  ["lsp-timeout.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-timeout.nvim",
+    url = "https://github.com/hinell/lsp-timeout.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -359,7 +380,7 @@ _G.packer_plugins = {
   ["monochrome.nvim"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/monochrome.nvim",
-    url = "https://github.com/kdheepak/monochrome.nvim"
+    url = "https://github.com/vyorkin/monochrome.nvim"
   },
   ["neg.nvim"] = {
     loaded = true,
@@ -441,6 +462,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-hlslens"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-hlslens",
@@ -485,11 +511,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-ts-context-commentstring"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
-    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-ufo"] = {
     loaded = true,
@@ -556,11 +577,6 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
-  ["smartcolumn.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/smartcolumn.nvim",
-    url = "https://github.com/m4xshen/smartcolumn.nvim"
-  },
   sonokai = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/sonokai",
@@ -575,6 +591,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/substrata.nvim",
     url = "https://github.com/kvrohit/substrata.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["synthwave84.nvim"] = {
     loaded = true,
@@ -674,6 +695,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n�\r\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\21\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                5                                                ?                  выбирай бля                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd copilot.lua ]]

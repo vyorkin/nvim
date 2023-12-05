@@ -18,6 +18,7 @@ return {
     },
   },
   server = {
+    standalone = false,
     on_attach = function(client, bufnr)
       require("plugins.lsp.handlers").on_attach(client, bufnr)
       local rust_tools = require("rust-tools")
@@ -44,6 +45,7 @@ return {
           enable = true,
         },
         checkOnSave = {
+          -- enable = false,
           command = "clippy",
         },
       },
