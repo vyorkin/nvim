@@ -238,17 +238,17 @@ if g.neovide then
   g.neovide_padding_right = 2
   g.neovide_padding_left = 2
 
-  g.neovide_hide_mouse_when_typing = true
+  g.neovide_hide_mouse_when_typing = false
   g.neovide_remember_window_size = true
   g.neovide_input_macos_alt_is_meta = true
 
   g.neovide_cursor_animate_command_line = false
 
   g.neovide_cursor_vfx_mode = "pixiedust"
-  g.neovide_cursor_vfx_opacity = 200.0
-  g.neovide_cursor_vfx_particle_lifetime = 1.8
-  g.neovide_cursor_vfx_particle_density = 24.0
-  g.neovide_cursor_vfx_particle_speed = 10.0
+  g.neovide_cursor_vfx_opacity = 120.0
+  g.neovide_cursor_vfx_particle_lifetime = 10.0
+  g.neovide_cursor_vfx_particle_density = 160.0
+  g.neovide_cursor_vfx_particle_speed = 120.0
   g.neovide_cursor_vfx_particle_phase = 1.5
   g.neovide_cursor_vfx_particle_curl = 1.0
 

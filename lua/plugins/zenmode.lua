@@ -8,7 +8,7 @@ end
 zenmode.setup({
   window = {
     backdrop = 1,
-    width = 0.90,
+    width = 0.80,
     height = 1,
     options = {
       signcolumn = "no",

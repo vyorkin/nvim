@@ -2,7 +2,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-      .. "/site/pack/packer/start/packer.nvim"
+    .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -260,10 +260,10 @@ return packer.startup({
     use("norcalli/nvim-colorizer.lua")
 
     -- Extensible scrollbar
-    use({
-      "petertriho/nvim-scrollbar",
-      requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
-    })
+    -- use({
+    --   "petertriho/nvim-scrollbar",
+    --   requires = { "kevinhwang91/nvim-hlslens", "lewis6991/gitsigns.nvim" },
+    -- })
 
     -- Translation
     use("potamides/pantran.nvim")

@@ -20,7 +20,7 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
-local kind_icons = {
+local _kind_icons = {
   Text = " [txt]",
   Method = " [meth]",
   Function = " [fn]",
@@ -47,6 +47,35 @@ local kind_icons = {
   Operator = " [op]",
   TypeParameter = " [type param]",
   Copilot = " [copilot]",
+}
+
+local kind_icons_no_text = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = " ",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = " ",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+  Copilot = "",
 }
 
 cmp.setup({
@@ -124,7 +153,7 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      vim_item.kind = kind_icons[vim_item.kind]
+      vim_item.kind = kind_icons_no_text[vim_item.kind]
       return vim_item
     end,
   },
