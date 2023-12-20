@@ -79,6 +79,12 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Base2Tone-nvim",
     url = "https://github.com/atelierbram/Base2Tone-nvim"
   },
+  ["ChatGPT.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0" },
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   Colorschemes = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Colorschemes",
@@ -93,6 +99,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["Mies.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/Mies.vim",
+    url = "https://github.com/jaredgorski/Mies.vim"
   },
   ["Navigator.nvim"] = {
     loaded = true,
@@ -110,7 +121,7 @@ _G.packer_plugins = {
     url = "https://github.com/Mofiqul/adwaita.nvim"
   },
   ["alpha-nvim"] = {
-    config = { "\27LJ\2\n�\r\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\21\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                5                                                ?                  выбирай бля                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0" },
+    config = { "\27LJ\2\n�\14\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\22\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                W   (это тебе не бабку парализованную щупать)    5                                                ?                 выбирай бля!                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0" },
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
@@ -129,6 +140,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/calvera-dark.nvim",
     url = "https://github.com/yashguptaz/calvera-dark.nvim"
+  },
+  ["candle-grey"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/candle-grey",
+    url = "https://github.com/aditya-azad/candle-grey"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -237,6 +253,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/fluoromachine.nvim",
     url = "https://github.com/maxmx03/fluoromachine.nvim"
   },
+  ["fogbell.vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/fogbell.vim",
+    url = "https://github.com/jaredgorski/fogbell.vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -306,11 +327,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
-  },
-  ["lsp-timeout.nvim"] = {
-    loaded = true,
-    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/lsp-timeout.nvim",
-    url = "https://github.com/hinell/lsp-timeout.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -401,6 +417,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nimda.vim",
     url = "https://github.com/onur-ozkan/nimda.vim"
+  },
+  nofrils = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/nofrils",
+    url = "https://github.com/robertmeta/nofrils"
   },
   ["noice.nvim"] = {
     loaded = true,
@@ -637,6 +658,21 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["true-monochrome_vim"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/true-monochrome_vim",
+    url = "https://github.com/ryanpcmcquen/true-monochrome_vim"
+  },
+  ["vim-256noir"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-256noir",
+    url = "https://github.com/andreasvc/vim-256noir"
+  },
+  ["vim-boring"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-boring",
+    url = "https://github.com/t184256/vim-boring"
+  },
   ["vim-huff"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-huff",
@@ -646,6 +682,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
+  },
+  ["vim-monotone"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-monotone",
+    url = "https://github.com/Lokaltog/vim-monotone"
   },
   ["vim-moonfly-colors"] = {
     loaded = true,
@@ -657,6 +698,11 @@ _G.packer_plugins = {
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-nightfly-colors",
     url = "https://github.com/bluz71/vim-nightfly-colors"
   },
+  ["vim-sunbather"] = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-sunbather",
+    url = "https://github.com/nikolvs/vim-sunbather"
+  },
   ["vim-visual-multi"] = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
@@ -666,6 +712,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  zazen = {
+    loaded = true,
+    path = "/Users/vyorkin/.local/share/nvim/site/pack/packer/start/zazen",
+    url = "https://github.com/zaki/zazen"
   },
   ["zen-mode.nvim"] = {
     loaded = true,
@@ -687,8 +738,12 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n�\r\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\21\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                5                                                ?                  выбирай бля                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0", "config", "alpha-nvim")
+try_loadstring("\27LJ\2\n�\14\0\0\t\0#\1@6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\5\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\0?\4\0\0=\3\5\0026\2\21\0009\2\22\2'\4\23\0B\2\2\2\18\5\2\0009\3\24\2'\6\25\0B\3\3\2\18\6\2\0009\4\26\2B\4\2\0019\4\3\0019\4\27\4=\3\5\0049\4\28\0019\4\29\4+\5\2\0=\5\30\0046\4\31\0009\4 \4'\6!\0B\4\2\0019\4\"\0009\6\28\1B\4\2\1K\0\1\0\nsetup)autocmd User AlphaReady echo 'ready'\bcmd\bvim\14noautocmd\topts\vconfig\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\26КУ - уёбывай\6q :ene <BAR> startinsert <CR>2ЙЕ - начинай заново нахуй\6e/:e ~/.config/nvim/lua/plugins/init.lua<CR>2ЦЭ - это конфигурируй бля\6c\28:Telescope projects<CR>3ПЭ - значит хуярь как сука\6p\vbutton\fbuttons\1\22\0\0005    #   #  #####   ###   ####   #   #  #   #    5    #   #  #      #   #  #   #  #  ##  ## ##    5    #####  ####   #   #  ####   # # #  # # #    5    #   #  #      #   #  #   #  ##  #  #   #    5    #   #  #####   ###   ####   #   #  #   #    5                                                5              #####  #####   ###                5                  #    #    #   #               5                ###    #    #   #               5                  #    #    #   #               5              #####    #     ###                5                                                5 ####     #    #####  ####  #   #   ####  #     5     #   # #   #      #     #  ##  #      #     5  ###   #####  ####   ####  # # #  #      ####  5     #  #   #  #      #  #  ##  #  #      #  #  5 ####   #   #  #####  ####  #   #   ####  ####  5                                                W   (это тебе не бабку парализованную щупать)    5                                                ?                 выбирай бля!                   \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\t����\4\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
+-- Config for: ChatGPT.nvim
+time([[Config for ChatGPT.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0", "config", "ChatGPT.nvim")
+time([[Config for ChatGPT.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd copilot.lua ]]

@@ -43,10 +43,10 @@ return packer.startup({
     use("weilbith/nvim-code-action-menu")
     use("kosayoda/nvim-lightbulb")
 
-    use({
-      "hinell/lsp-timeout.nvim",
-      requires = { "neovim/nvim-lspconfig" },
-    })
+    -- use({
+    --   "hinell/lsp-timeout.nvim",
+    --   requires = { "neovim/nvim-lspconfig" },
+    -- })
 
     -- Partial implementation of LSP inlay hint
     use("lvimuser/lsp-inlayhints.nvim")
@@ -293,8 +293,9 @@ return packer.startup({
           [[     #  #   #  #      #  #  ##  #  #      #  #  ]],
           [[ ####   #   #  #####  ####  #   #   ####  ####  ]],
           [[                                                ]],
+          [[   (это тебе не бабку парализованную щупать)    ]],
           [[                                                ]],
-          [[                  выбирай бля                   ]],
+          [[                 выбирай бля!                   ]],
         }
         dashboard.section.buttons.val = {
           dashboard.button(
@@ -325,6 +326,18 @@ return packer.startup({
 
         alpha.setup(dashboard.config)
       end,
+    })
+
+    use({
+      "jackMort/ChatGPT.nvim",
+      config = function()
+        require("chatgpt").setup()
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
     })
 
     -- Themes
@@ -390,6 +403,17 @@ return packer.startup({
     use("vigoux/oak")
     use("luisiacc/the-matrix.nvim")
     use({ "tersetears/maani.nvim", requires = "rktjmp/lush.nvim" })
+
+    use("t184256/vim-boring")
+    use("aditya-azad/candle-grey")
+    use("jaredgorski/fogbell.vim")
+    use("jaredgorski/Mies.vim")
+    use("Lokaltog/vim-monotone")
+    use("robertmeta/nofrils")
+    use("nikolvs/vim-sunbather")
+    use("ryanpcmcquen/true-monochrome_vim")
+    use("zaki/zazen")
+    use("andreasvc/vim-256noir")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

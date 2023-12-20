@@ -60,7 +60,11 @@ opt.pumheight = 10
 -- opt.guifont = { "FiraCode NF", ":h16" }
 -- opt.guifont = { "Hack Nerd Font Mono", ":h16" }
 -- opt.guifont = { "JetBrains Mono", ":h16" }
-opt.guifont = { "JetBrainsMono Nerd Font", ":h16" }
+-- opt.guifont = { "JetBrainsMono Nerd Font", ":h16" }
+-- opt.guifont = { "CozetteVector", ":h16" }
+-- opt.guifont = { "Greybeard 16px", ":h16" }
+-- opt.guifont = { "Retro Pixel Arcade", ":h16" }
+opt.guifont = { "Ark Pixel 16px Monospaced latin", ":h16" }
 
 -- Always show tabs
 opt.showtabline = 2
@@ -244,11 +248,12 @@ if g.neovide then
 
   g.neovide_cursor_animate_command_line = false
 
-  g.neovide_cursor_vfx_mode = "pixiedust"
+  g.neovide_cursor_vfx_mode = ""
+  -- g.neovide_cursor_vfx_mode = "pixiedust"
   g.neovide_cursor_vfx_opacity = 120.0
-  g.neovide_cursor_vfx_particle_lifetime = 10.0
-  g.neovide_cursor_vfx_particle_density = 160.0
-  g.neovide_cursor_vfx_particle_speed = 120.0
+  g.neovide_cursor_vfx_particle_lifetime = 5.0
+  g.neovide_cursor_vfx_particle_density = 120.0
+  g.neovide_cursor_vfx_particle_speed = 80.0
   g.neovide_cursor_vfx_particle_phase = 1.5
   g.neovide_cursor_vfx_particle_curl = 1.0
 
