@@ -136,11 +136,11 @@ return packer.startup({
     -- use { "romgrk/barbar.nvim", wants = "nvim-web-devicons" }
 
     -- A snazzy bufferline (with tabpage integration)
-    use({
-      "akinsho/bufferline.nvim",
-      tag = "*",
-      requires = "nvim-tree/nvim-web-devicons",
-    })
+    -- use({
+    --   "akinsho/bufferline.nvim",
+    --   tag = "*",
+    --   requires = "nvim-tree/nvim-web-devicons",
+    -- })
 
     -- Floating statuslines
     use("b0o/incline.nvim")
@@ -328,17 +328,17 @@ return packer.startup({
       end,
     })
 
-    use({
-      "jackMort/ChatGPT.nvim",
-      config = function()
-        require("chatgpt").setup()
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-      },
-    })
+    -- use({
+    --   "jackMort/ChatGPT.nvim",
+    --   config = function()
+    --     require("chatgpt").setup()
+    --   end,
+    --   requires = {
+    --     "MunifTanjim/nui.nvim",
+    --     "nvim-lua/plenary.nvim",
+    --     "nvim-telescope/telescope.nvim",
+    --   },
+    -- })
 
     -- Themes
     use("EdenEast/nightfox.nvim")
