@@ -19,24 +19,6 @@ local function get_diagnostic_label(props)
   end
   return label
 end
-local function get_git_diff(props)
-  local icons = { removed = "", changed = "", added = "" }
-  local labels = {}
-  local signs = vim.api.nvim_buf_get_var(props.buf, "gitsigns_status_dict")
-  -- local signs = vim.b.gitsigns_status_dict
-  for name, icon in pairs(icons) do
-    if tonumber(signs[name]) and signs[name] > 0 then
-      table.insert(
-        labels,
-        { icon .. " " .. signs[name] .. " ", group = "Diff" .. name }
-      )
-    end
-  end
-  if #labels > 0 then
-    table.insert(labels, { "| " })
-  end
-  return labels
-end
 
 require("incline").setup({
   debounce_threshold = {
@@ -70,7 +52,6 @@ require("incline").setup({
 
     local buffer = {
       { get_diagnostic_label(props) },
-      { get_git_diff(props) },
       { ft_icon, guifg = ft_color },
       { " " },
       { filename, gui = modified },

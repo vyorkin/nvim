@@ -98,7 +98,7 @@ return packer.startup({
     use("rafamadriz/friendly-snippets")
 
     -- For interacting with Github Copilot
-    use("zbirenbaum/copilot.lua")
+    -- use("zbirenbaum/copilot.lua")
 
     -- A completion engine plugin for neovim written in Lua
     use("hrsh7th/nvim-cmp")
@@ -118,7 +118,7 @@ return packer.startup({
     use("petertriho/cmp-git")
 
     -- Turn GitHub Copilot into a cmp source
-    use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
+    -- use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
 
     use("kdheepak/cmp-latex-symbols")
 
@@ -268,65 +268,65 @@ return packer.startup({
     -- Translation
     use("potamides/pantran.nvim")
 
-    use({
-      "goolord/alpha-nvim",
-      requires = { "nvim-tree/nvim-web-devicons" },
-      config = function()
-        local alpha = require("alpha")
-        local dashboard = require("alpha.themes.dashboard")
-        dashboard.section.header.val = {
-          [[    #   #  #####   ###   ####   #   #  #   #    ]],
-          [[    #   #  #      #   #  #   #  #  ##  ## ##    ]],
-          [[    #####  ####   #   #  ####   # # #  # # #    ]],
-          [[    #   #  #      #   #  #   #  ##  #  #   #    ]],
-          [[    #   #  #####   ###   ####   #   #  #   #    ]],
-          [[                                                ]],
-          [[              #####  #####   ###                ]],
-          [[                  #    #    #   #               ]],
-          [[                ###    #    #   #               ]],
-          [[                  #    #    #   #               ]],
-          [[              #####    #     ###                ]],
-          [[                                                ]],
-          [[ ####     #    #####  ####  #   #   ####  #     ]],
-          [[     #   # #   #      #     #  ##  #      #     ]],
-          [[  ###   #####  ####   ####  # # #  #      ####  ]],
-          [[     #  #   #  #      #  #  ##  #  #      #  #  ]],
-          [[ ####   #   #  #####  ####  #   #   ####  ####  ]],
-          [[                                                ]],
-          [[   (это тебе не бабку парализованную щупать)    ]],
-          [[                                                ]],
-          [[                 выбирай бля!                   ]],
-        }
-        dashboard.section.buttons.val = {
-          dashboard.button(
-            "p",
-            "ПЭ - значит хуярь как сука",
-            ":Telescope projects<CR>"
-          ),
-          dashboard.button(
-            "c",
-            "ЦЭ - это конфигурируй бля",
-            ":e ~/.config/nvim/lua/plugins/init.lua<CR>"
-          ),
-          dashboard.button(
-            "e",
-            "ЙЕ - начинай заново нахуй",
-            ":ene <BAR> startinsert <CR>"
-          ),
-          dashboard.button("q", "КУ - уёбывай", ":qa<CR>"),
-        }
-        local handle = io.popen("fortune")
-        local fortune = handle:read("*a")
-        handle:close()
-        dashboard.section.footer.val = fortune
-
-        dashboard.config.opts.noautocmd = true
-
-        vim.cmd([[autocmd User AlphaReady echo 'ready']])
-
-        alpha.setup(dashboard.config)
-      end,
-    })
+    -- use({
+    --   "goolord/alpha-nvim",
+    --   requires = { "nvim-tree/nvim-web-devicons" },
+    --   config = function()
+    --     local alpha = require("alpha")
+    --     local dashboard = require("alpha.themes.dashboard")
+    --     dashboard.section.header.val = {
+    --       [[    #   #  #####   ###   ####   #   #  #   #    ]],
+    --       [[    #   #  #      #   #  #   #  #  ##  ## ##    ]],
+    --       [[    #####  ####   #   #  ####   # # #  # # #    ]],
+    --       [[    #   #  #      #   #  #   #  ##  #  #   #    ]],
+    --       [[    #   #  #####   ###   ####   #   #  #   #    ]],
+    --       [[                                                ]],
+    --       [[              #####  #####   ###                ]],
+    --       [[                  #    #    #   #               ]],
+    --       [[                ###    #    #   #               ]],
+    --       [[                  #    #    #   #               ]],
+    --       [[              #####    #     ###                ]],
+    --       [[                                                ]],
+    --       [[ ####     #    #####  ####  #   #   ####  #     ]],
+    --       [[     #   # #   #      #     #  ##  #      #     ]],
+    --       [[  ###   #####  ####   ####  # # #  #      ####  ]],
+    --       [[     #  #   #  #      #  #  ##  #  #      #  #  ]],
+    --       [[ ####   #   #  #####  ####  #   #   ####  ####  ]],
+    --       [[                                                ]],
+    --       [[   (это тебе не бабку парализованную щупать)    ]],
+    --       [[                                                ]],
+    --       [[                 выбирай бля!                   ]],
+    --     }
+    --     dashboard.section.buttons.val = {
+    --       dashboard.button(
+    --         "p",
+    --         "ПЭ - значит хуярь как сука",
+    --         ":Telescope projects<CR>"
+    --       ),
+    --       dashboard.button(
+    --         "c",
+    --         "ЦЭ - это конфигурируй бля",
+    --         ":e ~/.config/nvim/lua/plugins/init.lua<CR>"
+    --       ),
+    --       dashboard.button(
+    --         "e",
+    --         "ЙЕ - начинай заново нахуй",
+    --         ":ene <BAR> startinsert <CR>"
+    --       ),
+    --       dashboard.button("q", "КУ - уёбывай", ":qa<CR>"),
+    --     }
+    --     local handle = io.popen("fortune")
+    --     local fortune = handle:read("*a")
+    --     handle:close()
+    --     dashboard.section.footer.val = fortune
+    --
+    --     dashboard.config.opts.noautocmd = true
+    --
+    --     vim.cmd([[autocmd User AlphaReady echo 'ready']])
+    --
+    --     alpha.setup(dashboard.config)
+    --   end,
+    -- })
 
     -- use({
     --   "jackMort/ChatGPT.nvim",
