@@ -2,7 +2,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-    .. "/site/pack/packer/start/packer.nvim"
+      .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -202,6 +202,12 @@ return packer.startup({
 
     -- Super fast git decorations
     use("lewis6991/gitsigns.nvim")
+
+    -- Prismatic line decorations for the adventurous vim user
+    use({
+      "mvllow/modes.nvim",
+      tag = "v0.2.0",
+    })
 
     -- Displays a popup with possible keybindings of the command you started typing
     use("folke/which-key.nvim")
