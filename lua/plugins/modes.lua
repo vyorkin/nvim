@@ -5,14 +5,14 @@ end
 
 modes.setup({
   colors = {
-    copy = "#f5c359",
+    copy = "#ffffff",
     delete = "#c75c6a",
     insert = "#0080ff",
-    visual = "#9745be",
+    visual = "#ffcc00",
   },
 
   -- Set opacity for cursorline and number background
-  line_opacity = 0.5,
+  line_opacity = 0.2,
 
   -- Enable cursor highlights
   set_cursor = true,

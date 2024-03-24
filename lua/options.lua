@@ -57,14 +57,14 @@ opt.termguicolors = true
 opt.pumheight = 10
 
 -- The font used in graphical neovim applications
--- opt.guifont = { "FiraCode NF", ":h16" }
+opt.guifont = { "FiraCode Nerd Font Mono", ":h16" }
 -- opt.guifont = { "Hack Nerd Font Mono", ":h16" }
 -- opt.guifont = { "JetBrains Mono", ":h16" }
 -- opt.guifont = { "JetBrainsMono Nerd Font", ":h16" }
 -- opt.guifont = { "CozetteVector", ":h16" }
 -- opt.guifont = { "Greybeard 16px", ":h16" }
 -- opt.guifont = { "Retro Pixel Arcade", ":h16" }
-opt.guifont = { "Ark Pixel 16px Monospaced latin", ":h16" }
+-- opt.guifont = { "Ark Pixel 16px Monospaced latin", ":h16" }
 
 -- Always show tabs
 opt.showtabline = 2
@@ -231,7 +231,8 @@ if g.neovide then
   vim.g.neovide_light_angle_degrees = 45
   vim.g.neovide_light_radius = 5
 
-  g.neovide_scroll_animation_length = 0.3
+  g.neovide_scroll_animation_length = 0.2
+  g.neovide_cursor_animation_length = 0.1
 
   g.neovide_theme = "auto"
   g.neovide_refresh_rate = 60
@@ -248,8 +249,9 @@ if g.neovide then
 
   g.neovide_cursor_animate_command_line = false
 
-  g.neovide_cursor_vfx_mode = ""
+  -- g.neovide_cursor_vfx_mode = ""
   -- g.neovide_cursor_vfx_mode = "pixiedust"
+  g.neovide_cursor_vfx_mode = "wireframe"
   g.neovide_cursor_vfx_opacity = 120.0
   g.neovide_cursor_vfx_particle_lifetime = 5.0
   g.neovide_cursor_vfx_particle_density = 120.0
@@ -257,7 +259,10 @@ if g.neovide then
   g.neovide_cursor_vfx_particle_phase = 1.5
   g.neovide_cursor_vfx_particle_curl = 1.0
 
-  vim.g.neovide_scale_factor = 1.0
+  g.neovide_window_blurred = true
+  g.neovide_show_border = true
+
+  g.neovide_scale_factor = 1.0
 
   local change_scale_factor = function(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
@@ -269,7 +274,7 @@ if g.neovide then
     change_scale_factor(1 / 1.1)
   end)
 
-  local transparency = 0.5
+  local transparency = 0.8
 
   -- Helper function for transparency formatting
   local alpha = function()
@@ -280,7 +285,7 @@ if g.neovide then
   end
 
   -- Set transparency and background color (title bar color)
-  -- g.neovide_transparency = 0.0
+  g.neovide_transparency = 0.8
   -- g.transparency = transparency
   -- g.neovide_background_color = "#0f1117" .. alpha()
   -- g.neovide_transparency_point = 0.9
@@ -301,7 +306,7 @@ if g.neovide then
     local get_current_background_color = function()
       -- Get the highlight information for the specified group
       local bg_rgb = api.nvim_get_hl_by_name("Normal", true).background
-        or 000000
+          or 000000
       -- Extract the background color from the highlight information
       local bg_hex = string.format("#%x", bg_rgb)
       -- Add alpha

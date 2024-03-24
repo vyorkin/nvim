@@ -1,5 +1,6 @@
 local colorscheme_light = "github_light"
-local colorscheme_dark = "tokyonight"
+-- local colorscheme_dark = "material-palenight"
+local colorscheme_dark = "sunbather"
 
 vim.o.background = "dark"
 
@@ -121,7 +122,7 @@ local set_dark = function()
         -- "which-key",
       },
       disable = {
-        colored_cursor = false, -- Disable the colored cursor
+        colored_cursor = true, -- Enable the colored cursor
         borders = true, -- Disable borders between verticaly split windows
         background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
         term_colors = false, -- Prevent the theme from setting terminal colors
