@@ -245,7 +245,7 @@ if g.neovide then
 
   g.neovide_hide_mouse_when_typing = false
   g.neovide_remember_window_size = true
-  g.neovide_input_macos_alt_is_meta = true
+  g.neovide_input_macos_option_key_is_meta = true
 
   g.neovide_cursor_animate_command_line = false
 
@@ -274,7 +274,7 @@ if g.neovide then
     change_scale_factor(1 / 1.1)
   end)
 
-  local transparency = 0.8
+  local transparency = 1.0
 
   -- Helper function for transparency formatting
   local alpha = function()
@@ -285,7 +285,7 @@ if g.neovide then
   end
 
   -- Set transparency and background color (title bar color)
-  g.neovide_transparency = 0.8
+  g.neovide_transparency = 1.0
   -- g.transparency = transparency
   -- g.neovide_background_color = "#0f1117" .. alpha()
   -- g.neovide_transparency_point = 0.9

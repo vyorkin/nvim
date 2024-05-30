@@ -1,6 +1,6 @@
 local colorscheme_light = "github_light"
--- local colorscheme_dark = "material-palenight"
-local colorscheme_dark = "sunbather"
+local colorscheme_dark = "material-palenight"
+-- local colorscheme_dark = "sunbather"
 
 vim.o.background = "dark"
 
