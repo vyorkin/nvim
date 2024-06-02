@@ -7,4 +7,12 @@ return {
       tab_char = "╎",
     },
   },
+  keys = {
+    {
+      "<leader>ti",
+      ":IBLToggle<CR>",
+      desc = "Toggle indent blankline",
+      silent = true,
+    },
+  },
 }
