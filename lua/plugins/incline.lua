@@ -42,14 +42,6 @@ return {
         end
 
         local icon, color = devicons.get_icon_color(filename)
-        -- return {
-        --   icon and { " ", icon, " ", guibg = color, guifg = helpers.contrast_color(color) } or "",
-        --   " ",
-        --   { filename, gui = modified and "bold,italic" or "bold" },
-        --   " ",
-        --   guibg = "#3d59a1",
-        -- }
-
         return { { icon, guifg = helpers.contrast_color(color) }, { " " }, { filename } }
       end,
     })
