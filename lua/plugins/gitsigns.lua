@@ -4,7 +4,7 @@ return {
     {
       "<leader>tg",
       ":Gitsigns toggle_signs<CR>",
-      desc = "Toggle Git signs",
+      desc = "Toggle Gitsigns",
       silent = true,
     },
   },
