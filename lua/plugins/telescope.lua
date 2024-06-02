@@ -14,6 +14,5 @@ return {
     { "<C-p>", ":Telescope projects<CR>", desc = "Find project" },
     { "<C-q>", ":Telescope find_files<CR>", desc = "Find Files" },
     { "<C-b>", ":Telescope buffers<CR>", desc = "Find buffer" },
-    { "<leader>T", ":Telescope colorscheme<CR>", desc = "Find theme" },
   },
 }
