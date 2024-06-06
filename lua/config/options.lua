@@ -49,7 +49,7 @@ opt.foldenable = true
 -------------------------------------------------------------------------------
 
 -- The font used in graphical neovim applications
-opt.guifont = { "FiraCode Nerd Font Mono", ":h16" }
+opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
 
 -------------------------------------------------------------------------------
 -- Neovide
