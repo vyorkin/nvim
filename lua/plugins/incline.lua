@@ -3,7 +3,6 @@ return {
   event = "BufReadPre",
   priority = 1200,
   config = function()
-    local helpers = require("incline.helpers")
     local devicons = require("nvim-web-devicons")
 
     local function set_incline_highlights()
