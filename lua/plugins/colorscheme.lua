@@ -1,6 +1,40 @@
+-- Gets macOS appearance
+local function get_appearance()
+  -- local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+  local handle = io.popen("osascript ~/.config/nvim/scripts/get_appearance.scpt")
+  local result = handle:read("*a")
+  handle:close()
+  return result:match("^%s*(.-)%s*$")
+end
+
+-- Set background based on macOS appearance
+local appearance = get_appearance()
+
 return {
   {
     "gmr458/cold.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      if appearance == "dark" then
+        vim.cmd([[colorscheme cold]])
+        vim.o.background = "dark"
+      end
+    end,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      if appearance == "light" then
+        vim.cmd([[colorscheme gruvbox-material]])
+        vim.o.background = "light"
+      end
+    end,
+  },
+  {
+    "olimorris/onedarkpro.nvim",
   },
   {
     "folke/tokyonight.nvim",
@@ -36,10 +70,7 @@ return {
     "neanias/everforest-nvim",
   },
   {
-    "olimorris/onedarkpro.nvim",
-  },
-  {
-    "sainnhe/gruvbox-material",
+    "navarasu/onedark.nvim",
   },
   {
     "rose-pine/neovim",
@@ -75,6 +106,7 @@ return {
   },
   {
     "NTBBloodbath/doom-one.nvim",
+    lazy = false,
   },
   {
     "ribru17/bamboo.nvim",
