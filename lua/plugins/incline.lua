@@ -42,7 +42,7 @@ return {
         end
 
         local icon, color = devicons.get_icon_color(filename)
-        return { { icon, guifg = helpers.contrast_color(color) }, { " " }, { filename } }
+        return { { icon, guifg = color }, { " " }, { filename } }
       end,
     })
   end,
