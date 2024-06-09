@@ -1,6 +1,5 @@
 -- Gets macOS appearance
 local function get_appearance()
-  -- local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
   local handle = io.popen("osascript ~/.config/nvim/scripts/get_appearance.scpt")
   local result = handle:read("*a")
   handle:close()
