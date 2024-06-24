@@ -12,14 +12,6 @@ local appearance = get_appearance()
 return {
   {
     "gmr458/cold.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      if appearance == "dark" then
-        vim.cmd([[colorscheme cold]])
-        vim.o.background = "dark"
-      end
-    end,
   },
   {
     "sainnhe/gruvbox-material",
@@ -54,6 +46,12 @@ return {
       -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
       day_brightness = 0.3,
     },
+    config = function()
+      if appearance == "dark" then
+        vim.cmd([[colorscheme tokyonight]])
+        vim.o.background = "dark"
+      end
+    end,
   },
   {
     "catppuccin/nvim",
