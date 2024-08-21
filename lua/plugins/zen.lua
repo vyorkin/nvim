@@ -24,6 +24,12 @@ return {
       },
       gitsigns = { enabled = false },
     },
+    on_open = function()
+      vim.cmd(":lua require('incline').disable()")
+    end,
+    on_close = function()
+      vim.cmd(":lua require('incline').enable()")
+    end,
   },
 
   keys = {

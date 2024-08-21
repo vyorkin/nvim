@@ -1,31 +1,44 @@
--- Gets macOS appearance
-local function get_appearance()
+local function get_system_appearance()
+  -- Gets macOS appearance
   local handle = io.popen("osascript ~/.config/nvim/scripts/get_appearance.scpt")
   local result = handle:read("*a")
   handle:close()
   return result:match("^%s*(.-)%s*$")
 end
 
--- Set background based on macOS appearance
-local appearance = get_appearance()
+local system_appearance = get_system_appearance()
+local use_system_appearance = true
+local appearance_default = "dark"
+
+if use_system_appearance then
+  vim.o.background = system_appearance
+else
+  vim.o.background = appearance_default
+end
 
 return {
   {
     "gmr458/cold.nvim",
   },
   {
+    "navarasu/onedark.nvim",
+    lazy = false,
+    opts = {
+      style = "cool",
+      toggle_style_key = "<leader>uo",
+      code_style = {
+        comments = "none",
+        keywords = "none",
+        functions = "none",
+        strings = "none",
+        variables = "none",
+      },
+    },
+  },
+  {
     "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
-    config = function()
-      if appearance == "light" then
-        vim.cmd([[colorscheme gruvbox-material]])
-        vim.o.background = "light"
-      end
-    end,
-  },
-  {
-    "olimorris/onedarkpro.nvim",
   },
   {
     "folke/tokyonight.nvim",
@@ -44,14 +57,8 @@ return {
         floats = "dark", -- style for floating windows
       },
       -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-      day_brightness = 0.3,
+      day_brightness = 0,
     },
-    config = function()
-      if appearance == "dark" then
-        vim.cmd([[colorscheme tokyonight]])
-        vim.o.background = "dark"
-      end
-    end,
   },
   {
     "catppuccin/nvim",
