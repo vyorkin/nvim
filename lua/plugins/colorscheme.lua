@@ -19,6 +19,130 @@ local appearance_default = "dark"
 
 return {
   {
+    "antonio-hickey/minty-melon",
+  },
+  {
+    "daenuprobst/lcarsoft",
+  },
+  {
+    "ok-ryoko/blue-screen",
+  },
+  {
+    "mvpopuk/inspired-github.vim",
+  },
+  {
+    "Patagia/dieter.nvim",
+  },
+  {
+    "water-sucks/darkrose.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      styles = {
+        bold = true,
+        italic = false,
+        underline = true,
+      },
+    },
+  },
+  {
+    "mikesmithgh/gruvsquirrel.nvim",
+  },
+  {
+    "MetriC-DT/balance-theme.nvim",
+  },
+  {
+    "steguiosaur/fullerene.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "wurli/cobalt.nvim",
+    opts = {
+      commentStyle = { italic = false },
+      keywordStyle = { italic = false },
+    },
+  },
+  {
+    "Skullamortis/forest.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+      },
+    },
+  },
+  {
+    "maxmx03/fluoromachine.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local fm = require("fluoromachine")
+
+      fm.setup({
+        glow = true,
+        theme = "fluoromachine",
+        transparent = false,
+      })
+    end,
+  },
+  { "oneslash/helix-nvim" },
+  {
+    "mellow-theme/mellow.nvim",
+  },
+  {
+    "ptdewey/darkearth-nvim",
+    priority = 1000,
+  },
+  {
+    "hachy/eva01.vim",
+    priority = 1000,
+  },
+  { "ronisbr/nano-theme.nvim" },
+  { "nyoom-engineering/oxocarbon.nvim" },
+  {
+    "olivercederborg/poimandres.nvim",
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({
+        disable_italics = true,
+      })
+    end,
+  },
+  {
+    "slugbyte/lackluster.nvim",
+    priority = 1000,
+  },
+  {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup({
+        style = {
+          comments = "none",
+          strings = "none",
+        },
+      })
+    end,
+  },
+  {
+    "0xstepit/flow.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("flow").setup({
+        dark_theme = true,
+        transparent = false,
+        high_contrast = false,
+        fluo_color = "pink",
+        mode = "desaturate",
+        aggressive_spell = false,
+      })
+    end,
+  },
+  {
     "gmr458/cold.nvim",
   },
   {
@@ -43,7 +167,6 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
     opts = {
       styles = {
         transparent = true,
@@ -145,6 +268,12 @@ return {
       },
       filter = "pro",
     },
+  },
+  {
+    "sho-87/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
   {
     "rebelot/kanagawa.nvim",
