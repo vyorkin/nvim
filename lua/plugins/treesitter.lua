@@ -32,6 +32,8 @@ return {
         "solidity",
         "menhir",
         "ocamllex",
+        "func",
+        "tact",
       },
     },
   },

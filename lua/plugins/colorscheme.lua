@@ -143,6 +143,18 @@ return {
     end,
   },
   {
+    "t184256/vim-boring",
+  },
+  {
+    "hardselius/warlock",
+  },
+  {
+    "rost/vim-lesser",
+  },
+  {
+    "kdheepak/monochrome.nvim",
+  },
+  {
     "gmr458/cold.nvim",
   },
   {
@@ -167,6 +179,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    lazy = false,
     opts = {
       styles = {
         transparent = true,
