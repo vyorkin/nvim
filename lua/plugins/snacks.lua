@@ -5,7 +5,6 @@ return {
     quickfile = { enabled = true },
     dashboard = { enabled = false },
     scroll = { enabled = false },
-
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
