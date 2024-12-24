@@ -48,6 +48,9 @@ opt.foldenable = true
 -- Appearance
 -------------------------------------------------------------------------------
 
+-- Disable animations
+-- g.snacks_animate = false
+
 -- The font used in graphical neovim applications
 opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
 
