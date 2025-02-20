@@ -6,12 +6,16 @@
 -- Aliases
 -------------------------------------------------------------------------------
 
-local keymap = vim.keymap.set
+local keymap = vim.keymap
 
 -------------------------------------------------------------------------------
 -- General
 -------------------------------------------------------------------------------
 
 -- I hate holding <Shift> every time I need to enter a cmd
-keymap("n", ";", ":", { noremap = true })
-keymap("n", ":", ";", { noremap = true })
+keymap.set("n", ";", ":", { noremap = true })
+keymap.set("n", ":", ";", { noremap = true })
+
+-- These mappings are just annoying
+keymap.del({ "n", "i", "v" }, "<A-j>")
+keymap.del({ "n", "i", "v" }, "<A-k>")

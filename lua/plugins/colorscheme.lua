@@ -11,11 +11,11 @@ local use_system_appearance = true
 local appearance_default = "dark"
 
 -- Uncomment to enable automatic background switching based on system appearance
--- if use_system_appearance then
---   vim.o.background = system_appearance
--- else
---   vim.o.background = appearance_default
--- end
+if use_system_appearance then
+  vim.o.background = system_appearance
+else
+  vim.o.background = appearance_default
+end
 
 return {
   {
