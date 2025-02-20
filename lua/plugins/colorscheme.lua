@@ -156,6 +156,12 @@ return {
   },
   {
     "gmr458/cold.nvim",
+    lazy = false,
+    config = function()
+      require("cold").setup({
+        transparent_background = true,
+      })
+    end,
   },
   {
     "navarasu/onedark.nvim",
