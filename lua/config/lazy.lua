@@ -15,7 +15,8 @@ require("lazy").setup({
       import = "lazyvim.plugins",
       opts = {
         -- colorscheme = "monochrome",
-        colorscheme = "cold",
+        -- colorscheme = "inspired-github",
+        colorscheme = "monokai-pro-light",
       },
     },
     -- import any extras modules here
