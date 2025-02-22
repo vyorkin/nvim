@@ -16,7 +16,7 @@ require("lazy").setup({
       opts = {
         -- colorscheme = "monochrome",
         -- colorscheme = "inspired-github",
-        colorscheme = "monokai-pro-light",
+        -- colorscheme = "monokai-pro-light",
       },
     },
     -- import any extras modules here
@@ -33,7 +33,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "onelight", "cold" } },
+  -- install = { colorscheme = { "onelight", "cold" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

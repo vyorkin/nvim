@@ -10,6 +10,8 @@ local system_appearance = get_system_appearance()
 local use_system_appearance = true
 local appearance_default = "dark"
 
+local colorscheme = (system_appearance == "dark" and "cold" or "monokai-pro-light")
+
 -- Uncomment to enable automatic background switching based on system appearance
 if use_system_appearance then
   vim.o.background = system_appearance
@@ -18,6 +20,12 @@ else
 end
 
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = colorscheme,
+    },
+  },
   {
     "antonio-hickey/minty-melon",
   },
