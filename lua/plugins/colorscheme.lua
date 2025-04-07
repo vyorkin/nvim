@@ -6,7 +6,12 @@ local function get_system_appearance()
   return result:match("^%s*(.-)%s*$")
 end
 
-local system_appearance = get_system_appearance()
+local system_appearance = "dark"
+local os = vim.loop.os_uname().sysname
+if os == "Darwin" then
+  system_appearance = get_system_appearance()
+end
+
 local use_system_appearance = true
 local appearance_default = "dark"
 
@@ -118,10 +123,6 @@ return {
         disable_italics = true,
       })
     end,
-  },
-  {
-    "slugbyte/lackluster.nvim",
-    priority = 1000,
   },
   {
     "vague2k/vague.nvim",
