@@ -5,28 +5,29 @@ local function get_osx_system_appearance()
   return result:match("^%s*(.-)%s*$")
 end
 
+local use_system_appearance = true
+local appearance_default = "dark"
+
 local function get_linux_system_appearance()
-  return "dark"
+  return appearance_default
+end
+
+local function get_windows_system_appearance()
+  return appearance_default
 end
 
 local function get_system_appearance()
   local os_name = vim.loop.os_uname().sysname
   if os_name == "Darwin" then
     return get_osx_system_appearance()
-  else
+  elseif os_name == "Linux" then
     return get_linux_system_appearance()
+  else
+    return get_windows_system_appearance()
   end
 end
 
-local system_appearance = "dark"
-local os = vim.loop.os_uname().sysname
-if os == "Darwin" then
-  system_appearance = get_system_appearance()
-end
-
-local use_system_appearance = true
-local appearance_default = "dark"
-
+local system_appearance = get_system_appearance()
 local colorscheme = (system_appearance == "dark" and "cold" or "inspired-github")
 
 -- Uncomment to enable automatic background switching based on system appearance
