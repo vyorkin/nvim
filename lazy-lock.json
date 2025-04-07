@@ -7,7 +7,6 @@
   "bamboo.nvim": { "branch": "master", "commit": "97124a0b81f886abc0d666ebec512b92425d67b6" },
   "blink.cmp": { "branch": "main", "commit": "cb5e346d9e0efa7a3eee7fd4da0b690c48d2a98e" },
   "blue-screen": { "branch": "main", "commit": "d507ac499c413c77db11468f1eb063b7fd760491" },
-  "bufferline.nvim": { "branch": "main", "commit": "0b2fd861eee7595015b6561dade52fb060be10c4" },
   "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
   "cobalt.nvim": { "branch": "main", "commit": "a82f866fc09b19aee096f56c649a5d3f3dba9e4d" },
   "cold.nvim": { "branch": "master", "commit": "ec6d33ca4059f8672d7b4f28ac1c98d37715edbf" },

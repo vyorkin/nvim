@@ -1,9 +1,21 @@
-local function get_system_appearance()
-  -- Gets macOS appearance
+local function get_osx_system_appearance()
   local handle = io.popen("osascript ~/.config/nvim/scripts/get_appearance.scpt")
   local result = handle:read("*a")
   handle:close()
   return result:match("^%s*(.-)%s*$")
+end
+
+local function get_linux_system_appearance()
+  return "dark"
+end
+
+local function get_system_appearance()
+  local os_name = vim.loop.os_uname().sysname
+  if os_name == "Darwin" then
+    return get_osx_system_appearance()
+  else
+    return get_linux_system_appearance()
+  end
 end
 
 local system_appearance = "dark"
@@ -15,7 +27,7 @@ end
 local use_system_appearance = true
 local appearance_default = "dark"
 
-local colorscheme = (system_appearance == "dark" and "cold" or "monokai-pro-light")
+local colorscheme = (system_appearance == "dark" and "cold" or "inspired-github")
 
 -- Uncomment to enable automatic background switching based on system appearance
 if use_system_appearance then
