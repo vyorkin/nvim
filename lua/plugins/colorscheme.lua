@@ -28,7 +28,7 @@ local function get_system_appearance()
 end
 
 local system_appearance = get_system_appearance()
-local colorscheme = (system_appearance == "dark" and "cold" or "inspired-github")
+local colorscheme = (system_appearance == "dark" and "cold" or "balance")
 
 -- Uncomment to enable automatic background switching based on system appearance
 if use_system_appearance then
