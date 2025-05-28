@@ -27,6 +27,7 @@ return {
         "make",
         "cmake",
         "c",
+        "cpp",
         "dockerfile",
         "kotlin",
         "solidity",
