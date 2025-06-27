@@ -7,5 +7,11 @@ return {
       desc = "Toggle Gitsigns",
       silent = true,
     },
+    {
+      "<leader>B",
+      ":Gitsigns blame<CR>",
+      desc = "Git blame",
+      silent = true,
+    },
   },
 }
