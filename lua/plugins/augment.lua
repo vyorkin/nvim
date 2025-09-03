@@ -12,6 +12,5 @@ return {
   config = function()
     local cwd = vim.loop.cwd()
     vim.g.augment_workspace_folders = { cwd }
-    -- key binds
   end,
 }

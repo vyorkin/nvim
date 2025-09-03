@@ -177,7 +177,7 @@ return {
     "kdheepak/monochrome.nvim",
   },
   {
-    "gmr458/cold.nvim",
+    "vyorkin/cold.nvim",
     lazy = true,
     config = function()
       require("cold").setup({
