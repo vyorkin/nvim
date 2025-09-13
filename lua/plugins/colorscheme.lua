@@ -28,7 +28,7 @@ local function get_system_appearance()
 end
 
 local system_appearance = get_system_appearance()
-local colorscheme = (system_appearance == "dark" and "cold" or "balance")
+local colorscheme = (system_appearance == "dark" and "cold" or "inspired-github")
 
 -- Uncomment to enable automatic background switching based on system appearance
 if use_system_appearance then
@@ -53,8 +53,9 @@ return {
   {
     "ok-ryoko/blue-screen",
   },
+  -- My fork with no italic comments
   {
-    "mvpopuk/inspired-github.vim",
+    "vyorkin/inspired-github.vim",
   },
   {
     "Patagia/dieter.nvim",
@@ -114,9 +115,45 @@ return {
       })
     end,
   },
+  { "scottmckendry/cyberdream.nvim" },
   { "oneslash/helix-nvim" },
   {
     "mellow-theme/mellow.nvim",
+  },
+  {
+    "metalelf0/black-metal-theme-neovim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("black-metal").setup({
+        -- Can be one of: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
+        theme = "bathory",
+        -- Can be one of: 'light' | 'dark', or set via vim.o.background
+        variant = "dark",
+        -- Use an alternate, lighter bg
+        alt_bg = false,
+        code_style = {
+          comments = "none",
+        },
+      })
+    end,
+  },
+  {
+    "datsfilipe/vesper.nvim",
+    config = function()
+      require("vesper").setup({
+        transparent = true,
+        italics = {
+          comments = false,
+          keywords = false,
+          functions = false,
+          strings = false,
+          variables = false,
+        },
+        overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+        palette_overrides = {},
+      })
+    end,
   },
   {
     "ptdewey/darkearth-nvim",
@@ -144,6 +181,15 @@ return {
         style = {
           comments = "none",
           strings = "none",
+          keyword_return = "none",
+        },
+        plugins = {
+          dashboard = {
+            footer = "italic",
+          },
+          lsp = {
+            diagnostic_info = "none",
+          },
         },
       })
     end,
@@ -186,6 +232,27 @@ return {
     end,
   },
   {
+    "blazkowolf/gruber-darker.nvim",
+    lazy = false,
+    opts = {
+
+      bold = true,
+      invert = {
+        signs = false,
+        tabline = false,
+        visual = false,
+      },
+      italic = {
+        strings = false,
+        comments = false,
+        operators = false,
+        folds = false,
+      },
+      undercurl = true,
+      underline = true,
+    },
+  },
+  {
     "navarasu/onedark.nvim",
     lazy = false,
     opts = {
@@ -201,9 +268,37 @@ return {
     },
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
+      },
+    },
+  },
+  {
     "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.g.zenbones_italic_comments = false
+      vim.g.zenbones_italic_strings = false
+    end,
   },
   {
     "folke/tokyonight.nvim",

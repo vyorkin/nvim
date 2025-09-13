@@ -47,7 +47,7 @@ g.neovide_cursor_vfx_particle_curl = 1.0
 g.neovide_window_blurred = true
 g.neovide_show_border = true
 
-g.neovide_transparency = 1.0
+g.neovide_opacity = 1.0
 
 g.neovide_scale_factor = 1.0
 
