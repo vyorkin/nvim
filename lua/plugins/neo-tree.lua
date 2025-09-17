@@ -1,9 +1,11 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  enabled = true,
-  opts = {
-    window = {
-      width = 24,
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = true,
+    opts = {
+      window = {
+        width = 30,
+      },
     },
   },
 }

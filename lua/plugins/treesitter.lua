@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     opts = {
       ensure_installed = {
         "bash",
@@ -28,6 +29,7 @@ return {
         "cmake",
         "c",
         "cpp",
+        "go",
         "dockerfile",
         "kotlin",
         "solidity",
