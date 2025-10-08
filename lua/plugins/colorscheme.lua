@@ -53,8 +53,24 @@ return {
   {
     "ok-ryoko/blue-screen",
   },
-  -- My fork with no italic comments
   {
+    "iruzo/matrix-nvim",
+    config = function()
+      vim.g.matrix_contrast = true
+      vim.g.matrix_borders = false
+      vim.g.matrix_disable_background = false
+      vim.g.matrix_italic = false
+    end,
+  },
+  {
+    "luisiacc/the-matrix.nvim",
+    config = function()
+      vim.g.thematrix_function_style = "NONE"
+      vim.g.thematrix_keyword_style = "NONE"
+    end,
+  },
+  {
+    -- My fork with no italic comments
     "vyorkin/inspired-github.vim",
   },
   {

@@ -54,6 +54,9 @@ opt.foldenable = true
 -- The font used in graphical neovim applications
 -- opt.guifont = { "FiraCode Nerd Font Mono", ":h14" }
 
+-- Hide status line
+opt.laststatus = 0
+
 -------------------------------------------------------------------------------
 -- Neovide
 -------------------------------------------------------------------------------
