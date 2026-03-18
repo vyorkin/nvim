@@ -27,9 +27,6 @@ opt.number = false
 -- Turn off relative numbers
 opt.relativenumber = false
 
--- Min number of columns to use for the line numbers
-opt.numberwidth = 4
-
 -------------------------------------------------------------------------------
 -- Folding
 -------------------------------------------------------------------------------
@@ -56,6 +53,13 @@ opt.foldenable = true
 
 -- Hide status line
 opt.laststatus = 0
+
+-------------------------------------------------------------------------------
+-- Spell
+-------------------------------------------------------------------------------
+
+-- Disable spell checking (avoids underlines on non-English text)
+opt.spell = false
 
 -------------------------------------------------------------------------------
 -- Neovide

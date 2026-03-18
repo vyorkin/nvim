@@ -17,7 +17,7 @@ local function get_windows_system_appearance()
 end
 
 local function get_system_appearance()
-  local os_name = (vim.uv or vim.loop).os_uname().sysname
+  local os_name = vim.uv.os_uname().sysname
   if os_name == "Darwin" then
     return get_osx_system_appearance()
   elseif os_name == "Linux" then
@@ -78,8 +78,7 @@ return {
   },
   {
     "water-sucks/darkrose.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     opts = {
       styles = {
         bold = true,
@@ -96,8 +95,7 @@ return {
   },
   {
     "steguiosaur/fullerene.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
   },
   {
     "wurli/cobalt.nvim",
@@ -108,8 +106,7 @@ return {
   },
   {
     "Skullamortis/forest.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     opts = {
       styles = {
         comments = { italic = false },
@@ -119,8 +116,7 @@ return {
   },
   {
     "maxmx03/fluoromachine.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     config = function()
       local fm = require("fluoromachine")
 
@@ -138,8 +134,7 @@ return {
   },
   {
     "metalelf0/black-metal-theme-neovim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     config = function()
       require("black-metal").setup({
         -- Can be one of: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
@@ -173,17 +168,17 @@ return {
   },
   {
     "ptdewey/darkearth-nvim",
-    priority = 1000,
+    lazy = true,
   },
   {
     "hachy/eva01.vim",
-    priority = 1000,
+    lazy = true,
   },
   { "ronisbr/nano-theme.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
   {
     "olivercederborg/poimandres.nvim",
-    priority = 1000,
+    lazy = true,
     config = function()
       require("poimandres").setup({
         disable_italics = true,
@@ -212,9 +207,7 @@ return {
   },
   {
     "0xstepit/flow.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+    lazy = true,
     config = function()
       require("flow").setup({
         dark_theme = true,
@@ -249,7 +242,7 @@ return {
   },
   {
     "blazkowolf/gruber-darker.nvim",
-    lazy = false,
+    lazy = true,
     opts = {
 
       bold = true,
@@ -270,7 +263,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    lazy = false,
+    lazy = true,
     opts = {
       style = "cool",
       toggle_style_key = "<leader>uo",
@@ -285,7 +278,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    priority = 1000,
+    lazy = true,
     config = true,
     opts = {
       italic = {
@@ -299,8 +292,7 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
   },
   {
     "zenbones-theme/zenbones.nvim",
@@ -308,8 +300,7 @@ return {
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
     dependencies = "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     config = function()
       vim.g.zenbones_darken_comments = 45
       vim.g.zenbones_italic_comments = false
@@ -318,7 +309,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     opts = {
       styles = {
         transparent = true,
@@ -339,7 +330,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = false,
+    lazy = true,
     opts = {
       flavour = "auto", -- latte, frappe, macchiato, mocha
       transparent_background = false,
@@ -383,7 +374,7 @@ return {
   },
   {
     "NTBBloodbath/doom-one.nvim",
-    lazy = false,
+    lazy = true,
   },
   {
     "ribru17/bamboo.nvim",
@@ -420,8 +411,7 @@ return {
   },
   {
     "sho-87/kanagawa-paper.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     opts = {},
   },
   {
