@@ -27,9 +27,6 @@ opt.number = false
 -- Turn off relative numbers
 opt.relativenumber = false
 
--- Min number of columns to use for the line numbers
-opt.numberwidth = 4
-
 -------------------------------------------------------------------------------
 -- Folding
 -------------------------------------------------------------------------------

@@ -11,7 +11,6 @@ return {
     },
     config = function()
       require("neotest").setup({
-        log_level = vim.log.levels.TRACE,
         adapters = {
           -- Registration
           require("neotest-zig")({
