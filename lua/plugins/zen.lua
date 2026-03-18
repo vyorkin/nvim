@@ -4,7 +4,7 @@ return {
     opts = {
       window = {
         backdrop = 1,
-        width = 0.8,
+        width = 0.7,
         height = 0.95,
         options = {
           signcolumn = "no",

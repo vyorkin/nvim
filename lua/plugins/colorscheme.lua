@@ -1,5 +1,5 @@
 local function get_osx_system_appearance()
-  local handle = io.popen("osascript ~/.config/nvim/scripts/get_appearance.scpt")
+  local handle = io.popen("osascript " .. vim.fn.stdpath("config") .. "/scripts/get_appearance.scpt")
   local result = handle:read("*a")
   handle:close()
   return result:match("^%s*(.-)%s*$")
@@ -17,7 +17,7 @@ local function get_windows_system_appearance()
 end
 
 local function get_system_appearance()
-  local os_name = vim.loop.os_uname().sysname
+  local os_name = (vim.uv or vim.loop).os_uname().sysname
   if os_name == "Darwin" then
     return get_osx_system_appearance()
   elseif os_name == "Linux" then
@@ -350,9 +350,6 @@ return {
     "neanias/everforest-nvim",
   },
   {
-    "navarasu/onedark.nvim",
-  },
-  {
     "rose-pine/neovim",
     name = "rose-pine",
     opts = {
@@ -366,7 +363,7 @@ return {
   {
     "Mofiqul/vscode.nvim",
     opts = {
-      transaparent = false,
+      transparent = false,
       italic_comments = false,
     },
   },
