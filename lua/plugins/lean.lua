@@ -5,21 +5,29 @@ return {
 
     dependencies = {
       "nvim-lua/plenary.nvim",
-
-      -- optional dependencies:
-
-      -- a completion engine
-      --    hrsh7th/nvim-cmp or Saghen/blink.cmp are popular choices
-
-      -- 'nvim-telescope/telescope.nvim', -- for 2 Lean-specific pickers
-      -- 'andymass/vim-matchup',          -- for enhanced % motion behavior
-      -- 'andrewradev/switch.vim',        -- for switch support
-      -- 'tomtom/tcomment_vim',           -- for commenting
     },
 
     ---@type lean.Config
-    opts = { -- see below for full configuration options
+    opts = {
       mappings = true,
+      goal_markers = {
+        accomplished = "ok",
+        unsolved = " ~ ",
+      },
     },
+
+    config = function(_, opts)
+      require("lean").setup(opts)
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "E",
+            [vim.diagnostic.severity.WARN] = "W",
+            [vim.diagnostic.severity.INFO] = "i",
+            [vim.diagnostic.severity.HINT] = "h",
+          },
+        },
+      })
+    end,
   },
 }
