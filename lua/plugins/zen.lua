@@ -1,40 +1,43 @@
+-- Replaced folke/zen-mode.nvim with snacks.nvim's built-in zen module
+-- (same author, one fewer dependency; LazyVim already binds <leader>uz to
+-- it, this just keeps the old <leader><enter> muscle memory working too).
 return {
   {
-    "folke/zen-mode.nvim",
+    "folke/snacks.nvim",
     opts = {
-      window = {
-        backdrop = 1,
-        width = 0.7,
-        height = 0.95,
-        options = {
-          signcolumn = "no",
-          number = false,
-          relativenumber = false,
-          cursorline = false,
-          cursorcolumn = false,
-          foldcolumn = "0",
-          list = false,
+      zen = {
+        toggles = {
+          git_signs = true,
         },
-      },
-      plugins = {
-        options = {
-          enabled = true,
-          ruler = false, -- Disables the ruler text in the cmd line area
-          showcmd = false, -- Disables the command in the last line of the screen
-          laststatus = 0, -- Turn off the statusline in zen mode
+        win = {
+          width = 0.7,
+          height = 0.95,
+          wo = {
+            signcolumn = "no",
+            number = false,
+            relativenumber = false,
+            cursorline = false,
+            cursorcolumn = false,
+            foldcolumn = "0",
+            list = false,
+          },
         },
-        gitsigns = { enabled = false },
+        on_open = function()
+          require("incline").disable()
+        end,
+        on_close = function()
+          require("incline").enable()
+        end,
       },
-      on_open = function()
-        vim.cmd(":lua require('incline').disable()")
-      end,
-      on_close = function()
-        vim.cmd(":lua require('incline').enable()")
-      end,
     },
-
     keys = {
-      { "<leader><enter>", ":ZenMode<CR>", desc = "Toggle zen mode", silent = true },
+      {
+        "<leader><enter>",
+        function()
+          Snacks.zen()
+        end,
+        desc = "Toggle zen mode",
+      },
     },
   },
 }
