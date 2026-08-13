@@ -37,7 +37,7 @@ else
   vim.o.background = appearance_default
 end
 
-return {
+local specs = {
   {
     "LazyVim/LazyVim",
     opts = {
@@ -78,7 +78,6 @@ return {
   },
   {
     "water-sucks/darkrose.nvim",
-    lazy = true,
     opts = {
       styles = {
         bold = true,
@@ -95,7 +94,6 @@ return {
   },
   {
     "steguiosaur/fullerene.nvim",
-    lazy = true,
   },
   {
     "wurli/cobalt.nvim",
@@ -106,7 +104,6 @@ return {
   },
   {
     "Skullamortis/forest.nvim",
-    lazy = true,
     opts = {
       styles = {
         comments = { italic = false },
@@ -116,7 +113,6 @@ return {
   },
   {
     "maxmx03/fluoromachine.nvim",
-    lazy = true,
     config = function()
       local fm = require("fluoromachine")
 
@@ -134,7 +130,6 @@ return {
   },
   {
     "metalelf0/black-metal-theme-neovim",
-    lazy = true,
     config = function()
       require("black-metal").setup({
         -- Can be one of: bathory | burzum | dark-funeral | darkthrone | emperor | gorgoroth | immortal | impaled-nazarene | khold | marduk | mayhem | nile | taake | thyrfing | venom | windir
@@ -168,17 +163,14 @@ return {
   },
   {
     "ptdewey/darkearth-nvim",
-    lazy = true,
   },
   {
     "hachy/eva01.vim",
-    lazy = true,
   },
   { "ronisbr/nano-theme.nvim" },
   { "nyoom-engineering/oxocarbon.nvim" },
   {
     "olivercederborg/poimandres.nvim",
-    lazy = true,
     config = function()
       require("poimandres").setup({
         disable_italics = true,
@@ -207,7 +199,6 @@ return {
   },
   {
     "0xstepit/flow.nvim",
-    lazy = true,
     config = function()
       require("flow").setup({
         dark_theme = true,
@@ -233,7 +224,6 @@ return {
   },
   {
     "vyorkin/cold.nvim",
-    lazy = true,
     config = function()
       require("cold").setup({
         transparent_background = true,
@@ -242,7 +232,6 @@ return {
   },
   {
     "blazkowolf/gruber-darker.nvim",
-    lazy = true,
     opts = {
 
       bold = true,
@@ -263,7 +252,6 @@ return {
   },
   {
     "navarasu/onedark.nvim",
-    lazy = true,
     opts = {
       style = "cool",
       toggle_style_key = "<leader>uo",
@@ -278,7 +266,6 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = true,
     config = true,
     opts = {
       italic = {
@@ -292,7 +279,6 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
-    lazy = true,
   },
   {
     "zenbones-theme/zenbones.nvim",
@@ -300,7 +286,6 @@ return {
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
     dependencies = "rktjmp/lush.nvim",
-    lazy = true,
     config = function()
       vim.g.zenbones_darken_comments = 45
       vim.g.zenbones_italic_comments = false
@@ -309,7 +294,6 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = true,
     opts = {
       styles = {
         transparent = true,
@@ -330,7 +314,6 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = true,
     opts = {
       flavour = "auto", -- latte, frappe, macchiato, mocha
       transparent_background = false,
@@ -374,7 +357,6 @@ return {
   },
   {
     "NTBBloodbath/doom-one.nvim",
-    lazy = true,
   },
   {
     "ribru17/bamboo.nvim",
@@ -411,7 +393,6 @@ return {
   },
   {
     "sho-87/kanagawa-paper.nvim",
-    lazy = true,
     opts = {},
   },
   {
@@ -431,3 +412,14 @@ return {
     },
   },
 }
+
+-- Only the active colorscheme needs to load at startup; lazy.nvim already
+-- force-loads whichever plugin backs `:colorscheme <name>`, so every other
+-- theme here can (and should) be lazy-loaded on demand.
+for _, spec in ipairs(specs) do
+  if spec[1] ~= "LazyVim/LazyVim" then
+    spec.lazy = true
+  end
+end
+
+return specs
