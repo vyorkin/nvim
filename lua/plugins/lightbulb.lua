@@ -1,7 +1,7 @@
 return {
   {
     "kosayoda/nvim-lightbulb",
-    enabled = false,
+    event = "LspAttach",
     config = function()
       require("nvim-lightbulb").setup({
         autocmd = { enabled = true, updatetime = 50 },
@@ -10,10 +10,9 @@ return {
         },
         virtual_text = {
           enabled = true,
-          -- Text to show in the sign column.
-          -- Must be between 1-2 characters.
-          text = "🛠", -- 🔥, ⭐, 🩼, 💊, 🔧, 🛠, ⚔️, 🪄, 🍉, 🍓, 🤙, ◼️, 🔹, 🔻, ➕
-          lens_text = "⭐",
+          -- ASCII markers, same style as the lean.nvim goal markers (see lean.lua)
+          text = "*",
+          lens_text = "+",
           -- Highlight group to highlight the sign column text.
           hl = "LightBulbSign",
         },

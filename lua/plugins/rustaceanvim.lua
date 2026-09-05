@@ -1,7 +1,6 @@
 return {
   {
     "mrcjkb/rustaceanvim",
-    -- version = "^6", -- Recommended
     opts = {
       server = {
         default_settings = {

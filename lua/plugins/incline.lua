@@ -6,24 +6,16 @@ return {
     config = function()
       local devicons = require("nvim-web-devicons")
 
-      local function set_incline_highlights()
-        vim.cmd([[
-        highlight InclineNormal guibg=#ff007c guifg=#ffffff
-        highlight InclineNormalNC guibg=#3d59a1 guifg=#ffffff
-      ]])
-      end
-
-      -- Reset the highlights whenever the color scheme changes
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "*",
-        callback = set_incline_highlights,
-      })
-
       require("incline").setup({
+        -- Link to WinBar/WinBarNC instead of hardcoding colors, so the
+        -- filename pill follows whichever colorscheme is active (see
+        -- colorscheme.lua's cold/inspired-github system-appearance switch).
+        -- incline.nvim re-applies `highlight.groups` on every `ColorScheme`
+        -- event on its own, so no extra autocmd is needed here.
         highlight = {
           groups = {
-            InclineNormal = { guibg = "#ff007c", guifg = "#ffffff" },
-            InclineNormalNC = { guifg = "#ffffff", guibg = "#3d59a1" },
+            InclineNormal = { group = "WinBar" },
+            InclineNormalNC = { group = "WinBarNC" },
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },

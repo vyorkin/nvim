@@ -17,6 +17,16 @@ return {
               end, items)
             end,
           },
+          -- Pick up lean.nvim's bundled VSCode-format snippets (calc/example/
+          -- namespace/section scaffolding) in addition to the default folder.
+          snippets = {
+            opts = {
+              search_paths = {
+                vim.fn.stdpath("config") .. "/snippets",
+                vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "lean.nvim", "snippets"),
+              },
+            },
+          },
         },
       },
 

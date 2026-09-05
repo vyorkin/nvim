@@ -3,21 +3,21 @@ return {
     "Julian/lean.nvim",
     event = { "BufReadPre *.lean", "BufNewFile *.lean" },
 
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    -- `require("lean").setup()` is deprecated (removed in v2026.9.1); lean.nvim
+    -- now reads its config from `vim.g.lean_config`, set before the plugin's
+    -- own `plugin/lean.lua` runs.
+    init = function()
+      ---@type lean.Config
+      vim.g.lean_config = {
+        mappings = true,
+        goal_markers = {
+          accomplished = "ok",
+          unsolved = " ~ ",
+        },
+      }
+    end,
 
-    ---@type lean.Config
-    opts = {
-      mappings = true,
-      goal_markers = {
-        accomplished = "ok",
-        unsolved = " ~ ",
-      },
-    },
-
-    config = function(_, opts)
-      require("lean").setup(opts)
+    config = function()
       -- Defer so we run after LazyVim's nvim-lspconfig config (which also calls
       -- vim.diagnostic.config and would otherwise overwrite our settings).
       vim.schedule(function()

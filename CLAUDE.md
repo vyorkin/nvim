@@ -26,7 +26,7 @@ Lua files are formatted with **StyLua**: 2-space indent, 120 column width. Confi
 - **incline.nvim** replaces bufferline and lualine (both disabled)
 - Status line is hidden (`laststatus = 0`), no line numbers — minimal UI philosophy
 - **System appearance detection**: automatically switches between "cold" (dark) and "inspired-github" (light) colorschemes based on macOS appearance
-- **Navigator.nvim** for tmux/window navigation (`<C-h/j/k/l>`)
+- **smart-splits.nvim** for window navigation (`<C-h/j/k/l>`) — auto-detects Tmux, Zellij, WezTerm, and Kitty
 - **UFO** for code folding with treesitter/indent providers
 - Neotest configured with Rust, Zig, and Foundry adapters
 
