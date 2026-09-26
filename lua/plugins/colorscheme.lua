@@ -168,7 +168,11 @@ local specs = {
     "hachy/eva01.vim",
   },
   { "ronisbr/nano-theme.nvim" },
-  { "nyoom-engineering/oxocarbon.nvim" },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    -- ships precompiled lua/; skip the fennel/luarocks build, which fails on this machine
+    build = false,
+  },
   {
     "olivercederborg/poimandres.nvim",
     config = function()
