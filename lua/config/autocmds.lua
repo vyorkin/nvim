@@ -27,9 +27,38 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = apply_inspired_github_hl,
 })
 
--- Apply immediately: autocommands.lua loads on VeryLazy, after the colorscheme
+-- Apply immediately: autocmds.lua loads on VeryLazy, after the colorscheme
 -- is already set, so the ColorScheme autocmd above won't fire on startup.
 apply_inspired_github_hl()
+
+-- Globally strip the italic attribute from every highlight group.
+-- Individual colorscheme `italic = false` options only cover groups the
+-- theme knows about; this catches treesitter, LSP, plugin and late-applied
+-- groups too, no matter which theme is active.
+local function strip_italics()
+  for name, hl in pairs(vim.api.nvim_get_hl(0, {})) do
+    if hl.italic or (hl.cterm and hl.cterm.italic) then
+      hl.italic = false
+      if hl.cterm then
+        hl.cterm.italic = false
+      end
+      vim.api.nvim_set_hl(0, name, hl)
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    strip_italics()
+    -- Some plugins/theme layers apply highlights after the event fires.
+    vim.schedule(strip_italics)
+  end,
+})
+
+-- This file loads on VeryLazy, after the startup colorscheme is already set,
+-- so the ColorScheme autocmd above won't fire on startup.
+strip_italics()
+vim.schedule(strip_italics)
 
 -- Disable spell checking and concealing in markdown files
 vim.api.nvim_create_autocmd("FileType", {

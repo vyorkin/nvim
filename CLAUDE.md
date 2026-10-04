@@ -9,7 +9,7 @@ Personal Neovim configuration built on **LazyVim** (lazyvim.org). All config is 
 ## Structure
 
 - `init.lua` — Entry point, loads `config.lazy`
-- `lua/config/` — Core settings: `lazy.lua` (bootstrap), `options.lua`, `keymaps.lua`, `autocommands.lua`, `neovide.lua`
+- `lua/config/` — Core settings: `lazy.lua` (bootstrap), `options.lua`, `keymaps.lua`, `autocmds.lua` (auto-loaded by LazyVim on `VeryLazy`), `neovide.lua`
 - `lua/plugins/` — One file per plugin/concern, each returns a lazy.nvim plugin spec table
 - `lazyvim.json` — Declares which LazyVim extras are enabled (languages, formatting, linting, DAP, etc.)
 - `scripts/get_appearance.scpt` — AppleScript for macOS dark/light mode detection
