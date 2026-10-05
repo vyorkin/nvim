@@ -2,6 +2,10 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Must run here: it points `shadafile` at tmpfs, and options are loaded
+-- before Neovim reads or writes ShaDa.
+require("config.shada").setup()
+
 -------------------------------------------------------------------------------
 -- Aliases
 -------------------------------------------------------------------------------

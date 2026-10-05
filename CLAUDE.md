@@ -9,7 +9,7 @@ Personal Neovim configuration built on **LazyVim** (lazyvim.org). All config is 
 ## Structure
 
 - `init.lua` — Entry point, loads `config.lazy`
-- `lua/config/` — Core settings: `lazy.lua` (bootstrap), `options.lua`, `keymaps.lua`, `autocmds.lua` (auto-loaded by LazyVim on `VeryLazy`), `neovide.lua`
+- `lua/config/` — Core settings: `lazy.lua` (bootstrap), `options.lua`, `keymaps.lua`, `autocmds.lua` (auto-loaded by LazyVim on `VeryLazy`), `neovide.lua`, `shada.lua`
 - `lua/plugins/` — One file per plugin/concern, each returns a lazy.nvim plugin spec table
 - `lazyvim.json` — Declares which LazyVim extras are enabled (languages, formatting, linting, DAP, etc.)
 - `scripts/get_appearance.scpt` — AppleScript for macOS dark/light mode detection
@@ -26,6 +26,7 @@ Lua files are formatted with **StyLua**: 2-space indent, 120 column width. Confi
 - **incline.nvim** replaces bufferline and lualine (both disabled)
 - Status line is hidden (`laststatus = 0`), no line numbers — minimal UI philosophy
 - **System appearance detection**: automatically switches between "cold" (dark) and "inspired-github" (light) colorschemes based on macOS appearance
+- **ShaDa on tmpfs**: Neovim writes ShaDa synchronously while quitting, and a btrfs transaction commit on this machine takes 0.2-3.7 s under load, so every quit blocked for ~0.5-1.2 s. `lua/config/shada.lua` (required from `options.lua`) points `shadafile` at `$XDG_RUNTIME_DIR`, seeds it from the persistent `~/.local/state/nvim/shada/main.shada` before Neovim reads it, and mirrors it back with a detached `cp` on `VimLeave`
 - **smart-splits.nvim** for window navigation (`<C-h/j/k/l>`) — auto-detects Tmux, Zellij, WezTerm, and Kitty
 - **UFO** for code folding with treesitter/indent providers
 - Neotest configured with Rust, Zig, and Foundry adapters
