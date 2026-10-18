@@ -6,6 +6,10 @@
 -- before Neovim reads or writes ShaDa.
 require("config.shada").setup()
 
+-- Must run before the first yank: it installs the tmux/ssh/herdr clipboard
+-- provider (`vim.g.clipboard`). No-op in a plain local session.
+require("config.remote_clipboard").setup()
+
 -------------------------------------------------------------------------------
 -- Aliases
 -------------------------------------------------------------------------------

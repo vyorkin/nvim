@@ -25,7 +25,8 @@ Lua files are formatted with **StyLua**: 2-space indent, 120 column width. Confi
 - **snacks.nvim** picker (not telescope)
 - **incline.nvim** replaces bufferline and lualine (both disabled)
 - Status line is hidden (`laststatus = 0`), no line numbers — minimal UI philosophy
-- **System appearance detection**: automatically switches between "cold" (dark) and "inspired-github" (light) colorschemes based on macOS appearance
+- **System appearance detection**: automatically switches between "cold" (dark) and "inspired-github" (light) colorschemes based on macOS appearance. On Omarchy the Linux branch asks `config.omarchy.mode()` instead: it reads `mode` (or derives it from `background` brightness) out of the active theme's `colors.toml`, so light themes such as `catppuccin-latte` or `white` get `background = "light"` instead of dark highlight groups
+- **Remote clipboard**: `lua/config/remote_clipboard.lua` (required from `options.lua`) sets `vim.g.clipboard` when the session is inside tmux, ssh or herdr — copies go to `wl-copy` locally and out as OSC 52, pastes prefer the Wayland clipboard. Omarchy enables both ends already (alacritty `osc52 = "CopyPaste"`, tmux `terminal-features ",*:clipboard"`). Plain local sessions are untouched
 - **ShaDa on tmpfs**: Neovim writes ShaDa synchronously while quitting, and a btrfs transaction commit on this machine takes 0.2-3.7 s under load, so every quit blocked for ~0.5-1.2 s. `lua/config/shada.lua` (required from `options.lua`) points `shadafile` at `$XDG_RUNTIME_DIR`, seeds it from the persistent `~/.local/state/nvim/shada/main.shada` before Neovim reads it, and mirrors it back with a detached `cp` on `VimLeave`
 - **smart-splits.nvim** for window navigation (`<C-h/j/k/l>`) — auto-detects Tmux, Zellij, WezTerm, and Kitty
 - **UFO** for code folding with treesitter/indent providers

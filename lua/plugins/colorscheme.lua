@@ -8,7 +8,15 @@ end
 local use_system_appearance = true
 local appearance_default = "dark"
 
+-- Follow the active Omarchy theme when there is one: five shipped themes
+-- (catppuccin-latte, flexoki-light, lupine, rose-pine, white) declare
+-- `mode = "light"`, and hardcoding "dark" left them with dark highlight groups
+-- and LazyVim's dark UI variants. Off Omarchy this stays at the default.
 local function get_linux_system_appearance()
+  local ok, omarchy = pcall(require, "config.omarchy")
+  if ok then
+    return omarchy.mode() or appearance_default
+  end
   return appearance_default
 end
 
