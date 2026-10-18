@@ -12,10 +12,14 @@ return {
         -- colorscheme.lua's cold/inspired-github system-appearance switch).
         -- incline.nvim re-applies `highlight.groups` on every `ColorScheme`
         -- event on its own, so no extra autocmd is needed here.
+        --
+        -- The plain-string form is the one this version's schema accepts:
+        -- `{ group = "WinBar" }` is rejected with "invalid value for field
+        -- highlight.groups", even though the README documents it.
         highlight = {
           groups = {
-            InclineNormal = { group = "WinBar" },
-            InclineNormalNC = { group = "WinBarNC" },
+            InclineNormal = "WinBar",
+            InclineNormalNC = "WinBarNC",
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },

@@ -1,20 +1,23 @@
--- LazyVim's lang.haskell extra adds `haskell-language-server` (needs ghcup) and
--- `haskell-debug-adapter` (needs cabal) to Mason's `ensure_installed`. Neither
--- tool exists on this machine, so Mason retried both on every startup, failed
--- with exit code 127, and aborted the installs while quitting ("Neovim is
--- exiting while packages are still installing").
+-- haskell-language-server comes from ghcup instead of Mason, so filter it out of
+-- Mason's `ensure_installed`; otherwise Mason drops a second, older copy into
+-- ~/.local/share/nvim/mason/bin, which precedes ~/.local/bin on PATH and would
+-- shadow the ghcup one.
 --
--- Filter them out instead of installing a GHC toolchain that nothing here uses.
--- The rest of the extra stays (treesitter parser, haskell-tools.nvim, snippets),
--- so adding ghcup and cabal later plus removing this file is all it takes to get
--- HLS back.
+--   haskell-language-server  2.15.0.0  ghcup, vanilla channel, wrapper in ~/.local/bin
+--   haskell-debug-adapter    0.0.39.0  Mason
+--
+-- The debug adapter stays with Mason on purpose: 0.0.42.0 (the last release,
+-- March 2025) does not build on GHC 9.10.3 — it needs `hie-bios`, and the
+-- versions old enough for its API (<= 0.13.x) require ghc < 9.9.
+--
+-- Upgrading HLS: `ghcup --url-source=.../ghcup-vanilla-0.1.0.yaml install hls
+-- <version>`, then point ~/.local/bin/haskell-language-server-wrapper at it.
 return {
   {
     "mason-org/mason.nvim",
     opts = function(_, opts)
-      local unusable = { "haskell-language-server", "haskell-debug-adapter" }
       opts.ensure_installed = vim.tbl_filter(function(pkg)
-        return not vim.tbl_contains(unusable, pkg)
+        return pkg ~= "haskell-language-server"
       end, opts.ensure_installed or {})
     end,
   },

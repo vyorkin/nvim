@@ -19,6 +19,7 @@ return {
         "vim",
         "yaml",
         "ocaml",
+        "ocaml_interface",
         "haskell",
         "rust",
         "gitignore",
