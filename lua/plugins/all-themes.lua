@@ -82,8 +82,10 @@ return {
 		lazy = true,
 		priority = 1000,
 	},
+	-- Upstream repo, not the `gthelding` mirror Omarchy 3.8 pointed at: that fork
+	-- was deleted (404), so every `:Lazy sync` failed to fetch it.
 	{
-		"gthelding/monokai-pro.nvim",
+		"loctvl842/monokai-pro.nvim",
 		lazy = true,
 		priority = 1000,
 	},
