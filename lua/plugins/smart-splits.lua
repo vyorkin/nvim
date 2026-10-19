@@ -1,12 +1,30 @@
 -- Replaces Navigator.nvim (tmux-only, unmaintained since 2024) and
 -- zellij-nav.nvim (was misconfigured with no keymaps, so Zellij navigation
--- never actually worked). smart-splits.nvim auto-detects Tmux, Zellij,
--- WezTerm, and Kitty, so a single set of keymaps works across all of them.
+-- never actually worked).
+--
+-- smart-splits.nvim v3 ships no multiplexer support in core: the tmux half
+-- lives in a separate backend plugin. Without it, the keymaps below only move
+-- between Neovim's own windows and stop dead at the edge.
+--
+-- The tmux half (fronted by tpm: smart-splits-nvim/backend-tmux) reads the
+-- pane-local `@pane-is-vim` option this backend keeps truthful while Neovim
+-- owns the pane, so tmux knows when to forward C-hjkl instead of moving panes.
+-- Keep `move.at_edge` in step with `@smart-splits_at_edge` in tmux.conf.
+--
+-- Must not be lazy loaded: the option is only set once the plugin loads, and
+-- until then tmux swallows C-hjkl and Neovim never sees them.
 return {
   {
-    "mrjones2014/smart-splits.nvim",
+    "smart-splits-nvim/smart-splits.nvim",
     lazy = false,
     priority = 1500,
+    dependencies = {
+      { "smart-splits-nvim/backend-tmux", main = "smart-splits-backend-tmux" },
+    },
+    opts = {
+      mux = { backend = "smart-splits-backend-tmux" },
+      move = { at_edge = "wrap" },
+    },
     keys = {
       {
         "<C-h>",

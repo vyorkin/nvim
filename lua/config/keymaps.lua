@@ -19,3 +19,19 @@ keymap.set("n", ":", ";", { noremap = true })
 -- These mappings are just annoying
 keymap.del({ "n", "i", "v" }, "<A-j>")
 keymap.del({ "n", "i", "v" }, "<A-k>")
+
+-------------------------------------------------------------------------------
+-- Window/pane resizing (smart-splits)
+-------------------------------------------------------------------------------
+
+-- Defined here rather than in lua/plugins/smart-splits.lua because this file
+-- runs on VeryLazy, after startup plugins are loaded, and its deletes above
+-- would otherwise wipe the <A-j>/<A-k> mappings a plugin spec had set.
+-- Resizes Neovim's window; at the edge of Neovim, resizes the tmux pane.
+-- The step matches @smart-splits_resize_step_size in tmux.conf.
+for _, dir in ipairs({ "left", "down", "up", "right" }) do
+  local key = ({ left = "<A-h>", down = "<A-j>", up = "<A-k>", right = "<A-l>" })[dir]
+  keymap.set("n", key, function()
+    require("smart-splits")["resize_" .. dir]()
+  end, { desc = "Resize " .. dir })
+end
