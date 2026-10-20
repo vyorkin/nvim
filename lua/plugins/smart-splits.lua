@@ -13,6 +13,11 @@
 --
 -- Must not be lazy loaded: the option is only set once the plugin loads, and
 -- until then tmux swallows C-hjkl and Neovim never sees them.
+--
+-- Out of tmux the tmux backend's detect() returns false, and smart-splits warns
+-- "none of the configured backends detected" on every start. Nothing is broken
+-- in that case — plain window movement is the right result — so the warning is
+-- off; `:checkhealth smart-splits` still reports what happened to the backend.
 return {
   {
     "smart-splits-nvim/smart-splits.nvim",
@@ -22,7 +27,7 @@ return {
       { "smart-splits-nvim/backend-tmux", main = "smart-splits-backend-tmux" },
     },
     opts = {
-      mux = { backend = "smart-splits-backend-tmux" },
+      mux = { backend = "smart-splits-backend-tmux", warn_if_unusable = false },
       move = { at_edge = "wrap" },
     },
     keys = {
