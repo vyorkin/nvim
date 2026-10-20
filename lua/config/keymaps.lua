@@ -16,9 +16,14 @@ local keymap = vim.keymap
 keymap.set("n", ";", ":", { noremap = true })
 keymap.set("n", ":", ";", { noremap = true })
 
--- These mappings are just annoying
-keymap.del({ "n", "i", "v" }, "<A-j>")
-keymap.del({ "n", "i", "v" }, "<A-k>")
+-- These mappings are just annoying. `keymap.del` raises E31 when a mode has no
+-- mapping, and that error aborts the rest of this file — including the resize
+-- mappings below — so every delete is guarded.
+for _, mode in ipairs({ "n", "i", "v" }) do
+  for _, key in ipairs({ "<A-j>", "<A-k>" }) do
+    pcall(keymap.del, mode, key)
+  end
+end
 
 -------------------------------------------------------------------------------
 -- Window/pane resizing (smart-splits)
