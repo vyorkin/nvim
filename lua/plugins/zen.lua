@@ -23,10 +23,16 @@ return {
           },
         },
         on_open = function()
-          require("incline").disable()
+          -- incline is disabled (see plugins/incline.lua); pcall keeps zen mode
+          -- working either way, so re-enabling that plugin needs no change here.
+          pcall(function()
+            require("incline").disable()
+          end)
         end,
         on_close = function()
-          require("incline").enable()
+          pcall(function()
+            require("incline").enable()
+          end)
         end,
       },
     },

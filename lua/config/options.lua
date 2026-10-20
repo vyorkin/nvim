@@ -63,6 +63,23 @@ opt.foldenable = true
 opt.laststatus = 0
 
 -------------------------------------------------------------------------------
+-- Scroll / redraw cost
+-------------------------------------------------------------------------------
+
+-- LazyVim turns `smoothscroll` on (lazyvim/config/options.lua:100). It scrolls
+-- by screen line instead of by buffer line, so every scroll redraws partial
+-- lines and the view crawls by a few pixels -- visible as jitter on a 120 Hz
+-- panel.
+opt.smoothscroll = false
+
+-- The cursor line is repainted on every cursor move and every scroll step.
+opt.cursorline = false
+
+-- Nothing to put here: no line numbers, `foldcolumn = "0"`, and signs live in
+-- `signcolumn`. Snacks' statuscolumn is a Lua call per visible line per frame.
+opt.statuscolumn = ""
+
+-------------------------------------------------------------------------------
 -- Spell
 -------------------------------------------------------------------------------
 

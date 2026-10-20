@@ -1,6 +1,18 @@
+-- Disabled on 2026-10-20: while scrolling, incline re-renders its floating
+-- window on CursorMoved, CursorMovedI, CursorHold and WinScrolled, which is an
+-- extra paint per cursor move. Measured Neovim-side scroll cost is ~0.05 ms per
+-- frame, so this was the one per-frame plugin cost left worth removing; the
+-- filename pill is not worth it with a hidden statusline (laststatus = 0).
+--
+-- Rollback: set `enabled = true` (or delete that line) and un-comment the
+-- `require("incline").disable()/enable()` calls in lua/plugins/zen.lua, which
+-- are wrapped in pcall while this plugin is off.
+--
+-- Original config kept below for the rollback.
 return {
   {
     "b0o/incline.nvim",
+    enabled = false,
     event = "BufReadPre",
     priority = 1200,
     config = function()

@@ -4,7 +4,9 @@ return {
     event = "LspAttach",
     config = function()
       require("nvim-lightbulb").setup({
-        autocmd = { enabled = true, updatetime = 50 },
+        -- 50 ms meant a code-action request to LSP almost every time the
+        -- cursor parked, which is most of the time while scrolling.
+        autocmd = { enabled = true, updatetime = 1000 },
         sign = {
           enabled = false,
         },
